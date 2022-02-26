@@ -1,0 +1,11 @@
+identifier: l90733o63er2j6gb
+appPort: 1864
+staticPort: 1668
+reloadPort: 2667
+hostName: localhost
+projectName: SapythonBlog
+homeFolder: F:\AngularProjects\Sapython\SapythonBlog
+distFolder: dist/SapythonBlog
+outDir: F:\AngularProjects\Sapython\SapythonBlog\dist\static
+handle404: ''
+allowErrorCollect: false
