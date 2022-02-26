@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "sapython-f016a": {
+      "hosting": {
+        "SapythonBlog": [
+          "sapython-f016a"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "sapython-f016a"
+  }
+}

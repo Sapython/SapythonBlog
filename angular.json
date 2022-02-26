@@ -103,6 +103,16 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "SapythonBlog:build:production",
+            "firebaseProject": "sapython-f016a",
+            "firebaseHostingSite": "sapython-f016a"
+          }
         }
       }
     }

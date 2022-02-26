@@ -9,7 +9,7 @@
     "test": "ng test",
     "scully": "npx scully --",
     "scully:serve": "npx scully serve --",
-    "serve":"ng build && npx scully --scanRoutes && npx scully serve --"
+    "serve": "ng build && npx scully --scanRoutes && npx scully serve --"
   },
   "private": true,
   "dependencies": {
@@ -17,6 +17,7 @@
     "@angular/common": "~12.2.0",
     "@angular/compiler": "~12.2.0",
     "@angular/core": "~12.2.0",
+    "@angular/fire": "^7.2.1",
     "@angular/forms": "~12.2.0",
     "@angular/platform-browser": "~12.2.0",
     "@angular/platform-browser-dynamic": "~12.2.0",
@@ -29,7 +30,9 @@
     "@scullyio/scully-plugin-puppeteer": "^2.1.16",
     "rxjs": "~6.6.0",
     "tslib": "^2.3.0",
-    "zone.js": "~0.11.4"
+    "zone.js": "~0.11.4",
+    "firebase": "^9.4.0",
+    "rxfire": "^6.0.0"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~12.2.16",
