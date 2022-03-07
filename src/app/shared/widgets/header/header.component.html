@@ -1,1 +1,11 @@
-<p>header works!</p>
+<header>
+    <nav>
+        <a routerLink="../home" [ngClass]="pageName ==='home' ? 'active' : ''">Home</a>
+        <a routerLink="../portfolio" [ngClass]="pageName ==='portfolio' ? 'active' : ''">Portfolio</a>
+        <a routerLink="../blog" [ngClass]="pageName ==='blog' ? 'active' : ''">Blog</a>
+        <a routerLink="../products" [ngClass]="pageName ==='products' ? 'active' : ''">Products</a>
+    </nav>
+    <div id="linkFollower">
+
+    </div>
+</header>

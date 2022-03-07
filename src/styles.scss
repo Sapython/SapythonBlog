@@ -1,1 +1,31 @@
-/* You can add global styles to this file, and also import other style files */
+@font-face {
+    font-family: "CascadiyaCode";
+    src: local("Cascadia Code"), url(./assets/fonts/CascadiaCode.woff2) format("truetype");
+}
+@font-face {
+    font-family: "Amsterdam";
+    src: local("Amsterdam"), url(./assets/fonts/AmsterdamOne.woff2) format("truetype");
+}
+:root {
+    --color-primary:#2A2E3D;
+    --color-secondary:#404351;
+    --color-tertiary:#1C1F29;
+    --color-main:#5E6EFF;
+    --color-main-light:#919CFF;
+    --color-main-dark:#4A4F7B;
+    --color-text:#ffffff;
+    --color-text-light:#C2C2C2;
+}
+// Definitions end here
+html,body{
+    margin: 0%;
+    padding: 0%;
+    color:var(--color-text);
+    background:var(--color-primary);
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    
+}
+.swiper-wrapper{
+    display: flex;
+}

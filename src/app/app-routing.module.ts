@@ -110,6 +110,11 @@ const routes: Routes = [
       import('./pages/reviews/reviews.module').then((m) => m.ReviewsModule),
   },
   {
+    path:'',
+    redirectTo:'home',
+    pathMatch:'full'
+  },
+  {
     path: '**',
     loadChildren: () =>
       import('./pages/not-found/not-found.module').then(

@@ -1,13 +1,56 @@
 <!doctype html>
 <html lang="en">
+
 <head>
+  <link rel="stylesheet" href="./assets/css/uikit.min.css"/>
   <meta charset="utf-8">
   <title>SapythonBlog</title>
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+  <!-- UIkit CSS -->
+  <!-- UIkit JS -->
+  <script src="https://cdn.jsdelivr.net/npm/uikit@3.11.1/dist/js/uikit.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/uikit@3.11.1/dist/js/uikit-icons.min.js"></script>
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="theme-color" content="#1976d2">
 </head>
+
 <body>
-  <app-root></app-root>
+  <app-root id="butter"></app-root>
+  <script>
+    document.onload = function() {
+      let sx = 0, sy = 0;
+      let dx = sx, dy = sy;
+      const body = document.body;
+      const main = document.querySelector('main');
+      body.style.height = main.clientHeight + 'px';
+      main.style.position = 'fixed';
+      main.style.top = 0;
+      main.style.left = 0;
+      window.addEventListener('scroll', easeScroll);
+      function easeScroll() {
+
+        sx = window.pageXOffset;
+        sy = window.pageYOffset;
+      }
+      window.requestAnimationFrame(render);
+      function render() {
+        //We calculate our container position by linear interpolation method
+        dx = li(dx, sx, 0.07);
+        dy = li(dy, sy, 0.07);
+        dx = Math.floor(dx * 100) / 100;
+        dy = Math.floor(dy * 100) / 100;
+        main.style.transform = `translate3d(-${dx}px, -${dy}px, 0px)`;
+        window.requestAnimationFrame(render);
+      }
+      function li(a, b, n) {
+        return (1 - n) * a + n * b;
+      }
+    }
+  </script>
+  <noscript>Please enable JavaScript to continue using this application.</noscript>
 </body>
+
 </html>

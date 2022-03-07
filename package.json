@@ -7,9 +7,13 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
+    "cleanDist":"rd dist -Recurse" ,
+    "genRes":"python ./src/pythonScripts/generateAssets.py",
     "scully": "npx scully --",
     "scully:serve": "npx scully serve --",
-    "serve": "ng build && npx scully --scanRoutes && npx scully serve --"
+    "serve": "ng build --configuration production && npx scully --scanRoutes && npx scully serve --",
+    "deploy": "npm run cleanDist && ng build --configuration production && npx scully --scanRoutes && python ./src/pythonScripts/generateAssets.py https://sapython-f016a.web.app/ && firebase deploy && lighthouse https://sapython-f016a.web.app/ --view && start start https://sapython-f016a.web.app/",
+    "cibuild": "npm ci && ng build --configuration production && npx scully --scanRoutes && python ./src/pythonScripts/generateAssets.py && firebase deploy && lighthouse https://sapython-f016a.web.app/ --view && start start https://sapython-f016a.web.app/"
   },
   "private": true,
   "dependencies": {
@@ -23,16 +27,21 @@
     "@angular/platform-browser-dynamic": "~12.2.0",
     "@angular/platform-server": "^12",
     "@angular/router": "~12.2.0",
+    "@angular/service-worker": "~12.2.0",
     "@scullyio/init": "^2.1.16",
     "@scullyio/ng-lib": "^2.1.0",
     "@scullyio/platform-server": "^2.1.0",
     "@scullyio/scully": "^2.1.0",
     "@scullyio/scully-plugin-puppeteer": "^2.1.16",
-    "rxjs": "~6.6.0",
-    "tslib": "^2.3.0",
-    "zone.js": "~0.11.4",
+    "animate-css-grid": "^1.4.3",
     "firebase": "^9.4.0",
-    "rxfire": "^6.0.0"
+    "ngx-useful-swiper": "^10.0.1",
+    "rxfire": "^6.0.0",
+    "rxjs": "~6.6.0",
+    "smooth-scrollbar": "^8.7.4",
+    "swiper": "^8.0.7",
+    "tslib": "^2.3.0",
+    "zone.js": "~0.11.4"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~12.2.16",

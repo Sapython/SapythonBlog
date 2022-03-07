@@ -1,0 +1,35 @@
+:root{
+    --header-height:120px;
+}
+#linkFollower{
+    position: absolute;
+    height:5px;
+    background-color: var(--color-main);
+    transition: 0.5s all;
+}
+header{
+    display: flex;
+    justify-content: right;
+    width:100vw;
+    height:var(--header-height);
+    background-color: var(--color-primary);
+    nav{
+        height:var(--header-height);
+        display: flex;
+        justify-content: space-between;
+        padding:30px;
+        a{
+            font-family: 'CascadiyaCode';
+            font-size: 20px;
+            color:var(--color-text-light);
+            text-decoration: none;
+            margin-right: 100px;
+            border-bottom: solid 5px var(--color-primary);
+            // transition: all 0.5s;
+        }
+        a.active{
+            color:var(--color-text);
+            // padding-bottom: 10px;
+        }
+    }
+}

@@ -1,0 +1,16 @@
+<article>
+    <img class="featuredImage" [src]="featuredImage" [alt]="imageAlt">
+    <div class="info">
+        <p class="date">
+            <i class="ri-calendar-2-fill"></i> 
+            {{date}}
+        </p>
+        <p class="author">
+            <img [src]="authorImage" [alt]="authorName">
+            &nbsp;&nbsp;
+            {{authorName}}
+        </p>
+        <h4>{{title}}</h4>
+        <p class="excerpt">{{excerpt}}</p>
+    </div>
+</article>
