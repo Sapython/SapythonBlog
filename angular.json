@@ -129,9 +129,21 @@
             "firebaseProject": "sapython-f016a",
             "firebaseHostingSite": "sapython-f016a"
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
+          }
         }
       }
     }
   },
-  "defaultProject": "SapythonBlog"
+  "defaultProject": "SapythonBlog",
+  "cli": {
+    "defaultCollection": "@angular-eslint/schematics"
+  }
 }
