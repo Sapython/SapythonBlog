@@ -15,20 +15,20 @@
     <section class="introServices">
         <div>
             <section>
-                <img src="./assets/images/Icons/website.svg" alt="Website">
-                <h4>Web Development</h4>
+                <img height="auto" width="auto" loading="lazy" src="./assets/images/icons/website.svg" alt="Website">
+                <h2>Web Development</h2>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nibh nisi, tincidunt vel facilisis
                     pretium, varius dignissim magna. Praesent sodales lectus</p>
             </section>
             <section>
-                <img src="./assets/images/Icons/mobile.svg" alt="Mobile">
-                <h4>App Development</h4>
+                <img height="auto" width="auto" loading="lazy" src="./assets/images/icons/mobile.svg" alt="Mobile">
+                <h2>App Development</h2>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nibh nisi, tincidunt vel facilisis
                     pretium, varius dignissim magna. Praesent sodales lectus</p>
             </section>
             <section>
-                <img src="./assets/images/Icons/server.svg" alt="Sever">
-                <h4>Server Development</h4>
+                <img height="auto" width="auto" loading="lazy" src="./assets/images/icons/server.svg" alt="Sever">
+                <h2>Server Development</h2>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nibh nisi, tincidunt vel facilisis
                     pretium, varius dignissim magna. Praesent sodales lectus</p>
             </section>
@@ -95,7 +95,7 @@
             <swiper [config]="projectsConfig" class="projectSlider ">
                     <ng-template swiperSlide let-data *ngFor="let project of projects">
                         <div class="uk-inline projectSlide" #slide>
-                            <img [src]="project.image" alt="">
+                            <app-img root="projectImages" [src]="project.image" height="40vh" width="70vw" fit="cover" alt=""></app-img>
                             <article [ngStyle]="{'animation': data.isActive ? 'bottomSlide .5s ease-in-out forwards' : 'none'}" class="uk-overlay uk-light uk-position-bottom" >
                                 <h1>{{project.title}}</h1>
                                 <p>{{project.description}}</p>
@@ -106,13 +106,13 @@
         </div>
         <div class="showcaseProjects">
             <div>
-                <img src="./assets/images/projects/mountains.jpg" alt="">
+                <app-img root="projectImages" src="mountains" fit="cover" alt="Mountains"></app-img>
             </div>
             <div>
-                <img src="./assets/images/projects/sunrise.jpg" alt="">
+                <app-img root="projectImages" src="sunrise" fit="cover" alt="sunrise"></app-img>
             </div>
             <div>
-                <img src="./assets/images/projects/skyline.jpg" alt="">
+                <app-img root="projectImages" src="skyline" fit="cover" alt="skyline"></app-img>
             </div>
             <div>
                 <h1>Join Us</h1>

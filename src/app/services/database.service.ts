@@ -21,7 +21,9 @@ export class DatabaseService {
       console.log(doc);
       console.log(doc.id)
     })
-    
+  }
+  updateUserMessageToken(userId:string,messageToken:string){
+    return updateDoc(doc(this.fs,'users/'+userId),{messageToken:messageToken})
   }
   
 }

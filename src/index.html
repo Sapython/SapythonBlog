@@ -2,55 +2,44 @@
 <html lang="en">
 
 <head>
-  <link rel="stylesheet" href="./assets/css/uikit.min.css"/>
   <meta charset="utf-8">
   <title>SapythonBlog</title>
   <base href="/">
+  <!-- Primary Meta Tags -->
+  <title>Sapython Blog</title>
+  <meta name="title" content="Sapython Blog">
+  <meta name="description" content="Portfolio and blog website of Kumar Saptam. ">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://sapython-f016a.web.app/">
+  <meta property="og:title" content="Sapython Blog">
+  <meta property="og:description" content="Portfolio and blog website of Kumar Saptam. ">
+  <meta property="og:image" content="./assets/images/branding/CARD FRONT SIDE.png">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://sapython-f016a.web.app/">
+  <meta property="twitter:title" content="Sapython Blog">
+  <meta property="twitter:description" content="Portfolio and blog website of Kumar Saptam. ">
+  <meta property="twitter:image" content="./assets/images/branding/CARD FRONT SIDE.png">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+  <link rel="stylesheet" defer href="./assets/css/uikit.min.css" async/>
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" defer async rel="stylesheet">
   <!-- UIkit CSS -->
   <!-- UIkit JS -->
-  <script src="https://cdn.jsdelivr.net/npm/uikit@3.11.1/dist/js/uikit.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/uikit@3.11.1/dist/js/uikit-icons.min.js"></script>
+  <link rel="apple-touch-icon" href="./assets/icons/icon-152x152.png">
+  <script src="https://cdn.jsdelivr.net/npm/uikit@3.11.1/dist/js/uikit.min.js" defer async></script>
+  <script src="https://cdn.jsdelivr.net/npm/uikit@3.11.1/dist/js/uikit-icons.min.js" defer async></script>
   <link rel="manifest" href="manifest.webmanifest">
   <meta name="theme-color" content="#1976d2">
+  <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
-
 <body>
-  <app-root id="butter"></app-root>
-  <script>
-    document.onload = function() {
-      let sx = 0, sy = 0;
-      let dx = sx, dy = sy;
-      const body = document.body;
-      const main = document.querySelector('main');
-      body.style.height = main.clientHeight + 'px';
-      main.style.position = 'fixed';
-      main.style.top = 0;
-      main.style.left = 0;
-      window.addEventListener('scroll', easeScroll);
-      function easeScroll() {
-
-        sx = window.pageXOffset;
-        sy = window.pageYOffset;
-      }
-      window.requestAnimationFrame(render);
-      function render() {
-        //We calculate our container position by linear interpolation method
-        dx = li(dx, sx, 0.07);
-        dy = li(dy, sy, 0.07);
-        dx = Math.floor(dx * 100) / 100;
-        dy = Math.floor(dy * 100) / 100;
-        main.style.transform = `translate3d(-${dx}px, -${dy}px, 0px)`;
-        window.requestAnimationFrame(render);
-      }
-      function li(a, b, n) {
-        return (1 - n) * a + n * b;
-      }
-    }
-  </script>
-  <noscript>Please enable JavaScript to continue using this application.</noscript>
+  <app-root></app-root>
 </body>
-
 </html>

@@ -4,6 +4,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { RouterModule } from '@angular/router';
 import { PostCardComponent } from './post-card/post-card.component';
+import { CdkModule } from '../cdk/cdk.module';
 
 const components = [
   HeaderComponent,
@@ -16,6 +17,7 @@ const components = [
   imports: [
     CommonModule,
     RouterModule,
+    CdkModule,
   ],
   exports:components
 })

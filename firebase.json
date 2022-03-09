@@ -1,18 +1,27 @@
 {
   "hosting": {
     "public": "dist/static",
-    "ignore": [
-      "firebase.json",
-      "**/.*",
-      "**/node_modules/**"
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+    "headers": [
+      {
+        "source": "**/*.@(jpg|webp|jpeg|gif|js|png|svg|webp|eot|otf|ttf|avif|ttc|woff|woff2|font.css)",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "max-age=31536000"
+          }
+        ]
+      },
+      {
+        "source": "assets/**",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "max-age=31536000"
+          }
+        ]
+      }
     ],
-    "headers": [{
-      "source": "**/*.@(jpg|webp|jpeg|gif|png|svg|webp|js|css|eot|otf|ttf|ttc|woff|woff2|font.css)",
-      "headers": [ {
-        "key": "Cache-Control",
-        "value": "max-age=36000"
-      }]
-    }],
     "cleanUrls": true,
     "trailingSlash": false
   }

@@ -1,16 +1,16 @@
 <article>
-    <img class="featuredImage" [src]="featuredImage" [alt]="imageAlt">
+    <app-img root="postImages" class="featuredImage" width="300px" height="200px" [src]="featuredImage" [alt]="imageAlt"></app-img>
     <div class="info">
         <p class="date">
             <i class="ri-calendar-2-fill"></i> 
             {{date}}
         </p>
         <p class="author">
-            <img [src]="authorImage" [alt]="authorName">
+            <app-img root="authorImages" [src]="authorImage" [alt]="authorName"></app-img>
             &nbsp;&nbsp;
             {{authorName}}
         </p>
-        <h4>{{title}}</h4>
+        <h3>{{title}}</h3>
         <p class="excerpt">{{excerpt}}</p>
     </div>
 </article>

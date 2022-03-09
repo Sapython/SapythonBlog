@@ -1,4 +1,6 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
+import { SwPush } from '@angular/service-worker';
+import { MessagingService } from './services/messaging.service';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +10,10 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 export class AppComponent {
   title = 'SapythonBlog';
   @ViewChild('contentCylinder') ContentCylinder: ElementRef | undefined;
-  constructor() {}
-    ngOnInit() {
-    }
+  constructor(private swPush: SwPush,public messagingService: MessagingService) {
+    
+  }
+  ngOnInit() {
+    
+  }
 }
