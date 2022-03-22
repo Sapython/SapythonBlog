@@ -1,0 +1,40 @@
+div.sender{
+    width:300px;
+    height:auto;
+    position: relative;
+    float: left;
+    background-color: var(--color-tertiary);
+    border-radius: 10px 10px 10px 0px;
+    padding:10px;
+    margin: 10px;
+    p{
+        text-justify: distribute;
+        word-wrap: break-word;
+        font-size: 15px;
+        margin-bottom: 0px;
+    }
+    span{
+        text-align: left;
+        font-size: 9px;
+    }
+}
+div.receive{
+    width:300px;
+    height:auto;
+    position: relative;
+    float: right;
+    background-color: var(--color-primary);
+    border-radius: 10px 10px 0px 10px;
+    padding:10px;
+    margin: 10px;
+    p{
+        text-justify: distribute;
+        word-wrap: break-word;
+        font-size: 15px;
+        margin-bottom: 0px;
+    }
+    span{
+        text-align: left;
+        font-size: 9px;
+    }
+}

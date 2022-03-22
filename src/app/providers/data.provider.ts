@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { collection, collectionSnapshots, Firestore } from '@angular/fire/firestore';
 import { PageSetting } from '../structures/method.structure';
 import { UserData } from '../structures/user.structure';
 
@@ -14,7 +15,7 @@ export class DataProvider{
     };
     public userData:UserData | undefined;
     public loggedIn:boolean = false;
-    public gettingUserData:boolean = false;
+    public gettingUserData:boolean = true;
     public userID:string | undefined;
     public verifyEmail:boolean | undefined;
     public reloadPage:boolean = false;
@@ -24,5 +25,12 @@ export class DataProvider{
     public dataTwo:any;
     public dataThree:any;
     public dataFour:any;
-    constructor(){}
+    public siteData:any = {};
+    constructor(private firestore: Firestore){
+        collectionSnapshots(collection(this.firestore,'siteData')).subscribe((data)=>{
+            data.forEach((doc)=>{
+                this.siteData[doc.id] = doc.data();
+            })
+        })
+    }
 }

@@ -37,6 +37,7 @@ export class UserDataService {
       wishlist:[],
       cart:[],
       friends:[],
+      chatAssigned:false,
     }
     this.userDoc  = doc(this.firestore,'users/'+user.uid);
     await setDoc(this.userDoc,data).then(()=>{
@@ -65,6 +66,7 @@ export class UserDataService {
       wishlist:[],
       cart:[],
       friends:[],
+      chatAssigned:false,
     }
     this.userDoc  = doc(this.firestore,'users/'+user.uid);
     await setDoc(this.userDoc,data).then(()=>{

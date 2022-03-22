@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Firestore, addDoc, collectionData,DocumentReference, CollectionReference , collection , setDoc, doc, updateDoc, deleteDoc, docSnapshots, docData, getDoc } from '@angular/fire/firestore';
+import { Firestore, arrayUnion,addDoc, collectionData,DocumentReference, CollectionReference , collection , setDoc, doc, updateDoc, deleteDoc, docSnapshots, docData, getDoc } from '@angular/fire/firestore';
 import { ContactRequest } from '../structures/user.structure';
 @Injectable({
   providedIn: 'root'
@@ -25,5 +25,12 @@ export class DatabaseService {
   updateUserMessageToken(userId:string,messageToken:string){
     return updateDoc(doc(this.fs,'users/'+userId),{messageToken:messageToken})
   }
+  enableNotification(userId:string){
+    return updateDoc(doc(this.fs,'siteData/'+userId),{users:arrayUnion(userId)})
+  }
+  disableNotification(userId:string){
+    return updateDoc(doc(this.fs,'siteData/'+userId),{users:arrayUnion(userId)})
+  }
+  
   
 }

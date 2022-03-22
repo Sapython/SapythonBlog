@@ -1,1 +1,39 @@
-<p>login works!</p>
+<header>
+    <nav>
+        <a routerLink="home">Home</a>
+        <a routerLink="blog">Blog</a>
+        <a routerLink="support">Support</a>
+    </nav>
+</header>
+<main>
+    <app-img root="ui" src="auth" style="width:100%;height:100%;position:absolute;right:0px;z-index:1;"></app-img>
+    <article>
+        <h1>Login</h1>
+        <form>
+            <div>
+                <input type="text" placeholder="Email">
+                <i class="ri-mail-fill"></i>
+            </div>
+            <div>
+                <input [type]="passwordVisible ? 'text' : 'password'" placeholder="Password">
+                <i [class]="passwordVisible ? 'ri-lock-password-line' : 'ri-lock-password-fill' " 
+                (click)="passwordVisible = !passwordVisible"></i>
+            </div>
+            <div class="actions">
+                <button type="button">
+                    <i class="ri-google-fill"></i>
+                </button>
+                <button type="button">
+                    <i class="ri-facebook-fill"></i>
+                </button>
+                <button type="button">
+                    <i class="ri-apple-fill"></i>
+                </button>
+                <button type="submit">
+                    Login
+                </button>
+            </div>
+        </form>
+        <a routerLink="signup">Don't have an account. <strong>Signup</strong></a>
+    </article>
+</main>

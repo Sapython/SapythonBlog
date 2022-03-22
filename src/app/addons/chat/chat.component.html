@@ -1,0 +1,22 @@
+<div class="chatContainer" [style]="closingChat ? 'animation: scaleDown 0.3s ease-in-out forwards' : ''">
+    <div class="chatHeader"> 
+        <app-img root="authorImages" src="Kumar Saptam" style="vertical-align:middle;" alt="Kumar Saptam" width="40px" height="40px" borderRadius="50%"></app-img>
+        <p>Hello, Ask me anything</p>
+        <i class="ri-close-fill" (click)="closePopup()"></i>
+    </div>
+    <div class="chatBody" id="chatBody" #scrollMe>
+        <div *ngIf="dataProvider.userID">
+            <app-chat-box *ngFor="let message of messages" [message]="message.message" [sender]="message.sender" [date]="convertDate(message.date)"></app-chat-box>
+        </div>
+        <div *ngIf="!dataProvider.userID">
+            Please <a routerLink="login">Log In</a> or type something to start a conversation.
+        </div>
+    </div>
+    <div class="chatFooter">
+        <form (ngSubmit)="sendMsg()" [formGroup]="chatForm">
+            <input type="text" formControlName="message" #message [style]="message.value.length > 200 ? 'border-color:rgb(255, 98, 98);' : 'border-color:white;'">
+            <p>{{message.value.length}}/200</p>
+            <button type="submit"><i class="ri-send-plane-2-fill"></i></button>
+        </form>
+    </div>
+</div>

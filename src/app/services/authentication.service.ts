@@ -24,7 +24,7 @@ import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthencationService {
+export class AuthenticationService {
   userDoc:DocumentReference | undefined;
   checkerUserDoc:DocumentReference | undefined;
   private loggedIn:boolean = false;
@@ -36,6 +36,7 @@ export class AuthencationService {
     private router:Router,
     private dataProvider: DataProvider) {
     if (auth) {
+      console.log("Auth is not null");
       this.user = authState(this.auth);
       this.setDataObserver(this.user);
       this.userDisposable = authState(this.auth).pipe(
@@ -46,6 +47,8 @@ export class AuthencationService {
       });
     } else {
       this.loggedIn = false;
+      this.dataProvider.loggedIn = false;
+      console.log("Auth is null");
     }
   }
   private userServerSubscription:Subscription | undefined = undefined
@@ -91,8 +94,9 @@ export class AuthencationService {
 
   public async loginAnonymously() {
     let data = signInAnonymously(this.auth).then((credentials:UserCredential)=>{
+      console.log("Credentials",credentials);
     });
-    this.router.navigate(['']);
+    // this.router.navigate(['']);
   }
 
   public async loginEmailPassword(email: string, password: string){
@@ -148,17 +152,22 @@ export class AuthencationService {
         if (u) {
           this.dataProvider.loggedIn = true;
           this.dataProvider.gettingUserData= true;
+          this.dataProvider.userID = u.uid;
           // console.log('User is logged in')
           this.userDoc = doc(this.firestore,'users/'+u.uid);
-          // console.log("User data from auth",u);
+          console.log("User data from auth",u);
           if (this.userServerSubscription!=undefined){
             this.userServerSubscription.unsubscribe();
           }
-          this.userServerSubscription = docData(this.userDoc).subscribe((data:any) => {
-            console.log("Recieved new data",data)
-            this.dataProvider.userData = data;
-            this.dataProvider.gettingUserData= false;
-          })
+          if (u.isAnonymous){
+            this.dataProvider.gettingUserData = false;
+          } else {
+            this.userServerSubscription = docData(this.userDoc).subscribe((data:any) => {
+              console.log("Recieved new data",data)
+              this.dataProvider.userData = data;
+              this.dataProvider.gettingUserData= false;
+            })
+          }
         }
       });
     } else {

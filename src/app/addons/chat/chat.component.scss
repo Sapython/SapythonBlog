@@ -1,0 +1,97 @@
+@keyframes scaleUp {
+    from{
+        transform: scale(0);
+    }
+    to{
+        transform: scale(1);
+    }
+}
+@keyframes scaleDown {
+    from{
+        transform: scale(1);
+    }
+    to{
+        transform: scale(0);
+    }
+}
+div.chatContainer{
+    --headerHeight:40px;
+    --footerHeight:40px;
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+    width: 400px;
+    height: 500px;
+    background-color: var(--color-secondary);
+    z-index: 99999;
+    border-radius: 7px;
+    box-shadow: -10px 10px 20px rgba(0,0,0,0.5);
+    animation: scaleUp 0.3s ease-in-out;
+    div.chatHeader{
+        position: relative;
+        top:0px;
+        left:0px;
+        // width: 100%;
+        height: var(--headerHeight);
+        border-radius: 7px 7px 0px 0px;
+        background-color: var(--color-main);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        box-shadow: 0px 10px 20px rgba(0,0,0,0.1);
+        p{
+            flex: 3;
+            margin-left: 10px;
+            font-size: 20px;
+            color: var(--color-text);
+        }
+    }
+    div.chatBody{
+        height: calc(100% - calc(var(--headerHeight) + var(--footerHeight)));
+        overflow-y: auto;
+    }
+    div.chatFooter{
+        position: relative;
+        bottom:0px;
+        left:0px;
+        height: var(--footerHeight);
+        border-radius: 0px 0px 7px 7px;
+        background-color: var(--color-main);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        box-shadow: 0px -10px 20px rgba(0,0,0,0.1);
+        form{
+            width:100%;
+            display: flex;
+            input{
+                outline: none;
+                border: none;
+                flex: 2;
+                padding:0px;
+                color:var(--color-text);
+                height:calc(var(--footerHeight)-10px);
+                width:100%;
+                font-size: 18px;
+                background: var(--color-main);
+                border-bottom: 2px white solid;
+            }
+            button{
+                outline: none;
+                border: none;
+                margin: 0px 20px 0px 20px;
+                background-color: var(--color-main);
+                color: var(--color-text);
+                font-size: 20px;
+                border-radius: 5px;
+                padding: 5px;
+                cursor: pointer;
+            }
+            p{
+                font-size: 10px;
+            }
+        }
+    }
+}

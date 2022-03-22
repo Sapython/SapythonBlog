@@ -1,7 +1,6 @@
-
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
-@use '~@angular/material' as mat;
+@use "~@angular/material" as mat;
 // Plus imports for other components in your app.
 
 // Include the common styles for Angular Material. We include this here so that you only
@@ -12,59 +11,52 @@
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
-$SapythonBlog-primary: mat.define-palette(mat.$indigo-palette);
-$SapythonBlog-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
-
-// The warn palette is optional (defaults to red).
-$SapythonBlog-warn: mat.define-palette(mat.$red-palette);
-
-// Create the theme object. A theme consists of configurations for individual
-// theming systems such as "color" or "typography".
-$SapythonBlog-theme: mat.define-light-theme((
-  color: (
-    primary: $SapythonBlog-primary,
-    accent: $SapythonBlog-accent,
-    warn: $SapythonBlog-warn,
-  )
-));
 
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
-@include mat.all-component-themes($SapythonBlog-theme);
 
 @font-face {
-    font-family: "CascadiyaCode";
-    src: local("Cascadia Code"), url(./assets/fonts/CascadiaCode.woff2) format("woff2");
-    font-display: swap;
+  font-family: "CascadiyaCode";
+  src: url("./assets/fonts/CascadiyaCodePLRegular.woff2") format("woff2");
+    // url("./assets/fonts/cascadiacodepl-regular-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
 }
 @font-face {
-    font-family: "Amsterdam";
-    src: local("Amsterdam"), url(./assets/fonts/AmsterdamOne.woff2) format("woff2");
-    font-display: swap;
+  font-family: "Amsterdam";
+  src: local("Amsterdam"),
+    url(./assets/fonts/AmsterdamOne.woff2) format("woff2");
+  font-display: swap;
 }
 :root {
-    --color-primary:#2A2E3D;
-    --color-secondary:#404351;
-    --color-tertiary:#1C1F29;
-    --color-main:#5E6EFF;
-    --color-main-light:#919CFF;
-    --color-main-dark:#4A4F7B;
-    --color-text:#ffffff;
-    --color-text-light:#C2C2C2;
+  --color-primary: #2a2e3d;
+  --color-secondary: #404351;
+  --color-tertiary: #1c1f29;
+  --color-main: #5e6eff;
+  --color-main-light: #919cff;
+  --color-main-dark: #4a4f7b;
+  --color-text: #ffffff;
+  --color-text-light: #c2c2c2;
 }
 // Definitions end here
-html,body{
-    margin: 0%;
-    padding: 0%;
-    color:var(--color-text);
-    background:var(--color-primary);
-    overflow-x: hidden;
-    scroll-behavior: smooth;
-    
+html,
+body {
+  margin: 0%;
+  padding: 0%;
+  color: var(--color-text);
+  background: var(--color-primary);
+  overflow-x: hidden;
+  scroll-behavior: smooth;
 }
-.swiper-wrapper{
-    display: flex;
+.swiper-wrapper {
+  display: flex;
 }
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}

@@ -1,6 +1,30 @@
 :root{
     --header-height:120px;
 }
+@keyframes swipeRight {
+    from{
+        transform: translateX(150%);
+    }
+    to{
+        transform: translateX(0%);
+    }
+}
+@keyframes closePanel{
+    from{
+        transform: translateX(0%);
+    }
+    to{
+        transform: translateX(70%);
+    }
+}
+@keyframes openPanel{
+    from{
+        transform: translateX(70%);
+    }
+    to{
+        transform: translateX(0%);
+    }
+}
 #linkFollower{
     position: absolute;
     height:5px;
@@ -33,4 +57,55 @@ header{
             // padding-bottom: 10px;
         }
     }
+}
+#notifier{
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top:100px;
+    z-index: 100000;
+    right:0px;
+    width:100px;
+    height:30px;
+    background-color: var(--color-tertiary);
+    border-radius: 20px 0px 0px 20px;
+    padding: 20px;
+    box-shadow: 5px 10px 10px rgba(0,0,0,0.5);
+    animation: swipeRight 1s forwards;
+    button{
+        border:none;
+        background-color: var(--color-main);
+        color:white;
+        font-size: 20px;
+        border-radius: 20px;
+    }
+    button.login{
+        padding:5px 20px 5px 20px;
+        border-radius: 5px;
+    }
+    i{
+        font-size: 25px;
+    }
+}
+.open{
+    animation: closePanel 1s forwards !important;
+}
+.close{
+    animation: openPanel 1s forwards !important;
+}
+#chatPopup{
+    position: absolute;
+    bottom:50px;
+    right:50px;
+    width:50px;
+    height:50px;
+    border-radius: 50%;
+    background-color: var(--color-main);
+    color:var(--color-text);
+    font-size: 30px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 10000;
+    transition: all 0.5s ease-in-out;
 }

@@ -14,6 +14,7 @@ export type UserData={
     cart:CustomizedProduct[];
     currentOrder?:Order;
     friends:Friend[];
+    chatAssigned:boolean;
 }
 export type Friend ={
     userID:string;

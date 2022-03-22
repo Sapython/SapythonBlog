@@ -1,0 +1,8 @@
+<div *ngIf="sender" class="sender">
+    <p>{{message | obscenity}}</p>
+    <span>{{date}}</span>
+</div>
+<div *ngIf="!sender" class="receive">
+    <p>{{message | obscenity}}</p>
+    <span>{{date}}</span>
+</div>

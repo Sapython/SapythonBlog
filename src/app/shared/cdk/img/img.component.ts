@@ -15,6 +15,7 @@ export class ImgComponent implements OnInit {
   @Input() borderRadius:string = '0';
   @Input() root:string  = '';
   @Input() extraLarge:boolean = false;
+  @Input() style:any;
   constructor() { }
 
   ngOnInit(): void {

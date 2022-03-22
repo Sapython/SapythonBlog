@@ -1,3 +1,4 @@
-<app-header></app-header>
-<button (click)="messagingService.startNotificationService();">Enable notifications</button>
-<router-outlet></router-outlet>
+<app-header *ngIf="enableHeader"></app-header>
+<div [@slide]="prepareRoute(outlet)" class="router-wrapper">
+    <router-outlet #outlet="outlet" ></router-outlet>
+</div>

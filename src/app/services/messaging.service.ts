@@ -23,7 +23,18 @@ export class MessagingService {
     }));
     push.messages.subscribe(msg => console.log('push message', msg));
   }
+  subscribeNotification(){
+    this.databaseService.enableNotification(this.dataProvider.userData!.userId).then(()=>{
+      this.alertify.presentToast('Notifications enabled')
+    })
+  }
+  unsubscribeNotification(){
+    this.databaseService.disableNotification(this.dataProvider.userData!.userId).then(()=>{
+      this.alertify.presentToast('Notifications disabled')
+    });
+  }
   startNotificationService(){
+    this.subscribeNotification();
     navigator.serviceWorker.getRegistration().then(reg => {
       getToken(this.messaging, {
         vapidKey:

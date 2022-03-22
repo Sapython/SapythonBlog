@@ -1,6 +1,8 @@
 import { AfterViewInit, Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Router } from '@angular/router';
 import { PartialObserver, Subscription } from 'rxjs';
+import { DataProvider } from 'src/app/providers/data.provider';
+import { MessagingService } from 'src/app/services/messaging.service';
 
 @Component({
   selector: 'app-header',
@@ -12,8 +14,13 @@ export class HeaderComponent implements OnInit, AfterViewInit {
   widthOffset:number = 0;
   topOffset:number = 30;
   routerListner:Subscription = Subscription.EMPTY;
-  constructor(private router: Router) {}
+  notificationEnabled:boolean = false;
+  toggleView:boolean = false;
+  chatPopupVisible:boolean = true;
+  chatOpen:boolean = false;
+  constructor(private router: Router,public messagingService: MessagingService,public dataProvider:DataProvider) {}
   ngOnInit(): void {
+    this.notificationEnabled = Notification.permission === 'granted';
     document.addEventListener('resize',()=>{
       console.log('Resized')
     })
@@ -41,4 +48,19 @@ export class HeaderComponent implements OnInit, AfterViewInit {
       }
     }  
   }
+  toggleNotification(){
+    if (this.notificationEnabled) {
+      this.messagingService.unsubscribeNotification();
+    } else {
+      this.messagingService.startNotificationService();
+    }
+    this.notificationEnabled = Notification.permission === 'granted';
+  }
+  login(){
+    this.router.navigate(['login'])
+  }
+  hello(){
+    console.log('Hello')
+  }
+
 }
