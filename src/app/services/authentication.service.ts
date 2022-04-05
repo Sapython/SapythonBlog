@@ -12,6 +12,7 @@ import { Auth,
   FacebookAuthProvider ,
   createUserWithEmailAndPassword,
   UserCredential,
+  GithubAuthProvider,
 } from '@angular/fire/auth';
 import { EMPTY, Observable, Subscription } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -36,7 +37,7 @@ export class AuthenticationService {
     private router:Router,
     private dataProvider: DataProvider) {
     if (auth) {
-      console.log("Auth is not null");
+      // console.log("Auth is not null");
       this.user = authState(this.auth);
       this.setDataObserver(this.user);
       this.userDisposable = authState(this.auth).pipe(
@@ -65,7 +66,7 @@ export class AuthenticationService {
   }
   // Read functions end
   // Sign in functions start
-  public async signInWithGoogle(type:'Login'|'Signup'){
+  public signInWithGoogle(){
     this.dataProvider.pageSetting.blur = true;
     this.dataProvider.pageSetting.lastRedirect = '';
     let data = signInWithPopup(this.auth, new GoogleAuthProvider()).then(async (credentials:UserCredential)=>{
@@ -91,7 +92,56 @@ export class AuthenticationService {
     });
     
   }
-
+  public signInWithFacebook(){
+    this.dataProvider.pageSetting.blur = true;
+    this.dataProvider.pageSetting.lastRedirect = '';
+    let data = signInWithPopup(this.auth, new FacebookAuthProvider()).then(async (credentials:UserCredential)=>{
+      console.log(credentials);
+      // if (!(await getDoc(doc(this.firestore,'users/'+credentials.user.uid))).exists()){
+      //   if (credentials.user.phoneNumber == null){
+      //     await this.userData.setGoogleUserData(credentials.user,{phoneNumber:''});
+      //   } else {
+      //     await this.userData.setGoogleUserData(credentials.user,{phoneNumber:credentials.user.phoneNumber});
+      //   }
+      // } else {
+      //   this.dataProvider.pageSetting.blur = false;
+      //   this.alertify.presentToast('Logging you in.','info',5000);
+      //   this.router.navigate(['']);
+      // }
+    }).catch((error)=>{
+      this.dataProvider.pageSetting.blur = false;
+      if (error.code === 'auth/popup-closed-by-user'){
+        this.alertify.presentToast('Login cancelled.','error',5000);
+      } else {
+        this.alertify.presentToast(error.message,'error',5000);
+      }
+    });
+  }
+  public signInWithGithub(){
+    this.dataProvider.pageSetting.blur = true;
+    this.dataProvider.pageSetting.lastRedirect = '';
+    let data = signInWithPopup(this.auth, new GithubAuthProvider()).then(async (credentials:UserCredential)=>{
+      console.log(credentials);
+      // if (!(await getDoc(doc(this.firestore,'users/'+credentials.user.uid))).exists()){
+      //   if (credentials.user.phoneNumber == null){
+      //     await this.userData.setGoogleUserData(credentials.user,{phoneNumber:''});
+      //   } else {
+      //     await this.userData.setGoogleUserData(credentials.user,{phoneNumber:credentials.user.phoneNumber});
+      //   }
+      // } else {
+      //   this.dataProvider.pageSetting.blur = false;
+      //   this.alertify.presentToast('Logging you in.','info',5000);
+      //   this.router.navigate(['']);
+      // }
+    }).catch((error)=>{
+      this.dataProvider.pageSetting.blur = false;
+      if (error.code === 'auth/popup-closed-by-user'){
+        this.alertify.presentToast('Login cancelled.','error',5000);
+      } else {
+        this.alertify.presentToast(error.message,'error',5000);
+      }
+    });
+  }
   public async loginAnonymously() {
     let data = signInAnonymously(this.auth).then((credentials:UserCredential)=>{
       console.log("Credentials",credentials);
@@ -104,6 +154,16 @@ export class AuthenticationService {
     this.dataProvider.pageSetting.lastRedirect = '';
     let data = await signInWithEmailAndPassword(this.auth, email, password).then((credentials:UserCredential)=>{
       this.router.navigate(['']);
+      this.dataProvider.pageSetting.blur = false;
+    }).catch((error)=>{
+      this.dataProvider.pageSetting.blur = false;
+      if (error.code === 'auth/user-not-found'){
+        this.alertify.presentToast('User not found.','error',5000);
+      } else if (error.code === 'auth/wrong-password'){
+        this.alertify.presentToast('Wrong password.','error',5000);
+      } else {
+        this.alertify.presentToast(error.message,'error',5000);
+      }
     });
     this.dataProvider.pageSetting.blur = false;
   }

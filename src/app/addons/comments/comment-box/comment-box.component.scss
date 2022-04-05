@@ -1,0 +1,114 @@
+@keyframes popIn{
+  0%{
+    opacity: 0;
+    transform: scale(0);
+  }
+  100%{
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+div.main {
+  margin:0px;
+  padding:10px;
+  display: flex;
+  img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  div.body {
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    div.user {
+      p {
+        font-family: var(--font-main);
+        font-size: 15px;
+        color: var(--color-text);
+        margin:0px;
+      }
+      time {
+        font-family: var(--font-main);
+        font-size: 14px;
+        color: var(--color-text-light);
+        height:min-content
+      }
+    }
+    p {
+      font-size: 17px;
+      font-weight: 400;
+      color: var(--color-text);
+    }
+    div.actions {
+      button {
+        color: var(--color-text);
+        border: none;
+        outline: none;
+        font-size: 20px;
+        background-color: transparent;
+      }
+      button > i[class$="-fill"] {
+        color: var(--color-main);
+      }
+      button.showReply{
+        font-size: 15px;
+      }
+      form{
+        animation: popIn .5s forwards;
+        div{
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding:10px;
+          border: rgb(55, 54, 61) solid 2px;
+          border-radius: 10px;
+          background-color: var(--color-tertiary);
+          box-shadow: 0px 10px 20px rgba(0,0,0,0.3);
+          input{
+            background-color: transparent;
+            border: none;
+            outline: none;
+            color:var(--color-text);
+            font-size: 17px;
+          }
+          
+          button{
+            text-align: center;
+            vertical-align:  middle;
+            position: relative;
+            right: 0px;
+            width: auto;
+            height: 50px;
+            background-color: var(--color-tertiary-dark);
+            border: none;
+            outline: none;
+            color: var(--color-text);
+            font-size: 20px;
+            font-family: var(--font-main);
+            padding: 5px;
+            width:40px;
+            height:40px;
+            border-radius: 50%;
+            transition: background 0.5s ease-in-out;
+          }
+          button[disabled]{
+            filter: grayscale(100%);
+            cursor: not-allowed;
+          }
+        }
+      }
+    }
+  }
+}
+div.replies{
+  display: flex;
+  flex-direction: column;
+  margin-left: 50px;
+}
+.outline{
+  border: 2px solid rgb(57, 59, 71);
+  border-radius: 10px;
+  padding:20px;
+}

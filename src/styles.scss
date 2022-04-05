@@ -1,5 +1,6 @@
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
+
 @use "~@angular/material" as mat;
 // Plus imports for other components in your app.
 
@@ -7,6 +8,26 @@
 // have to load a single css file for Angular Material in your app.
 // Be sure that you only ever include this mixin once!
 @include mat.core();
+$SapythonBlog-primary: mat.define-palette(mat.$indigo-palette);
+$SapythonBlog-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$SapythonBlog-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$SapythonBlog-theme: mat.define-light-theme((
+  color: (
+    primary: $SapythonBlog-primary,
+    accent: $SapythonBlog-accent,
+    warn: $SapythonBlog-warn,
+  )
+));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($SapythonBlog-theme);
 
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
@@ -15,6 +36,10 @@
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
+
+@import '~prismjs/plugins/toolbar/prism-toolbar.css';
+@import '~prismjs/themes/prism-tomorrow';
+@import '~@angular/cdk/overlay-prebuilt.css';
 
 @font-face {
   font-family: "CascadiyaCode";
@@ -33,11 +58,18 @@
   --color-primary: #2a2e3d;
   --color-secondary: #404351;
   --color-tertiary: #1c1f29;
+  --color-tertiary-dark: rgb(24, 25, 27);
+  --color-dark-zero: #17191da2;
+  --color-dark-one: #101114;
+  --color-dark-two: #090a0c;
   --color-main: #5e6eff;
+  --color-main-focus: #4658ff;
   --color-main-light: #919cff;
   --color-main-dark: #4a4f7b;
   --color-text: #ffffff;
   --color-text-light: #c2c2c2;
+  --font-main:"CascadiyaCode";
+  --font-secondary:"Amsterdam";
 }
 // Definitions end here
 html,
@@ -60,3 +92,143 @@ body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
+/* Generated with http://k88hudson.github.io/syntax-highlighting-theme-generator/www */
+/* http://k88hudson.github.io/react-markdocs */
+/**
+ * @author k88hudson
+ *
+ * Based on prism.js default theme for JavaScript, CSS and HTML
+ * Based on dabblet (http://dabblet.com)
+ * @author Lea Verou
+ */
+/*********************************************************
+* General
+*/
+pre{
+  border: none;
+}
+:not(pre) > code[class*="language-"], pre[class*="language-"]{
+  border-radius: 20px;
+  background: linear-gradient(225deg, #191c25, #1e212c);
+  box-shadow:  -33px 33px 65px #0f1015,
+             33px -33px 65px #292e3d;
+}
+code{
+  color:#fff8d2 !important;
+  font-family: var(--font-main);
+}
+/*********************************************************
+* Tokens
+*/
+.namespace {
+  opacity: .7;
+}
+.token.comment{
+  color: #6a737d;
+}
+.token.prolog{
+  color: #6a737d;
+}
+.token.doctype{
+  color: #dcacff;
+}
+.token.cdata {
+  color: #fffdc1;
+}
+.token.punctuation {
+  color: #fffdc1;
+}
+.token.property{
+  color:#ffb13c
+}
+.token.tag{
+  color:#ff6952
+}
+.token.boolean{
+  color:#61c8ff
+}
+.token.number{
+  color:#ff3ce2
+}
+.token.constant{
+  color:#6ed76c
+}
+.token.symbol,
+.token.deleted {
+  color: #c7369e;
+}
+.token.selector{
+  color:#ffa667
+}
+.token.builtin{
+  color:#526fff
+}
+.token.attr-name{
+  color:#f36891
+}
+.token.string,
+.token.char,
+.token.inserted {
+  color: #669900;
+}
+.token.operator,
+.token.entity{
+  color: #fffdc1;
+}
+.token.url{
+  color:#38c2bd
+}
+.language-css .token.string,
+.style .token.string {
+  color: #a67f59;
+  background: #1d222c;
+}
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+  color: #5d6efc;
+}
+.token.function {
+  color: #db4f5d;
+}
+.token.regex{
+  color:#b4ffb7
+}
+.token.important,
+.token.variable {
+  color: #ee9900;
+}
+.token.important,
+.token.bold {
+  font-weight: bold;
+}
+.token.italic {
+  font-style: italic;
+}
+.token.entity {
+  cursor: help;
+}
+/*********************************************************
+* Line highlighting
+*/
+pre[data-line] {
+  position: relative;
+}
+pre[class*="language-"] > code[class*="language-"] {
+  position: relative;
+  z-index: 1;
+}
+.line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  background: #4c549c;
+  box-shadow: inset 5px 0 0 #4c549c;
+  z-index: 0;
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+

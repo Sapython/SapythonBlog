@@ -1,0 +1,28 @@
+<div class="postHeader">
+    <div class="overlay"></div>
+    <h1>{{postData.title}}</h1>
+    <app-imgheader [src]="postData.featuredImage" style="height:auto;width:100vw;" root="postHeaderImages"></app-imgheader>
+</div>
+<main id="postData">
+    <article>
+        <scully-content></scully-content>
+    </article>
+    <aside>
+        <app-widgets *ngFor="let widget of widgets" [widget]="widget.widget" [data]="widget.data"></app-widgets>
+        <!-- <div *ngFor="let widget of widgets">
+            <app-email-subscribe *ngIf="widget.widget === 'subscribe'"></app-email-subscribe>
+        </div> -->
+    </aside>
+</main>
+<app-comments></app-comments>
+<div class="sharing" id="sharing">
+    <div class="sharing__buttons">
+        <button id="share" title="Share">
+            <i class="ri-share-fill"></i>
+        </button>
+        <button id="tweet" title="Tweet">
+            <i class="ri-twitter-fill"></i>
+        </button>
+    </div>
+    <span class="sharing__triangle"></span>
+</div>

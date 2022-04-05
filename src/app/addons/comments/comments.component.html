@@ -1,0 +1,26 @@
+<section>
+    <div class="commentSectionSlider">
+        <button [class]="commentMode==='mostRecent' ? 'active' : ''" (click)="commentMode = 'mostRecent'">Latest</button>
+        <button [class]="commentMode==='mostLiked' ? 'active' : ''" (click)="commentMode = 'mostLiked'">Most Liked</button>
+    </div>
+    <div class="addComment">
+        <div *ngIf="!dataProvider.loggedIn" class="noLogin"> 
+            <img src="./assets/images/vectors/404.svg" alt="Not Logged In">
+            <h2>You are not logged in.</h2>
+            <div>
+                <button routerLink="../../login">Login</button>
+                <button routerLink="../../signup">Signup</button>
+            </div>
+        </div>
+        <form [formGroup]="commentForm" (ngSubmit)="addComment()" *ngIf="dataProvider.loggedIn">
+            <div>
+                <input name="CommentBox" id="commentBox" cols="30" rows="1" placeholder="Add a comment here..."
+                formControlName="comment">
+                <button type="submit"><i class="ri-send-plane-2-fill"></i></button>
+            </div>
+        </form>
+    </div>
+    <div class="commentsBody">
+        <app-comment-box [comment]="comment" [path]="[comment.id]" *ngFor="let comment of comments"></app-comment-box>
+    </div>
+</section>

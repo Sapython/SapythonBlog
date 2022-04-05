@@ -32,7 +32,6 @@ import { DataProvider } from './providers/data.provider';
 import { DatabaseService } from './services/database.service';
 import { AuthenticationService } from './services/authentication.service';
 import { UserDataService } from './services/user-data.service';
-import { MessagingService } from './services/messaging.service';
 import { AlertsAndNotificationsService } from './services/uiService/alerts-and-notifications.service';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
@@ -49,11 +48,18 @@ import {
   provideAppCheck,
   ReCaptchaV3Provider,
 } from '@angular/fire/app-check';
+import { MessagingService } from './services/messaging.service';
+import { SelectShareDirective } from './directives/select-share.directive';
+import { OverlayModule } from '@angular/cdk/overlay';
+import { TooltipDirective } from './directives/tooltip/tooltip.directive';
+import { TooltipComponent } from './directives/tooltip/tooltip/tooltip.component';
+
 
 var firebaseApp:any;
 @NgModule({
-  declarations: [AppComponent, EmailBasedDialogComponent],
+  declarations: [AppComponent, EmailBasedDialogComponent, SelectShareDirective, TooltipDirective,TooltipComponent],
   imports: [
+    OverlayModule,
     BrowserModule,
     MatDialogModule,
     MatFormFieldModule,
@@ -81,12 +87,18 @@ var firebaseApp:any;
       console.log('app check',firebaseApp);
       return initializeAppCheck(firebaseApp, {
         provider: new ReCaptchaV3Provider(
-          '6Lf0zfseAAAAAOUQRIm7EV_ZW7FPGfPgSXVKUqg-'
+          '6Lf0zfseAAAAAOUQRIm7EV_ZW7FPGfPgSXVKUqg-',
         ),
         isTokenAutoRefreshEnabled: true,
       })
     }),
     provideStorage(() => getStorage()),
+    providePerformance(() => {
+      const PERF = getPerformance()
+      PERF.instrumentationEnabled = true;
+      PERF.dataCollectionEnabled = true;
+      return PERF;
+    }),
     WidgetsModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,
@@ -94,8 +106,7 @@ var firebaseApp:any;
       // or after 30 seconds (whichever comes first).
       registrationStrategy: 'registerWhenStable:30000',
     }),
-    NoopAnimationsModule,
-    ChatModule,
+    ChatModule
   ],
   providers: [
     ScreenTrackingService,
@@ -104,8 +115,8 @@ var firebaseApp:any;
     DatabaseService,
     AuthenticationService,
     UserDataService,
-    MessagingService,
     AlertsAndNotificationsService,
+    MessagingService
   ],
   bootstrap: [AppComponent],
 })

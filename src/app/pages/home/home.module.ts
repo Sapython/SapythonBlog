@@ -6,9 +6,10 @@ import { HomeComponent } from './home.component';
 import { WidgetsModule } from 'src/app/shared/widgets/widgets.module';
 import { SwiperModule } from 'swiper/angular';
 import { CdkModule } from 'src/app/shared/cdk/cdk.module';
+
 @NgModule({
   declarations: [
-    HomeComponent
+    HomeComponent,
   ],
   imports: [
     CommonModule,

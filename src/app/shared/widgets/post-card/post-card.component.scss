@@ -18,7 +18,7 @@ article{
             font-size:12px;
             color:var(--color-text-light);
             margin-top:10px;
-            font-family: 'CascadiyaCode';
+            font-family: var(--font-main);
             font-display: swap;
             i{
                 color: var(--color-main);
@@ -30,7 +30,7 @@ article{
             font-size:12px;
             color:var(--color-text-light);
             margin-top:10px;
-            font-family: 'CascadiyaCode';
+            font-family: var(--font-main);
             font-display: swap;
             img{
                 width:20px;
@@ -44,20 +44,20 @@ article{
             color:var(--color-text);
             margin-top:10px;
             margin-bottom: 15px;
-            font-family: 'CascadiyaCode';
+            font-family: var(--font-main);
             font-display: swap;
         }
         p.excerpt{
             font-size:15px;
             color:var(--color-text-light);
             margin-top:10px;
-            font-family: 'CascadiyaCode';
+            font-family: var(--font-main);
             font-display: swap;
         }
         p.excerpt::first-letter{
             font-size:30px;
             color:var(--color-text-light);
-            font-family: 'CascadiyaCode';
+            font-family: var(--font-main);
             font-display: swap;
         }
     }

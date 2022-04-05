@@ -5,7 +5,7 @@ import { Component, Input, OnInit } from '@angular/core';
   templateUrl: './post-card.component.html',
   styleUrls: ['./post-card.component.scss']
 })
-export class PostCardComponent implements OnInit {
+export class PostCardComponent {
   @Input() date:string='';
   @Input() authorName:string = '';
   @Input() authorImage:string = '';
@@ -13,9 +13,7 @@ export class PostCardComponent implements OnInit {
   @Input() excerpt:string = '';
   @Input() featuredImage:string = '';
   @Input() imageAlt:string = '';
+  @Input() urlMode:boolean = false;
+  @Input() url:string = '';
   constructor() { }
-
-  ngOnInit(): void {
-  }
-
 }

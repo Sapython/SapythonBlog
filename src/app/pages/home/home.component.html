@@ -1,4 +1,4 @@
-<main>
+<main id="mainContent">
     <section class="intro">
         <div class="branding">
             <span>Kumar Saptam</span>
@@ -9,7 +9,7 @@
             <h1><i class="ri-arrow-right-line"></i>&nbsp;About Me</h1>
             <h2>Self taught software developer and blogger, based in India.</h2>
             <p>I can create full stack websites and apps with production grade tech <strong>MEAN</strong> stack. </p>
-            <button>View Portfolio</button>
+            <button appTooltip="Hey Bro">View Portfolio</button>
         </article>
     </section>
     <section class="introServices">
@@ -78,10 +78,16 @@
             <br>
             Blog Posts
         </h2>
-        <div class="posts">
-            <app-post-card *ngFor="let post of posts" [date]="post.date" [authorImage]="post.authorImage"
-                [authorName]="post.authorName" [excerpt]="post.description" [title]="post.title || ''"
-                [featuredImage]="post.featuredImage" [imageAlt]="post.title || ''"></app-post-card>
+        <div class="posts uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slider>
+            <ul class="uk-slider-items uk-child-width-1-2 uk-child-width-1-3@s uk-child-width-1-4@m">
+                <li *ngFor="let post of posts">
+                    <app-post-card [date]="post.date" [authorImage]="post.authorImage" [authorName]="post.authorName"
+                        [excerpt]="post.description" [title]="post.title || ''" [featuredImage]="post.featuredImage"
+                        [imageAlt]="post.title || ''" [url]="post.route"></app-post-card>
+                </li>
+            </ul>
+            <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
+            <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slider-item="next"></a>
         </div>
     </section>
     <section class="projects">
@@ -93,15 +99,18 @@
         </div>
         <div class="mainProjects">
             <swiper [config]="projectsConfig" class="projectSlider ">
-                    <ng-template swiperSlide let-data *ngFor="let project of projects">
-                        <div class="uk-inline projectSlide" #slide>
-                            <app-img root="projectImages" [src]="project.image" height="40vh" width="70vw" fit="cover" alt=""></app-img>
-                            <article [ngStyle]="{'animation': data.isActive ? 'bottomSlide .5s ease-in-out forwards' : 'none'}" class="uk-overlay uk-light uk-position-bottom" >
-                                <h1>{{project.title}}</h1>
-                                <p>{{project.description}}</p>
-                            </article>
-                        </div>
-                    </ng-template>
+                <ng-template swiperSlide let-data *ngFor="let project of projects">
+                    <div class="uk-inline projectSlide" #slide>
+                        <app-img root="projectImages" [src]="project.image" height="40vh" width="70vw" fit="cover"
+                            alt=""></app-img>
+                        <article
+                            [ngStyle]="{'animation': data.isActive ? 'bottomSlide .5s ease-in-out forwards' : 'none'}"
+                            class="uk-overlay uk-light uk-position-bottom">
+                            <h1>{{project.title}}</h1>
+                            <p>{{project.description}}</p>
+                        </article>
+                    </div>
+                </ng-template>
             </swiper>
         </div>
         <div class="showcaseProjects">

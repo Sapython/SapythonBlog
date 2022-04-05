@@ -1,0 +1,103 @@
+section {
+  height: max-content;
+  padding:30px;
+  padding-top: 0px;
+  background-color: var(--color-tertiary);
+  div.commentSectionSlider {
+    position: relative;
+    left:50%;
+    border-radius: 7px;
+    transform: translate(-50%,-50%);
+    width: fit-content;
+    background-color: var(--color-tertiary-dark);
+    padding: 5px;
+    button {
+      width: auto;
+      height: 50px;
+      background-color: var(--color-dark-zero);
+      border: none;
+      outline: none;
+      color: var(--color-text);
+      font-size: 20px;
+      font-family: var(--font-main);
+      padding: 10px;
+      border-radius: 7px;
+      transition: background 0.5s ease-in-out;
+    }
+    button:hover {
+      background-color: var(--color-dark-one);
+    }
+    button.active {
+      background-color: var(--color-dark-two);
+    }
+  }
+  div.addComment{
+    div.noLogin{
+      width: fit-content;
+      position: relative;
+      left: 50%;
+      transform: translateX(-50%);
+      h2{
+        text-align: center;
+      }
+      div{
+        display: flex;
+        justify-content: space-between;
+        button{
+          margin: 10px;
+          background-color: var(--color-secondary);
+          padding: 10px 30px;
+          border-radius: 10px;
+          color:var(--color-text);
+          font-size: 20px;
+          font-family: var(--font-main);
+          border: none;
+          outline: none;
+          box-shadow: 5px 0px 10px rgba(0,0,0,0.3);
+        }
+      }
+    }
+    form{
+      div{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding:10px;
+        border: rgb(55, 54, 61) solid 2px;
+        border-radius: 10px;
+        background-color: var(--color-tertiary);
+        box-shadow: 0px 10px 20px rgba(0,0,0,0.3);
+        input{
+          background-color: transparent;
+          border: none;
+          outline: none;
+          color:var(--color-text);
+          font-size: 17px;
+        }
+        button{
+          text-align: center;
+          vertical-align:  middle;
+          position: relative;
+          right: 0px;
+          width: auto;
+          height: 50px;
+          background-color: var(--color-tertiary-dark);
+          border: none;
+          outline: none;
+          color: var(--color-text);
+          font-size: 20px;
+          font-family: var(--font-main);
+          padding: 5px;
+          width:40px;
+          height:40px;
+          border-radius: 50%;
+          transition: background 0.5s ease-in-out;
+        }
+      }
+    }
+  }
+  div.commentsBody{
+    margin:30px;
+    
+  }
+}

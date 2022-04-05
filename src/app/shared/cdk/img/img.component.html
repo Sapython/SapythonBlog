@@ -1,19 +1,24 @@
-<picture>
-    <!-- avif -->
-    <source srcset="./assets/images/{{root}}/compressed/{{src}}-256.avif" media="(max-width: 512px)" />
-    <source srcset="./assets/images/{{root}}/compressed/{{src}}-512.avif" media="(max-width: 800px)" />
-    <source srcset="./assets/images/{{root}}/compressed/{{src}}-1024.avif" media="(min-width: 1000px)" />
-    <source *ngIf="extraLarge" srcset="./assets/images/{{root}}/compressed/{{src}}-1600.avif" media="(min-width: 1600px)" />
-    <!-- webp -->
-    <source srcset="./assets/images/{{root}}/compressed/{{src}}-256.webp" media="(max-width: 512px)" />
-    <source srcset="./assets/images/{{root}}/compressed/{{src}}-512.webp" media="(max-width: 800px)" />
-    <source srcset="./assets/images/{{root}}/compressed/{{src}}-1024.webp" media="(min-width: 1000px)" />
-    <source *ngIf="extraLarge" srcset="./assets/compressed/{{root}}/{{src}}-1600.webp" media="(min-width: 1600px)" />
-    <!-- jpeg -->
-    <source srcset="./assets/images/{{root}}/compressed/{{src}}-256.jpg" media="(max-width: 512px)" />
-    <source srcset="./assets/images/{{root}}/compressed/{{src}}-512.jpg" media="(max-width: 800px)" />
-    <source srcset="./assets/images/{{root}}/compressed/{{src}}-1024.jpg" media="(min-width: 1000px)" />
-    <source *ngIf="extraLarge" srcset="./assets/images/{{root}}/compressed/{{src}}-1600.jpg" media="(min-width: 1600px)" />
-    <!-- original -->
-    <img loading="lazy" [style]="style" [ngStyle]="{'object-fit':fit,'height':height,'width':width,'border-radius':borderRadius}" src="assets/images/{{root}}/compressed/{{ src }}-512.jpg" [alt]="alt" />
-</picture>
+<div [ngStyle]="{'height':height,'width':width,'border-radius':borderRadius}" [class]="animate ? 'animate' : ''">
+    <picture *ngIf="!urlMode">
+        <!-- avif -->
+        <source srcset="./assets/images/{{root}}/compressed/{{src}}-256.avif" media="(max-width: 512px)" />
+        <source srcset="./assets/images/{{root}}/compressed/{{src}}-512.avif" media="(max-width: 800px)" />
+        <source srcset="./assets/images/{{root}}/compressed/{{src}}-1024.avif" media="(min-width: 1000px)" />
+        <source *ngIf="extraLarge" srcset="./assets/images/{{root}}/compressed/{{src}}-1600.avif" media="(min-width: 1600px)" />
+        <!-- webp -->
+        <source srcset="./assets/images/{{root}}/compressed/{{src}}-256.webp" media="(max-width: 512px)" />
+        <source srcset="./assets/images/{{root}}/compressed/{{src}}-512.webp" media="(max-width: 800px)" />
+        <source srcset="./assets/images/{{root}}/compressed/{{src}}-1024.webp" media="(min-width: 1000px)" />
+        <source *ngIf="extraLarge" srcset="./assets/compressed/{{root}}/{{src}}-1600.webp" media="(min-width: 1600px)" />
+        <!-- jpeg -->
+        <source srcset="./assets/images/{{root}}/compressed/{{src}}-256.jpg" media="(max-width: 512px)" />
+        <source srcset="./assets/images/{{root}}/compressed/{{src}}-512.jpg" media="(max-width: 800px)" />
+        <source srcset="./assets/images/{{root}}/compressed/{{src}}-1024.jpg" media="(min-width: 1000px)" />
+        <source *ngIf="extraLarge" srcset="./assets/images/{{root}}/compressed/{{src}}-1600.jpg" media="(min-width: 1600px)" />
+        <!-- original -->
+        <img loading="lazy" [style]="style" [ngStyle]="{'object-fit':fit,'height':height,'width':width,'border-radius':borderRadius}" src="assets/images/{{root}}/compressed/{{ src }}-512.jpg" [alt]="alt" />
+    </picture>
+    <picture *ngIf="urlMode" [class]="animate ? 'animate' : ''">
+        <img loading="lazy" [style]="style" [ngStyle]="{'object-fit':fit,'height':height,'width':width,'border-radius':borderRadius}" [src]="src" [alt]="alt" />
+    </picture>
+</div>

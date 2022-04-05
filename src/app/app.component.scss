@@ -1,7 +1,41 @@
-.router-wrapper  {
-	position:  relative;
-	width:  100vw;
-	height:  calc(100%  -  47px);
-	perspective:  1200px;
-	transform-style:  preserve-3d;
+.router-wrapper {
+  position: relative;
+  width: 100vw;
+  height: calc(100% - 47px);
+  perspective: 1200px;
+  transform-style: preserve-3d;
+}
+button.skip-to-main {
+  transform: translateY(-150%);
+  transition: 0.5s transform ease-in;
+  background-color: var(--color-main);
+  color: var(--color-text);
+  padding: 10px;
+  border:none;
+  outline:none;
+  border-radius: 0px 0px 10px 10px;
+  left: 10px;
+  height: 30px;
+  text-decoration: none;
+  position: absolute;
+}
+button.skip-to-main:focus {
+  transform: translateY(0%);
+	// top: 0%;
+}
+#chatPopup {
+  position: absolute;
+  bottom: 50px;
+  right: 50px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: var(--color-main);
+  color: var(--color-text);
+  font-size: 30px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 10000;
+  transition: all 0.5s ease-in-out;
 }

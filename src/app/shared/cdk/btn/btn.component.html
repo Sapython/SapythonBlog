@@ -1,0 +1,5 @@
+<button [routerLink]="link" [style]="processing ? 'cursor:progress' : 'cursor: pointer;'">
+    {{text}}
+    <i [class]="icon" *ngIf="icon && !processing" ></i>
+    <div id="processIndicator" *ngIf="processing"></div>
+</button>

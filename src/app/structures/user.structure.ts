@@ -7,13 +7,6 @@ export type UserData={
     emailVerified:boolean;
     firstLogin:boolean;
     access:UserAccess;
-    orders:Order[];
-    totalOrders:number;
-    totalCashback:number;
-    wishlist:Product[];
-    cart:CustomizedProduct[];
-    currentOrder?:Order;
-    friends:Friend[];
     chatAssigned:boolean;
 }
 export type Friend ={

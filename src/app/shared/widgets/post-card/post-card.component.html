@@ -6,11 +6,12 @@
             {{date}}
         </p>
         <p class="author">
-            <app-img root="authorImages" [src]="authorImage" [alt]="authorName"></app-img>
+            <app-img root="authorImages" [animate]="true" [urlMode]="urlMode" width="20px" height="20px" borderRadius="50%" [src]="authorImage" [alt]="authorName"></app-img>
             &nbsp;&nbsp;
             {{authorName}}
         </p>
         <h3>{{title}}</h3>
         <p class="excerpt">{{excerpt}}</p>
+        <app-btn text="Read" [link]="url"></app-btn>
     </div>
 </article>

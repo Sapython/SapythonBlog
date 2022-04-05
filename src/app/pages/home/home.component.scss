@@ -52,12 +52,12 @@ main {
       }
       span {
         text-align: left;
-        font-family: "CascadiyaCode";
+        font-family: var(--font-main);
         font-display: swap;
         font-size: 120px;
       }
       span.subtext {
-        font-family: "CascadiyaCode";
+        font-family: var(--font-main);
         font-size: 40px;
       }
     }
@@ -65,7 +65,7 @@ main {
       width: 23vw;
       margin-top: 10vh;
       margin-right: 10vw;
-      font-family: "CascadiyaCode";
+      font-family: var(--font-main);
       font-display: swap;
       h1 {
         font-size: 30px;
@@ -74,7 +74,7 @@ main {
           vertical-align: middle;
         }
         margin-left: -30px;
-        font-family: "CascadiyaCode";
+        font-family: var(--font-main);
         font-display: swap;
         color: var(--color-main-light);
       }
@@ -86,7 +86,7 @@ main {
       }
       button {
         margin-top: 50px;
-        font-family: "CascadiyaCode";
+        font-family: var(--font-main);
         font-display: swap;
         border: none;
         padding-top: 10px;
@@ -108,7 +108,7 @@ main {
       section {
         transform: perspective(1500px) rotateY(15deg);
         transition: transform 1s ease 0s, box-shadow 1s ease 0s;
-        font-family: "CascadiyaCode";
+        font-family: var(--font-main);
         font-display: swap;
         border-radius: 20px;
         background: var(--color-secondary);
@@ -144,12 +144,12 @@ main {
       margin-top: 20vh;
       p {
         margin: 0px;
-        font-family: "CascadiyaCode";
+        font-family: var(--font-main);
         font-display: swap;
         font-size: 100px;
         color: var(--color-main-light);
         strong {
-          font-family: "Amsterdam";
+          font-family: var(--font-secondary);
           font-display: swap;
           font-size: 70px;
         }
@@ -200,7 +200,7 @@ main {
         }
         p {
           margin: 0px;
-          font-family: "CascadiyaCode";
+          font-family: var(--font-main);
           font-display: swap;
         }
       }
@@ -234,22 +234,19 @@ main {
     h2 {
       color: var(--color-text);
       strong {
-        font-family: "Amsterdam";
+        font-family: var(--font-secondary);
         font-display: swap;
         font-size: 30px;
       }
       font-size: 50px;
-      font-family: "CascadiyaCode";
+      font-family: var(--font-main);
       font-display: swap;
     }
-    div.posts {
-      margin-left: 200px;
-      overflow-x: auto;
-    }
-    div.posts > app-post-card {
+    div.posts > ul > li > app-post-card {
       transition: transform 0.5s;
+      // margin: 20px;
     }
-    div.posts > app-post-card:hover {
+    div.posts > ul > li > app-post-card:hover {
       transform: scale(1.1);
     }
   }
@@ -258,12 +255,12 @@ main {
     div.heading {
       color: var(--color-text);
       strong {
-        font-family: "Amsterdam";
+        font-family: var(--font-secondary);
         font-display: swap;
         font-size: 30px;
       }
       font-size: 50px;
-      font-family: "CascadiyaCode";
+      font-family: var(--font-main);
       font-display: swap;
     }
     div.mainProjects {
@@ -313,7 +310,7 @@ main {
       }
       div:nth-child(4) {
         grid-area: d;
-        font-family: 'CascadiyaCode';
+        font-family: var(--font-main);
         font-display: swap;
         font-size: 50px;
         color:var(--color-main);

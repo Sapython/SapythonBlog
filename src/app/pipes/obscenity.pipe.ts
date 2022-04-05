@@ -8,10 +8,10 @@ export class ObscenityPipe implements PipeTransform {
   public readonly obscenities = require('badwords-list');
   transform(value: any, ...args: any[]): any {
     var newVal: string = value || '';
-    var replacer: string = '';
+    var replacer: string = '*';
 
     this.obscenities.array.forEach((curse: string) => {
-      newVal = newVal.replaceAll(curse, replacer);
+      newVal = newVal.replaceAll(curse, replacer.repeat(curse.length));
     });
 
     return newVal;

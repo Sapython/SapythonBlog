@@ -1,7 +1,23 @@
-<h3>ScullyIo content</h3>
-<hr>
-
-<!-- This is where Scully will inject the static HTML -->
-<scully-content></scully-content>
-<hr>
-<h4>End of content</h4>
+<main>
+    <h1 ><strong>The</strong>
+    <div class="stack" style="--stacks: 3;"><span style="--index: 0;">BLOG</span><span
+            style="--index: 1;">BLOG</span><span style="--index: 2;">BLOG</span></div>
+    </h1>
+    <article>
+        <app-img style="height:auto;width:40vw;" borderRadius="10px" root="postImages" [src]="featuredImage"></app-img>
+        <div class="postData">
+            <time datetime="dateTime">{{dateTime}}</time>
+            <h2>{{title}}</h2>
+            <p>{{excerpt}}</p>
+            <div>
+                <app-btn text="Read" [processing]="!routeDefined" [link]="route"></app-btn>
+            </div>
+        </div>
+    </article>
+    <div uk-grid="masonry: true;parallax:1000" class="posts">
+        <app-post-card-wide *ngFor="let post of posts" [date]="getLocaleDate(post.date)" [authorImage]="post.authorImage"
+            [authorName]="post.authorName" [excerpt]="post.description" [title]="post.title" [featuredImage]="post.featuredImage"
+            [imageAlt]="post.title" [url]="post.route">
+        </app-post-card-wide>
+    </div>
+</main>

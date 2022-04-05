@@ -31,12 +31,6 @@ export class UserDataService {
       access: {
         access: 'User',
       },
-      orders:[],
-      totalOrders:0,
-      totalCashback:0,
-      wishlist:[],
-      cart:[],
-      friends:[],
       chatAssigned:false,
     }
     this.userDoc  = doc(this.firestore,'users/'+user.uid);
@@ -60,12 +54,6 @@ export class UserDataService {
       access: {
         access: 'User',
       },
-      orders:[],
-      totalOrders:0,
-      totalCashback:0,
-      wishlist:[],
-      cart:[],
-      friends:[],
       chatAssigned:false,
     }
     this.userDoc  = doc(this.firestore,'users/'+user.uid);

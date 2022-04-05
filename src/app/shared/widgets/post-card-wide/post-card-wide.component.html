@@ -1,0 +1,17 @@
+<article>
+    <app-img root="postImages" class="featuredImage" width="400px" height="300px" [src]="featuredImage" [alt]="imageAlt"></app-img>
+    <div class="info">
+        <p class="date">
+            <i class="ri-calendar-2-fill"></i> 
+            {{date}}
+        </p>
+        <p class="author">
+            <app-img root="authorImages" [animate]="true" [urlMode]="urlMode" width="20px" height="20px" borderRadius="50%" [src]="authorImage" [alt]="authorName"></app-img>
+            &nbsp;&nbsp;
+            {{authorName}}
+        </p>
+        <h3>{{title}}</h3>
+        <p class="excerpt">{{excerpt}}</p>
+        <app-btn text="Read" [link]="url"></app-btn>
+    </div>
+</article>

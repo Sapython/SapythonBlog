@@ -22,15 +22,5 @@ export class DatabaseService {
       console.log(doc.id)
     })
   }
-  updateUserMessageToken(userId:string,messageToken:string){
-    return updateDoc(doc(this.fs,'users/'+userId),{messageToken:messageToken})
-  }
-  enableNotification(userId:string){
-    return updateDoc(doc(this.fs,'siteData/'+userId),{users:arrayUnion(userId)})
-  }
-  disableNotification(userId:string){
-    return updateDoc(doc(this.fs,'siteData/'+userId),{users:arrayUnion(userId)})
-  }
-  
   
 }

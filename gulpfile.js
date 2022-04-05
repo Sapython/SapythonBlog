@@ -78,6 +78,35 @@ const compressPostImages = async () => {
     .pipe(imagemin())
     .pipe(dest("src/assets/images/postImages/compressed/"));
 };
+const compressPostHeaderImages = async () => {
+  await src("src/assets/images/postImages/*.{png,jpg}")
+    .pipe(
+      sharpResponsive({
+        formats: [
+          // jpeg
+          { width: 512, format: "jpeg", rename: { suffix: "-512" } },
+          { width: 1024, format: "jpeg", rename: { suffix: "-1024" } },
+          { width: 1600, format: "jpeg", rename: { suffix: "-1600" } },
+          { width: 1920, format: "jpeg", rename: { suffix: "-1920" } },
+          // webp
+          { width: 512, format: "webp", rename: { suffix: "-512" } },
+          { width: 1024, format: "webp", rename: { suffix: "-1024" } },
+          { width: 1600, format: "webp", rename: { suffix: "-1600" } },
+          { width: 1920, format: "webp", rename: { suffix: "-1920" } },
+          // avif
+          { width: 512, format: "avif", rename: { suffix: "-512" } },
+          { width: 1024, format: "avif", rename: { suffix: "-1024" } },
+          { width: 1600, format: "avif", rename: { suffix: "-1600" } },
+          { width: 1920, format: "avif", rename: { suffix: "-1920" } },
+        ],
+      })
+    )
+    .pipe(dest("src/assets/images/postHeaderImages/compressed"));
+
+  await src("src/assets/images/postHeaderImages/compressed/*.{webp,avif,jpg}")
+    .pipe(imagemin())
+    .pipe(dest("src/assets/images/postHeaderImages/compressed/"));
+};
 const compressUiImages = async () => {
   await src("src/assets/images/ui/*.{png,jpg}")
     .pipe(
@@ -113,5 +142,6 @@ module.exports = {
   compressProjectImages,
   compressAuthorImages,
   compressPostImages,
-  compressUiImages
+  compressUiImages,
+  compressPostHeaderImages
 };
