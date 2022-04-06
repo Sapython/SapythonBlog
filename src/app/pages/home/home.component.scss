@@ -252,6 +252,7 @@ main {
   }
   section.projects {
     padding: 50px;
+    padding-left: 200px;
     div.heading {
       color: var(--color-text);
       strong {
@@ -264,9 +265,8 @@ main {
       font-display: swap;
     }
     div.mainProjects {
-      margin: 100px;
       .projectSlider {
-        margin: 0 auto;
+        margin-bottom: 40px;
         border-radius: 20px;
         width: 70vw;
         height: 40vh;
@@ -290,7 +290,7 @@ main {
       }
     }
     div.showcaseProjects {
-      margin: 0 auto;
+      // margin: 0 auto;
       display: grid;
       grid-template-columns: 1fr 1fr 1fr 1fr;
       grid-template-rows: 1fr 1fr;

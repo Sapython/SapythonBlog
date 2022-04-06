@@ -16,7 +16,7 @@
     "deploy": "npm run prebuild && ng build --configuration production && npm run postbuild && npx scully -- --scanRoutes && firebase deploy --only hosting && lighthouse https://sapython-f016a.web.app/ --view && start https://sapython-f016a.web.app/",
     "postbuild": "gzip dist/static/*.*",
     "prebuild": "npm run cleanDist && npm run compressImages",
-    "compressImages":"gulp compressProjectImages compressAuthorImages compressPostImages compressUiImages compressPostHeaderImages",
+    "compressImages": "gulp compressProjectImages compressAuthorImages compressPostImages compressUiImages compressPostHeaderImages",
     "analyze": "source-map-explorer dist/SapythonBlog/**/*.js",
     "lint": "ng lint"
   },
