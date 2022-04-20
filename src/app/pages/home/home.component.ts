@@ -1,24 +1,36 @@
-import { Component, OnInit, OnDestroy, ViewChild, AfterViewInit } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  OnDestroy,
+  ViewChild,
+  AfterViewInit,
+  HostListener,
+} from '@angular/core';
 import { ScullyRoute, ScullyRoutesService } from '@scullyio/ng-lib';
 import { Subscription } from 'rxjs';
 import { SwiperOptions, Swiper, Autoplay, Virtual } from 'swiper';
 import { SwiperComponent } from 'swiper/angular';
-import SwiperCore from 'swiper'
-import { wrapGrid } from 'animate-css-grid'
-SwiperCore.use([Virtual,Autoplay]);
+import SwiperCore from 'swiper';
+declare var TweenMax: any;
+declare var Linear: any;
+declare var Sine: any;
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
 })
-export class HomeComponent implements OnInit, OnDestroy {
+export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
   @ViewChild('swiper', { static: false }) swiper?: SwiperComponent;
   posts: ScullyRoute[] = [];
-  projectGrid:{flex:number}[]=[];
+  projectGrid: { flex: number }[] = [];
   forwardVisible: boolean = false;
+  resizeTimer: NodeJS.Timeout | undefined;
   projectShowcase: 'website' | 'app' | 'server' | 'other' = 'website';
+  sizes:string[] = ['s', 'm', 'l'];
+  container: any;
+  icons:any;
   private routeSub: any;
-  gridAnimationCounter:number = 0;
+  gridAnimationCounter: number = 0;
   projectsConfig: SwiperOptions = {
     slidesPerView: 1,
     spaceBetween: 0,
@@ -60,18 +72,79 @@ export class HomeComponent implements OnInit, OnDestroy {
       this.posts = posts.filter((post) => post.title);
     });
   }
-
+  ngAfterViewInit(): void {
+    this.sizes = ['s', 'm', 'l'];
+    this.container = document.getElementById('integration-list') as HTMLElement;
+    this.icons = document.querySelectorAll('#integration-list li');
+  this.startStackAnimation(this.icons,this.container,this.sizes);
+    // debounce the re-init so it doesn't totally freak out while draging
+  }
+  startStackAnimation(icons:any,container:HTMLElement,sizes:string[]) {
+    const w = container.offsetWidth;
+    const h = container.offsetHeight;
+    icons.forEach((icon:any, i:number) => {
+      var size = sizes[Math.ceil(Math.random() * 3) - 1];
+      TweenMax.set(icon, {
+        attr: { class: size },
+        y: this.genRandom(50, h - 150),
+        x: this.genRandom(w, w + 50),
+      });
+      this.animate(icon, i,icons);
+    }); 
+  }
+  @HostListener('resize')
+  resizeDebounce() {
+    if(this.resizeTimer){clearTimeout(this.resizeTimer);}
+    this.resizeTimer = setTimeout(()=>{this.startStackAnimation(this.icons,this.container,this.sizes)}, 250);
+  }
+  animate(element: Element, i: any,icons:any) {
+    TweenMax.to(element, this.genRandom(110, 120), {
+      x: -1500,
+      ease: Linear.easeNone,
+      repeat: -1,
+      delay: (-115 / icons.length) * i,
+    });
+    TweenMax.to(element, this.genRandom(6, 16), {
+      y: '+=50',
+      repeat: -1,
+      yoyo: true,
+      ease: Sine.easeInOut,
+      delay: this.genRandom(-16, -6),
+    });
+  }
+  genRandom(min: number, max: number) {
+    return min + Math.random() * (max - min);
+  }
+  translate(element: HTMLElement, startX: number) {
+    const fullWidth = window.innerWidth;
+    let currentX = startX;
+    let currentY = 0;
+    const maxHeight = 200;
+    setInterval(() => {
+      if (currentX <= fullWidth) {
+        currentX -= 5;
+        if (currentY < maxHeight) {
+          currentY += 10;
+        }
+        element.style.transform = `translate3d(${currentX}px,0px,0)`;
+        if (currentX <= -50) {
+          currentX = fullWidth;
+          element.style.transform = `translate3d(${currentX}px,0px,0)`;
+        }
+      }
+    }, 100);
+  }
   ngOnDestroy(): void {
     this.routeSub?.unsubscribe();
   }
-  genArray(n: number): {flex:number}[] {
-    const grids = []
+  genArray(n: number): { flex: number }[] {
+    const grids = [];
     for (let index = 0; index < n; index++) {
-      grids.push({flex:this.genRandom(2,4)})
+      grids.push({ flex: this.genRandom(2, 4) });
     }
     return grids;
   }
-  genRandom(min:number,max:number){
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-  }
+  // genRandom(min:number,max:number){
+  //   return Math.floor(Math.random() * (max - min + 1)) + min;
+  // }
 }
