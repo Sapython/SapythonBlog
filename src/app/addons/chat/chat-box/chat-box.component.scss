@@ -3,7 +3,7 @@ div.sender{
     height:auto;
     position: relative;
     float: left;
-    background-color: var(--color-tertiary);
+    background-color: rgb(var(--color-tertiary));
     border-radius: 10px 10px 10px 0px;
     padding:10px;
     margin: 10px;
@@ -23,7 +23,7 @@ div.receive{
     height:auto;
     position: relative;
     float: right;
-    background-color: var(--color-primary);
+    background-color: rgb(var(--color-primary));
     border-radius: 10px 10px 0px 10px;
     padding:10px;
     margin: 10px;

@@ -13,6 +13,7 @@ export class BtnComponent implements OnInit {
   @Input() icon:string = "";
   @Input() disabled:boolean = false;
   @Input() processing:boolean = false;
+  @Input() inverse:boolean = false;
   @Output() appClick:EventEmitter<any> = new EventEmitter();
   @Output() appHover:EventEmitter<any> = new EventEmitter();
   // @ContentChild(ChildDirective) contentChild!: ChildDirective;

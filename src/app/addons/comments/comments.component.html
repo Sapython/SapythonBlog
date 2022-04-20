@@ -13,14 +13,15 @@
             </div>
         </div>
         <form [formGroup]="commentForm" (ngSubmit)="addComment()" *ngIf="dataProvider.loggedIn">
-            <div>
+            <div *ngIf="!addingComment">
                 <input name="CommentBox" id="commentBox" cols="30" rows="1" placeholder="Add a comment here..."
                 formControlName="comment">
                 <button type="submit"><i class="ri-send-plane-2-fill"></i></button>
             </div>
+            <app-spinner *ngIf="addingComment" radius="20px"></app-spinner>
         </form>
     </div>
     <div class="commentsBody">
-        <app-comment-box [comment]="comment" [path]="[comment.id]" *ngFor="let comment of comments"></app-comment-box>
+        <app-comment-box [postId]="postId" [comment]="comment" [path]="[comment.id]" *ngFor="let comment of comments"></app-comment-box>
     </div>
 </section>

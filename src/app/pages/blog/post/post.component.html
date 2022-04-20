@@ -1,11 +1,12 @@
-<div class="postHeader">
+<div class="postHeader" *ngIf="postData">
     <div class="overlay"></div>
-    <h1>{{postData.title}}</h1>
+    <h1>{{postData?.title}}</h1>
     <app-imgheader [src]="postData.featuredImage" style="height:auto;width:100vw;" root="postHeaderImages"></app-imgheader>
 </div>
 <main id="postData">
     <article>
         <scully-content></scully-content>
+        <app-like-dislike *ngIf="dbPostData" (liked)="likedPost($event)" (disliked)="dislikedPost($event)" (markedFav)="markedFavorite($event)" [likeCount]="dbPostData.likes" [dislikedDone]="dislikeDone" [likedDone]="likeDone" [isFavorite]="favorite" [isFavorite]="dbPostData.isFavorite" [dislikeCount]="dbPostData.dislikes"></app-like-dislike>
     </article>
     <aside>
         <app-widgets *ngFor="let widget of widgets" [widget]="widget.widget" [data]="widget.data"></app-widgets>
@@ -14,7 +15,7 @@
         </div> -->
     </aside>
 </main>
-<app-comments></app-comments>
+<app-comments [postId]="postId" *ngIf="loadComments"></app-comments>
 <div class="sharing" id="sharing">
     <div class="sharing__buttons">
         <button id="share" title="Share">

@@ -2,7 +2,7 @@ article{
     border-radius: 20px;
     width:300px;
     height:700px;
-    background:var(--color-tertiary);
+    background:rgb(var(--color-tertiary));
     box-shadow: 0px 30px 30px rgba(0,0,0,0.1);
     img.featuredImage{
         width:300px;
@@ -16,19 +16,19 @@ article{
         padding: 15px;
         p.date{
             font-size:12px;
-            color:var(--color-text-light);
+            color:rgb(var(--color-text-main));
             margin-top:10px;
             font-family: var(--font-main);
             font-display: swap;
             i{
-                color: var(--color-main);
+                color: rgb(var(--color-main));
                 font-size: 20px;
                 vertical-align: middle;
             }
         }
         p.author{
             font-size:12px;
-            color:var(--color-text-light);
+            color:rgb(var(--color-text-main));
             margin-top:10px;
             font-family: var(--font-main);
             font-display: swap;
@@ -41,7 +41,7 @@ article{
         }
         h4{
             font-size:35px;
-            color:var(--color-text);
+            color:rgb(var(--color-text));
             margin-top:10px;
             margin-bottom: 15px;
             font-family: var(--font-main);
@@ -49,14 +49,14 @@ article{
         }
         p.excerpt{
             font-size:15px;
-            color:var(--color-text-light);
+            color:rgb(var(--color-text-main));
             margin-top:10px;
             font-family: var(--font-main);
             font-display: swap;
         }
         p.excerpt::first-letter{
             font-size:30px;
-            color:var(--color-text-light);
+            color:rgb(var(--color-text-main));
             font-family: var(--font-main);
             font-display: swap;
         }

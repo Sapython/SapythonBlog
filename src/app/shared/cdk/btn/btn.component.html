@@ -1,4 +1,4 @@
-<button [routerLink]="link" [style]="processing ? 'cursor:progress' : 'cursor: pointer;'">
+<button [routerLink]="link" [style]="processing ? 'cursor:progress' : 'cursor: pointer;'" [ngStyle]="{'background': inverse ? 'rgb(var(--color-tertiary))' : 'rgb(var(--color-main))'}" >
     {{text}}
     <i [class]="icon" *ngIf="icon && !processing" ></i>
     <div id="processIndicator" *ngIf="processing"></div>

@@ -6,6 +6,8 @@ export type CommentData = {
     comment: string;
     date: Date;
     replyAvailable: boolean;
-    likes: number;
-    dislikes: number;
+    likedUsers: string[];
+    dislikedUsers: string[];
+    flagged: boolean;
+    flaggedMessage:string;
 }

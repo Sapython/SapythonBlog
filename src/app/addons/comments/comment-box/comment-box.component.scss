@@ -26,31 +26,31 @@ div.main {
       p {
         font-family: var(--font-main);
         font-size: 15px;
-        color: var(--color-text);
+        color: rgb(var(--color-text));
         margin:0px;
       }
       time {
         font-family: var(--font-main);
         font-size: 14px;
-        color: var(--color-text-light);
+        color: rgb(var(--color-text-main));
         height:min-content
       }
     }
     p {
       font-size: 17px;
       font-weight: 400;
-      color: var(--color-text);
+      color: rgb(var(--color-text));
     }
     div.actions {
       button {
-        color: var(--color-text);
+        color: rgb(var(--color-text));
         border: none;
         outline: none;
         font-size: 20px;
         background-color: transparent;
       }
       button > i[class$="-fill"] {
-        color: var(--color-main);
+        color: rgb(var(--color-main));
       }
       button.showReply{
         font-size: 15px;
@@ -64,13 +64,13 @@ div.main {
           padding:10px;
           border: rgb(55, 54, 61) solid 2px;
           border-radius: 10px;
-          background-color: var(--color-tertiary);
+          background-color: rgb(var(--color-tertiary));
           box-shadow: 0px 10px 20px rgba(0,0,0,0.3);
           input{
             background-color: transparent;
             border: none;
             outline: none;
-            color:var(--color-text);
+            color:rgb(var(--color-text));
             font-size: 17px;
           }
           
@@ -81,10 +81,10 @@ div.main {
             right: 0px;
             width: auto;
             height: 50px;
-            background-color: var(--color-tertiary-dark);
+            background-color: rgb(var(--color-tertiary-dark));
             border: none;
             outline: none;
-            color: var(--color-text);
+            color: rgb(var(--color-text));
             font-size: 20px;
             font-family: var(--font-main);
             padding: 5px;

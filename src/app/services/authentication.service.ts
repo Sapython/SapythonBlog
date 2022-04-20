@@ -20,6 +20,8 @@ import { AlertsAndNotificationsService } from './uiService/alerts-and-notificati
 import { UserDataService } from './user-data.service';
 import { DataProvider } from '../providers/data.provider';
 import { Router } from '@angular/router';
+import { UserData } from '../structures/user.structure';
+import { setDoc } from 'firebase/firestore';
 
 
 @Injectable({
@@ -215,7 +217,6 @@ export class AuthenticationService {
           this.dataProvider.userID = u.uid;
           // console.log('User is logged in')
           this.userDoc = doc(this.firestore,'users/'+u.uid);
-          console.log("User data from auth",u);
           if (this.userServerSubscription!=undefined){
             this.userServerSubscription.unsubscribe();
           }
@@ -223,7 +224,7 @@ export class AuthenticationService {
             this.dataProvider.gettingUserData = false;
           } else {
             this.userServerSubscription = docData(this.userDoc).subscribe((data:any) => {
-              console.log("Recieved new data",data)
+              this.fixMissingFields(data);
               this.dataProvider.userData = data;
               this.dataProvider.gettingUserData= false;
             })
@@ -236,6 +237,51 @@ export class AuthenticationService {
       }
     }
   }
-
+  private fixMissingFields(user: UserData){
+    if (user.access == undefined){
+      console.log('Fixing access')
+      setDoc(doc(this.firestore,'users/'+user.userId),{access:{access:'User'}},{merge:true});
+    }
+    if (user.displayName == undefined){
+      console.log('Fixing display name')
+      setDoc(doc(this.firestore,'users/'+user.userId),{displayName:user.email},{merge:true});
+    }
+    if (user.photoURL == undefined){
+      console.log('Fixing photo url')
+      setDoc(doc(this.firestore,'users/'+user.userId),{photoURL:''},{merge:true});
+    }
+    if (user.phoneNumber == undefined){
+      console.log('Fixing phone number')
+      setDoc(doc(this.firestore,'users/'+user.userId),{phoneNumber:''},{merge:true});
+    }
+    if (user.email == undefined){
+      console.log('Fixing email')
+      setDoc(doc(this.firestore,'users/'+user.userId),{email:''},{merge:true});
+    }
+    if (user.emailVerified == undefined){
+      console.log('Fixing email verified')
+      setDoc(doc(this.firestore,'users/'+user.userId),{emailVerified:false},{merge:true});
+    }
+    if (user.chatAssigned == undefined){
+      console.log('Fixing chat assigned')
+      setDoc(doc(this.firestore,'users/'+user.userId),{chatAssigned:false},{merge:true});
+    }
+    if (user.dislikedPost == undefined){
+      console.log('Fixing disliked post')
+      setDoc(doc(this.firestore,'users/'+user.userId),{dislikedPost:[]},{merge:true});
+    }
+    if (user.likedPost == undefined){
+      console.log('Fixing liked post')
+      setDoc(doc(this.firestore,'users/'+user.userId),{likedPost:[]},{merge:true});
+    }
+    if (user.subscribed == undefined){
+      console.log('Fixing subscribed')
+      setDoc(doc(this.firestore,'users/'+user.userId),{subscribed:[]},{merge:true});
+    }
+    if (user.favorites == undefined){
+      console.log('Fixing favorites')
+      setDoc(doc(this.firestore,'users/'+user.userId),{favorites:[]},{merge:true});
+    }
+  }
 }
 

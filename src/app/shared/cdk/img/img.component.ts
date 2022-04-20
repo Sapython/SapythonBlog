@@ -21,11 +21,11 @@ export class ImgComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log('URLMDOE',this.urlMode);
+    // console.log('URLMDOE',this.urlMode);
     if(this.src=='' && !this.urlMode){
       this.urlMode = true;
       this.src= "https://via.placeholder.com/"+(this.width.toString() || '400')+"x"+(this.height.toString() || '400');
-      console.log(this.src);
+      // console.log(this.src);
     }
   }
 

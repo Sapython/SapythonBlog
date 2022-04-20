@@ -1,0 +1,102 @@
+@keyframes popIn {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+div.cli{
+    animation: popIn 300ms ease-in forwards;
+    z-index: 100000;
+    top: 40%;
+    left: 50%;
+    width:400px;
+    height:fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    transform: translate(-50%,-50%);
+    flex-direction: column;
+    form.bar{
+        display: flex;
+        align-items: center;
+        // position: absolute;
+        width: 400px;
+        height: 60px;
+        padding: 5px;
+        border-radius: 7px;
+        background: rgb(var(--color-tertiary));
+        box-shadow: 5px 3px 20px rgba(0,0,0,0.4);
+        i{
+            font-size: 30px;
+        }
+        input{
+            padding:5px;
+            color:rgb(var(--color-text));
+            font-size: 20px;
+            height: 100%;
+            flex: 2;
+            border: none;
+            outline: none;
+            background: rgb(var(--color-tertiary));
+        }
+    }
+    ul{
+        display: block;
+        width: 400px;
+        max-height:240px;
+        overflow-y: auto;
+        scroll-snap-type: y mandatory;
+        overflow-x: hidden;
+        margin-top: 20px;
+        padding:5px;
+        border-radius: 7px;
+        background: rgb(var(--color-tertiary));
+        box-shadow: 5px 3px 20px rgba(0,0,0,0.4);
+        // left: 50%;
+        // position: fixed;
+        // transform: translateX(-50%);
+        button{
+            scroll-snap-align: start;
+            text-align: start;
+            width:400px;
+            height:60px;
+            border: none;
+            outline: none;
+            background: rgb(var(--color-tertiary));
+            padding: 10px;
+            color: rgb(var(--color-text));
+            font-size: 20px;
+            cursor: pointer;
+            &:focus{
+                background: rgb(var(--color-primary));    
+            }
+            h6{
+                font-size: 17px;
+                color:rgb(var(--color-main-main));
+                margin: 0px;
+            }
+            p{
+                font-size: 12px;
+                color: rgb(var(--color-text-main));
+            }
+        }
+        .selected{
+            background: rgb(var(--color-primary));
+            // color: rgb(var(--color-tertiary));
+        }
+    }
+}
+div.overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    filter: blur(10px);
+    background: rgba(0,0,0,0.5);
+    backdrop-filter: blur(10px);
+    z-index: 99999;
+}

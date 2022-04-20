@@ -54,48 +54,94 @@ $SapythonBlog-theme: mat.define-light-theme((
     url(./assets/fonts/AmsterdamOne.woff2) format("woff2");
   font-display: swap;
 }
+@keyframes bubble {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
 :root {
-  --color-primary: #2a2e3d;
-  --color-secondary: #404351;
-  --color-tertiary: #1c1f29;
-  --color-tertiary-dark: rgb(24, 25, 27);
-  --color-dark-zero: #17191da2;
-  --color-dark-one: #101114;
-  --color-dark-two: #090a0c;
-  --color-main: #5e6eff;
-  --color-main-focus: #4658ff;
-  --color-main-light: #919cff;
-  --color-main-dark: #4a4f7b;
-  --color-text: #ffffff;
-  --color-text-light: #c2c2c2;
+  --color-primary: 42, 46, 61;
+  --color-primary-gr1: 36, 40, 53;
+  --color-secondary: 64, 67, 81;
+  --color-tertiary: 28, 31, 41;
+  --color-tertiary-gr1: 37, 39, 48;
+  --color-tertiary-dark: 24, 25, 27;
+  --color-dark-zero: 24, 25, 27;
+  --color-dark-one: 16, 17, 20;
+  --color-dark-two: 9, 10, 12;
+  --color-main: 94, 110, 255;
+  --color-main-focus: 70, 88, 255;
+  --color-main-light: 145, 156, 255;
+  --color-main-dark: 74, 79, 123;
+  --color-text: 255, 255, 255;
+  --color-text-light: 194, 194, 194;
   --font-main:"CascadiyaCode";
   --font-secondary:"Amsterdam";
   // New theme
-  --color-primary: #20232e;
-  --color-secondary: #2d2f38;
-  --color-tertiary: #14171d;
+  // --color-primary: #20232e;
+  // --color-secondary: #2d2f38;
+  // --color-tertiary: #14171d;
+}
+.neoMorph{
+  background: linear-gradient(145deg, #262937, #2d3141);
+  box-shadow:  5px 5px 11px #111218,
+             -5px -5px 11px #434a62;
+}
+.neoMorph-main{
+  background: linear-gradient(145deg, #262937, #2d3141);
+  box-shadow:  5px 5px 11px #6c6cff58,
+             -5px -5px 11px #434a62;
 }
 // Definitions end here
+*{
+  font-family: var(--font-main);
+}
 html,
 body {
   margin: 0%;
   padding: 0%;
-  color: var(--color-text);
-  background: var(--color-primary);
+  color: rgb(var(--color-text));
+  background:rgb(var(--color-primary));
   overflow-x: hidden;
   scroll-behavior: smooth;
+  z-index: -1;
+}
+body{
+  background-color: transparent;
+}
+#mainScroll{
+  background-color: #2a2e3d6d;
+  z-index: 1;
 }
 .swiper-wrapper {
   display: flex;
 }
-html,
-body {
-  height: 100%;
+
+.bubble {
+  z-index: -5;
+  border-radius: 50%;opacity: 0;
+  animation: bubble 10s infinite alternate ease-in-out;
+  width: 200px;
+  height: 200px;
+  filter: blur(500px);
+  transition: all 2s ease-in-out;
+  position: fixed;
 }
-body {
-  margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
-}
+// .bubbleContainer {
+//   overflow: hidden;
+//   // width: 100vw;
+//   // height: 100vh;
+//   // position: fixed;
+//   // top: 0px;
+//   // left: 0px;
+// }
 /* Generated with http://k88hudson.github.io/syntax-highlighting-theme-generator/www */
 /* http://k88hudson.github.io/react-markdocs */
 /**
@@ -236,3 +282,17 @@ pre[class*="language-"] > code[class*="language-"] {
   white-space: pre;
 }
 
+.mat-snack-bar-container {
+	color: rgba(255, 255, 255, 0.842);
+  font-family: var(--font-main);
+	background: #0c0d11;
+	box-shadow: 0px 3px 10px -1px rgba(0, 0, 0, 0.2), 0px 6px 20px 0px rgba(0, 0, 0, 0.14), 0px 1px 28px 0px rgba(0, 0, 0, 0.12);
+}
+.mat-simple-snackbar{
+  font-family: var(--font-main);
+}
+.mat-simple-snackbar > span::first-letter{
+  color:rgb(255, 72, 130);
+  font-size: 20px;
+  font-weight: 600;
+}

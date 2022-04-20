@@ -19,8 +19,8 @@ export class AlertsAndNotificationsService {
       this.toastErrorAudio.play();
     }
   }
-  presentToast(message: string,type: 'info'|'error'='info', duration: number = 3000,action:string='',sound:boolean = true) {
-    this.snackbar.open(message,action, { duration: duration });
+  presentToast(message: string,type: 'info'|'error'='info', duration: number = 5000,action:string='',sound:boolean = true) {
+    this.snackbar.open('>    '+message,action, { duration: duration });
     if (sound && type === 'info'){
       this.playAudio('toast');
     } else if (sound && type==='error'){
@@ -36,7 +36,7 @@ export class AlertsAndNotificationsService {
   }
   
   constructor(private snackbar: MatSnackBar,public dialog: MatDialog) {
-    this.toastAudio.src = '/assets/audio/tones/toast.mp3';
+    this.toastAudio.src = '/assets/audio/tones/toast.wav';
     this.toastAudio.volume = 0.4;
     this.toastAudio.load();
     this.toastErrorAudio.src = '/assets/audio/tones/error.mp3';

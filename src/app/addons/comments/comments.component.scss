@@ -2,22 +2,22 @@ section {
   height: max-content;
   padding:30px;
   padding-top: 0px;
-  background-color: var(--color-tertiary);
+  background-color: rgb(var(--color-tertiary));
   div.commentSectionSlider {
     position: relative;
     left:50%;
     border-radius: 7px;
     transform: translate(-50%,-50%);
     width: fit-content;
-    background-color: var(--color-tertiary-dark);
+    background-color: rgb(var(--color-tertiary-dark));
     padding: 5px;
     button {
       width: auto;
       height: 50px;
-      background-color: var(--color-dark-zero);
+      background-color: rgb(var(--color-dark-zero));
       border: none;
       outline: none;
-      color: var(--color-text);
+      color: rgb(var(--color-text));
       font-size: 20px;
       font-family: var(--font-main);
       padding: 10px;
@@ -25,10 +25,10 @@ section {
       transition: background 0.5s ease-in-out;
     }
     button:hover {
-      background-color: var(--color-dark-one);
+      background-color: rgb(var(--color-dark-one));
     }
     button.active {
-      background-color: var(--color-dark-two);
+      background-color: rgb(var(--color-dark-two));
     }
   }
   div.addComment{
@@ -45,10 +45,10 @@ section {
         justify-content: space-between;
         button{
           margin: 10px;
-          background-color: var(--color-secondary);
+          background-color: rgb(var(--color-secondary));
           padding: 10px 30px;
           border-radius: 10px;
-          color:var(--color-text);
+          color:rgb(var(--color-text));
           font-size: 20px;
           font-family: var(--font-main);
           border: none;
@@ -65,13 +65,13 @@ section {
         padding:10px;
         border: rgb(55, 54, 61) solid 2px;
         border-radius: 10px;
-        background-color: var(--color-tertiary);
+        background-color: rgb(var(--color-tertiary));
         box-shadow: 0px 10px 20px rgba(0,0,0,0.3);
         input{
           background-color: transparent;
           border: none;
           outline: none;
-          color:var(--color-text);
+          color:rgb(var(--color-text));
           font-size: 17px;
         }
         button{
@@ -81,10 +81,10 @@ section {
           right: 0px;
           width: auto;
           height: 50px;
-          background-color: var(--color-tertiary-dark);
+          background-color: rgb(var(--color-tertiary-dark));
           border: none;
           outline: none;
-          color: var(--color-text);
+          color: rgb(var(--color-text));
           font-size: 20px;
           font-family: var(--font-main);
           padding: 5px;

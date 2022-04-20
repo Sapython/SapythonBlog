@@ -7,9 +7,8 @@ import { CommentsModule } from 'src/app/addons/comments/comments.module';
 import { WidgetsModule } from 'src/app/shared/widgets/widgets.module';
 import { ScullyLibModule } from '@scullyio/ng-lib';
 import { CdkModule } from 'src/app/shared/cdk/cdk.module';
-import { WidgetModule } from 'src/app/sidebar/widget/widget.module';
 import { SidebarWidgetsModule } from 'src/app/sidebar/widgets/widgets.module';
-
+import { PostService } from 'src/app/services/post.service';
 @NgModule({
   declarations: [PostComponent],
   imports: [
@@ -20,7 +19,8 @@ import { SidebarWidgetsModule } from 'src/app/sidebar/widgets/widgets.module';
     ScullyLibModule,
     CdkModule,
     // WidgetModule,
-    SidebarWidgetsModule,
+    SidebarWidgetsModule
   ],
+  providers:[PostService]
 })
 export class PostModule {}

@@ -32,6 +32,10 @@ export class UserDataService {
         access: 'User',
       },
       chatAssigned:false,
+      dislikedPost: [],
+      likedPost: [],
+      favorites:[],
+      subscribed:[]
     }
     this.userDoc  = doc(this.firestore,'users/'+user.uid);
     await setDoc(this.userDoc,data).then(()=>{
@@ -55,6 +59,10 @@ export class UserDataService {
         access: 'User',
       },
       chatAssigned:false,
+      dislikedPost: [],
+      likedPost: [],
+      favorites:[],
+      subscribed:[]
     }
     this.userDoc  = doc(this.firestore,'users/'+user.uid);
     await setDoc(this.userDoc,data).then(()=>{

@@ -1,11 +1,15 @@
 import {
   AfterViewInit,
   Component,
+  ComponentFactoryResolver,
+  HostListener,
   OnChanges,
   OnInit,
   SimpleChanges,
+  ViewContainerRef,
 } from '@angular/core';
 import { Router } from '@angular/router';
+import { AllowIn, ShortcutInput } from 'ng-keyboard-shortcuts';
 import { PartialObserver, Subscription } from 'rxjs';
 import { DataProvider } from 'src/app/providers/data.provider';
 import { MessagingService } from 'src/app/services/messaging.service';
@@ -25,12 +29,30 @@ export class HeaderComponent implements OnInit, AfterViewInit {
   chatPopupVisible: boolean = true;
   chatOpen: boolean = false;
   notificationInitialized: boolean = false;
+  terminalVisible:boolean = false;
+  commandPallete:any;
+  shortcuts: ShortcutInput[] = [];
   constructor(
     private router: Router,
     public messagingService: MessagingService,
-    public dataProvider: DataProvider
+    public dataProvider: DataProvider,
+    private vcref: ViewContainerRef,
+    private cfr: ComponentFactoryResolver
   ) {}
   ngOnInit(): void {
+    this.shortcuts.push(  
+      {  
+          key: "ctrl + space",  
+          preventDefault: true,  
+          allowIn: [AllowIn.Textarea, AllowIn.Input],  
+          command: e => this.showCommandLine()  
+      },
+      {  
+        key: "escape",
+        preventDefault: true,  
+        allowIn: [AllowIn.Textarea, AllowIn.Input],  
+        command: e => {if(this.commandPallete){this.commandPallete.destroy()}}
+    })
     this.notificationEnabled = Notification.permission === 'granted';
     document.addEventListener('resize', () => {
       console.log('Resized');
@@ -59,24 +81,24 @@ export class HeaderComponent implements OnInit, AfterViewInit {
           console.log(
             ((
               document.querySelector('.active') as HTMLElement
-            ).style.borderBottom = 'solid 5px var(--color-main)')
+            ).style.borderBottom = 'solid 5px rgb(var(--color-main)')
           );
-          // element.style.borderBottomColor="var(--color-main)";
+          // element.style.borderBottomColor="rgb(var(--color-main)";
         }, 500);
       }
     }
-    for (let i =1; i < 20; i++){
-      if (!this.notificationInitialized){
-        setTimeout(() => {
-          if (this.notificationEnabled && !this.notificationInitialized) {
-            if (this.dataProvider.userData) {
-              this.messagingService.startNotificationService();
-              this.notificationInitialized = true;
-            }
-          }
-        }, 5000 * i);
-      }
-    }
+    // for (let i =1; i < 20; i++){
+    //   if (!this.notificationInitialized){
+    //     setTimeout(() => {
+    //       if (this.notificationEnabled && !this.notificationInitialized) {
+    //         if (this.dataProvider.userData) {
+    //           this.messagingService.startNotificationService();
+    //           this.notificationInitialized = true;
+    //         }
+    //       }
+    //     }, 5000 * i);
+    //   }
+    // }
   }
   toggleNotification() {
     if (this.notificationEnabled) {
@@ -92,5 +114,13 @@ export class HeaderComponent implements OnInit, AfterViewInit {
   }
   hello() {
     console.log('Hello');
+  } 
+
+  async showCommandLine(){
+    const { CommandLineModule } = await import('../../../addons/command-line/command-line.module');
+    const { CommandLineComponent } = await import('../../../addons/command-line/command-line.component');
+    const componentFactory = this.cfr.resolveComponentFactory(CommandLineComponent);
+    this.commandPallete = this.vcref.createComponent(componentFactory);
   }
+  
 }

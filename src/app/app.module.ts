@@ -54,7 +54,6 @@ import { OverlayModule } from '@angular/cdk/overlay';
 import { TooltipDirective } from './directives/tooltip/tooltip.directive';
 import { TooltipComponent } from './directives/tooltip/tooltip/tooltip.component';
 
-
 var firebaseApp:any;
 @NgModule({
   declarations: [AppComponent, EmailBasedDialogComponent, SelectShareDirective, TooltipDirective,TooltipComponent],
@@ -106,7 +105,7 @@ var firebaseApp:any;
       // or after 30 seconds (whichever comes first).
       registrationStrategy: 'registerWhenStable:30000',
     }),
-    ChatModule
+    ChatModule,
   ],
   providers: [
     ScreenTrackingService,

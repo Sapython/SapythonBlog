@@ -6,12 +6,16 @@ import { RouterModule } from '@angular/router';
 import { PostCardComponent } from './post-card/post-card.component';
 import { CdkModule } from '../cdk/cdk.module';
 import { PostCardWideComponent } from './post-card-wide/post-card-wide.component';
+import { KeyboardShortcutsModule }     from 'ng-keyboard-shortcuts';  
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LikeDislikeComponent } from './like-dislike/like-dislike.component';
 
 const components = [
   HeaderComponent,
   FooterComponent,
   PostCardComponent,
   PostCardWideComponent,
+  LikeDislikeComponent
 ];
 
 @NgModule({
@@ -20,6 +24,9 @@ const components = [
     CommonModule,
     RouterModule,
     CdkModule,
+    ReactiveFormsModule,
+    FormsModule,
+    KeyboardShortcutsModule.forRoot(),
   ],
   exports:components
 })

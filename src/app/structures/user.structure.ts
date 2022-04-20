@@ -8,6 +8,10 @@ export type UserData={
     firstLogin:boolean;
     access:UserAccess;
     chatAssigned:boolean;
+    dislikedPost:string[];
+    likedPost:string[];
+    subscribed:string[];
+    favorites:string[];
 }
 export type Friend ={
     userID:string;

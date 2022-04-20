@@ -14,6 +14,9 @@ SwiperCore.use([Virtual,Autoplay]);
 export class HomeComponent implements OnInit, OnDestroy {
   @ViewChild('swiper', { static: false }) swiper?: SwiperComponent;
   posts: ScullyRoute[] = [];
+  projectGrid:{flex:number}[]=[];
+  forwardVisible: boolean = false;
+  projectShowcase: 'website' | 'app' | 'server' | 'other' = 'website';
   private routeSub: any;
   gridAnimationCounter:number = 0;
   projectsConfig: SwiperOptions = {
@@ -52,6 +55,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   ];
   constructor(private scullyService: ScullyRoutesService) {}
   ngOnInit(): void {
+    this.projectGrid = this.genArray(10);
     this.routeSub = this.scullyService.available$.subscribe((posts) => {
       this.posts = posts.filter((post) => post.title);
     });
@@ -60,5 +64,14 @@ export class HomeComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.routeSub?.unsubscribe();
   }
-
+  genArray(n: number): {flex:number}[] {
+    const grids = []
+    for (let index = 0; index < n; index++) {
+      grids.push({flex:this.genRandom(2,4)})
+    }
+    return grids;
+  }
+  genRandom(min:number,max:number){
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
 }

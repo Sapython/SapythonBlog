@@ -1,0 +1,123 @@
+@keyframes popIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    50% {
+        opacity: 0.5;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+@keyframes popFont {
+    0% {
+        // opacity: 0;
+        transform: scale(0.5);
+    }
+    50% {
+        // opacity: 0.5;
+        transform: scale(1.5);
+    }
+    100% {
+        // opacity: 1;
+        transform: scale(1);
+    }
+}
+@keyframes popCircle{
+    0% {
+        width: 10px;
+        height: 10px;
+    }
+    50% {
+        width: 40px;
+        height: 40px;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+div.container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width:min-content;
+    margin:20px auto;
+    button{
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: space-between;
+        margin: 0 10px;
+        border:none;
+        outline:none;
+        border-radius: 8px;
+        padding:10px;
+        width:50px;
+        height:56px;
+        transition: all .3s ease-in-out;
+        --strongVisible:none;
+        i{
+            font-size: 30px;
+            color:rgb(var(--color-text));
+        }
+        &:hover{
+            width:150px;
+            --strongVisible:block;
+        }
+        strong{
+            opacity: 0;
+            animation: popIn .3s ease-in-out forwards;
+            animation-delay: .3s;
+            font-size: 18px;
+            display: var(--strongVisible);
+        }
+
+    }
+    .like{
+        background-color: rgb(var(--color-dark-two));
+        color:rgb(var(--color-text));
+    }
+    .dislike{
+        background-color: rgb(var(--color-dark-two));
+        color:rgb(var(--color-text));
+    }
+    .favorite{
+        background-color: rgb(var(--color-dark-two));
+        color:rgb(var(--color-text));
+        i{
+            transition: color 0.3s ease-in;
+        }
+    }
+    .liked{
+        color:rgb(255, 62, 98);
+        i{
+            animation: popFont .3s ease-in-out forwards;
+            color:rgb(255, 62, 98);
+        }
+    }
+    .active{
+        cursor: not-allowed;
+        color:rgb(var(--color-main-main));
+        i{
+            animation: popFont .3s ease-in-out forwards;
+            color:rgb(var(--color-main-main));
+        }
+    }
+    .progressHolder{
+        background-color: rgb(var(--color-text-main));
+        width:200px;
+        border-radius: 5px;
+        --progress:0%;
+        .progress{
+            background-color: rgb(var(--color-main));
+            width:var(--progress);
+            height:10px;
+            border-bottom-left-radius: 5px;
+            border-top-left-radius: 5px;
+            transition: all .5s ease-in-out;
+        }
+    }
+}

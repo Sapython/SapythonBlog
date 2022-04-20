@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { EmailSubscribeComponent } from './email-subscribe.component';
+import { CommandLineComponent } from './command-line.component';
 
-describe('EmailSubscribeComponent', () => {
-  let component: EmailSubscribeComponent;
-  let fixture: ComponentFixture<EmailSubscribeComponent>;
+describe('CommandLineComponent', () => {
+  let component: CommandLineComponent;
+  let fixture: ComponentFixture<CommandLineComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ EmailSubscribeComponent ]
+      declarations: [ CommandLineComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(EmailSubscribeComponent);
+    fixture = TestBed.createComponent(CommandLineComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

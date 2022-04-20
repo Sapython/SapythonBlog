@@ -1,0 +1,13 @@
+<div class="cli">
+    <form [formGroup]="searchForm" class="bar">
+        <i class="ri-arrow-right-s-line"></i>
+        <input appAutofocus type="text" formControlName="searchText" (change)="showResults($event)" #input>
+    </form>
+    <ul #commandsList *ngIf="filteredCommands.length>0">
+        <button #result (click)="runCommand(command.function)" *ngFor="let command of filteredCommands">
+            <h6>{{command.title}}</h6>
+            <p>{{command.description}}</p>
+        </button>
+    </ul>
+</div> 
+<!-- <div class="overlay"></div> -->

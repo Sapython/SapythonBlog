@@ -11,7 +11,7 @@ main{
       font-family: var(--font-main);
       font-display: swap;
       font-weight: 300;
-      color:var(--color-main-light);
+      color:rgb(var(--color-main-main));
       margin-top: 0px;
     }
     div.stack {
@@ -48,7 +48,7 @@ main{
       time{
         font-size: 20px;
         font-family: var(--font-main);
-        color: var(--color-text-light);
+        color: rgb(var(--color-text-main));
         margin-bottom: 20px;
       }
       h2{
@@ -58,7 +58,7 @@ main{
       p{
         font-family: var(--font-main);
         font-size: 20px;
-        color: var(--color-text-light);
+        color: rgb(var(--color-text-main));
       }
     }
   }

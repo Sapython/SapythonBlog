@@ -28,7 +28,7 @@
 #linkFollower {
   position: absolute;
   height: 5px;
-  background-color: var(--color-main);
+  background-color: rgb(var(--color-main));
   transition: 0.5s all;
 }
 
@@ -37,7 +37,7 @@ header {
   justify-content: right;
   width: 100vw;
   height: var(--header-height);
-  background-color: var(--color-primary);
+  background-color: transparent;
   nav {
     height: var(--header-height);
     display: flex;
@@ -47,35 +47,47 @@ header {
       font-family: var(--font-main);
       font-display: swap;
       font-size: 20px;
-      color: var(--color-text-light);
+      color: rgb(var(--color-text-main));
       text-decoration: none;
       margin-right: 100px;
-      border-bottom: solid 5px var(--color-primary);
+      border-bottom: solid 5px rgb(var(--color-primary));
       // transition: all 0.5s;
     }
     a.active {
-      color: var(--color-text);
+      color: rgb(var(--color-text));
       // padding-bottom: 10px;
+    }
+    button{
+      background: transparent;
+      padding: 0;
+      margin: 0;
+      color:rgb(var(--color-main));
+      font-size: 30px;
+      margin-right: 40px;
+      transition: color 1s ease-in;
+    }
+    button:hover{
+      color:rgb(var(--color-text));
     }
   }
 }
 #notifier {
   display: flex;
   align-items: center;
-  position: absolute;
+  position: fixed;
   top: 100px;
   z-index: 100000;
   right: 0px;
   width: 100px;
   height: 30px;
-  background-color: var(--color-tertiary);
+  background-color: rgb(var(--color-tertiary));
   border-radius: 20px 0px 0px 20px;
   padding: 20px;
   box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.5);
   animation: swipeRight 1s forwards;
   button {
     border: none;
-    background-color: var(--color-main);
+    background-color: rgb(var(--color-main));
     color: white;
     font-size: 20px;
     border-radius: 20px;
@@ -95,14 +107,14 @@ header {
   animation: openPanel 1s forwards !important;
 }
 #chatPopup {
-  position: absolute;
+  position: fixed;
   bottom: 50px;
   right: 50px;
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background-color: var(--color-main);
-  color: var(--color-text);
+  background-color: rgb(var(--color-main));
+  color: rgb(var(--color-text));
   font-size: 30px;
   display: flex;
   justify-content: space-around;

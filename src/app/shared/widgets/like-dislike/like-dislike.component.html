@@ -1,0 +1,20 @@
+<div class="container">
+    <button [class]=" likedDone ? 'like active' : 'like'" (click)="like()" [disabled]="likedDone">
+        <i class="ri-thumb-up-fill"></i>
+        <strong>Like {{nFormatter(likeCount,1)}}</strong>
+    </button>
+    <button [class]="dislikedDone ? 'dislike active' : 'dislike'" (click)="dislike()" [disabled]="dislikedDone">
+        <i class="ri-thumb-down-fill"></i>
+        <strong>Dislike {{nFormatter(dislikeCount,1)}}</strong>
+    </button>
+    <button (click)="favorite()" [class]="isFavorite ? 'favorite liked' : 'favorite'" *ngIf="dataProvider.loggedIn">
+        <i class="ri-heart-fill"></i>
+        <strong>Favorite</strong>
+    </button>
+    <br>
+</div>
+<div class="container">
+    <div class="progressHolder">
+        <div class="progress" style="--progress:{{genProgress}}%;"></div>
+    </div>
+</div>

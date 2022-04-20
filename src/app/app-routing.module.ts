@@ -3,8 +3,14 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
+    path: '',
+    redirectTo: 'home',
+    pathMatch: 'full',
+  },
+  {
     path: 'blog',
-    loadChildren: () => import('./pages/blog/blog.module').then((m) => m.BlogModule),
+    loadChildren: () =>
+      import('./pages/blog/blog.module').then((m) => m.BlogModule),
   },
   {
     path: 'portfolio',
@@ -108,11 +114,6 @@ const routes: Routes = [
     path: 'reviews',
     loadChildren: () =>
       import('./pages/reviews/reviews.module').then((m) => m.ReviewsModule),
-  },
-  {
-    path:'',
-    redirectTo:'home',
-    pathMatch:'full'
   },
   {
     path: '**',

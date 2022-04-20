@@ -22,7 +22,7 @@ div.chatContainer{
     right: 50px;
     width: 400px;
     height: 500px;
-    background-color: var(--color-secondary);
+    background-color: rgb(var(--color-secondary));
     z-index: 99999;
     border-radius: 7px;
     box-shadow: -10px 10px 20px rgba(0,0,0,0.5);
@@ -34,7 +34,7 @@ div.chatContainer{
         // width: 100%;
         height: var(--headerHeight);
         border-radius: 7px 7px 0px 0px;
-        background-color: var(--color-main);
+        background-color: rgb(var(--color-main));
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -44,7 +44,7 @@ div.chatContainer{
             flex: 3;
             margin-left: 10px;
             font-size: 20px;
-            color: var(--color-text);
+            color: rgb(var(--color-text));
         }
     }
     div.chatBody{
@@ -57,7 +57,7 @@ div.chatContainer{
         left:0px;
         height: var(--footerHeight);
         border-radius: 0px 0px 7px 7px;
-        background-color: var(--color-main);
+        background-color: rgb(var(--color-main));
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -71,19 +71,19 @@ div.chatContainer{
                 border: none;
                 flex: 2;
                 padding:0px;
-                color:var(--color-text);
+                color:rgb(var(--color-text));
                 height:calc(var(--footerHeight)-10px);
                 width:100%;
                 font-size: 18px;
-                background: var(--color-main);
+                background: rgb(var(--color-main));
                 border-bottom: 2px white solid;
             }
             button{
                 outline: none;
                 border: none;
                 margin: 0px 20px 0px 20px;
-                background-color: var(--color-main);
-                color: var(--color-text);
+                background-color: rgb(var(--color-main));
+                color: rgb(var(--color-text));
                 font-size: 20px;
                 border-radius: 5px;
                 padding: 5px;

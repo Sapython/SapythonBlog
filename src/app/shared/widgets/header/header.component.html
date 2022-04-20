@@ -4,6 +4,9 @@
         <a tabindex="3" routerLink="../portfolio" [ngClass]="pageName ==='portfolio' ? 'active' : ''">Portfolio</a>
         <a tabindex="4" routerLink="../blog" [ngClass]="pageName ==='blog' ? 'active' : ''">Blog</a>
         <a tabindex="5" routerLink="../products" [ngClass]="pageName ==='products' ? 'active' : ''">Products</a>
+        <button (click)="showCommandLine()">
+            <i class="ri-terminal-box-fill"></i>
+        </button>
     </nav>
     <div id="linkFollower">
     </div>
@@ -17,6 +20,7 @@
         Login
     </button>
 </div>
+<ng-keyboard-shortcuts [shortcuts]="shortcuts"></ng-keyboard-shortcuts>
 <!-- <div id="chatPopup" *ngIf="!dataProvider.gettingUserData" (mouseleave)="chatPopupVisible=true" (mouseenter)="chatPopupVisible=false" [style]="chatOpen ? 'width:auto;height:auto;' : 'width:50px;height:50px;'">
     <i *ngIf="chatPopupVisible && !chatOpen" class="ri-chat-3-fill"></i>
     <i *ngIf="!chatPopupVisible && !chatOpen" class="ri-arrow-up-s-line" (click)="chatOpen=!chatOpen"></i>

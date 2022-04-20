@@ -8,18 +8,20 @@
             </div>
             <p>{{comment.comment | obscenity}}</p>
             <div class="actions">
-                <button><i [class]="comment.likes > 0 ? 'ri-thumb-up-fill' : 'ri-thumb-up-line'"></i></button>
-                <button><i [class]="comment.dislikes > 0 ? 'ri-thumb-down-fill' : 'ri-thumb-down-line'"></i></button>
-                <button><i class="ri-flag-fill"></i></button>
+                <button *ngIf="dataProvider.userData && !actionWorking" (click)="likeComment($event)" [disabled]="comment.likedUsers.includes(dataProvider.userData.userId)"><i [class]="comment.likedUsers.includes(dataProvider.userData.userId) ? 'ri-thumb-up-fill' : 'ri-thumb-up-line'"></i>&nbsp;{{comment.likedUsers.length}}</button>
+                <button *ngIf="dataProvider.userData && !actionWorking" (click)="dislikeComment($event)" [disabled]="comment.dislikedUsers.includes(dataProvider.userData.userId)"><i [class]="comment.dislikedUsers.includes(dataProvider.userData.userId) ? 'ri-thumb-down-fill' : 'ri-thumb-down-line'">&nbsp;{{comment.dislikedUsers.length}}</i></button>
+                <button *ngIf="dataProvider.userData && !actionWorking" (click)="reportComment($event)"><i class="ri-flag-fill"></i></button>
                 <button><i class="ri-delete-bin-2-fill"></i></button>
-                <button (click)="showReplyForm=true" ><i class="ri-message-2-line"></i></button>
+                <button *ngIf="dataProvider.userData && !actionWorking" (click)="showReplyForm=true" ><i class="ri-message-2-line"></i></button>
+                <app-spinner *ngIf="actionWorking"></app-spinner>
                 <form *ngIf="showReplyForm" class="replyForm" [formGroup]="commentForm" (ngSubmit)="replyComment()">
-                    <div>
+                    <div *ngIf="!addingComment">
                         <input name="CommentBox" id="commentBox" cols="30" rows="1" placeholder="Reply ..."
                         formControlName="comment">
                         <button type="submit" [class]="commentForm.valid ? '' : 'disabled'" [disabled]="!commentForm.valid"><i class="ri-send-plane-2-fill"></i></button>
                         <button type="button" (click)="showReplyForm = false"><i class="ri-close-fill"></i></button>
                     </div>
+                    <app-spinner *ngIf="addingComment" radius="20px"></app-spinner>
                 </form>
                 <button *ngIf="comment.replyAvailable" class="showReply" (click)="showReply()">{{showReplies ? 'Hide' : 'Show'}} Replies</button>
             </div>
@@ -27,7 +29,7 @@
     </div> 
     <!-- <hr *ngIf="showReplies && this.comments.length > 0"> -->
     <div *ngIf="showReplies" class="replies" [style]="comment.replyAvailable && !showReplies ? 'border-left: 2px solid rgb(57, 59, 71)' : ''">
-        <app-comment-box [comment]="comment" [path]="nextPath" *ngFor="let comment of comments"></app-comment-box>
+        <app-comment-box [postId]="postId" [comment]="comment" [path]="nextPath" *ngFor="let comment of comments"></app-comment-box>
         <app-spinner *ngIf="fetchingReplies"></app-spinner>
     </div>
 </div>

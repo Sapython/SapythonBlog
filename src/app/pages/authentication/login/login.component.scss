@@ -18,7 +18,7 @@ header{
         margin-top: 50px;
         a{
             font-size: 20px;
-            color: var(--color-text);
+            color: rgb(var(--color-text));
             font-family: var(--font-main);
             text-decoration: none;
         }
@@ -36,7 +36,7 @@ main {
         animation: moveGradient 10s;
         h1{
             font-size: 50px;
-            color: var(--color-main-light);
+            color: rgb(var(--color-main-main));
             font-family: var(--font-secondary);
             text-align: left;
             margin-left: 100px;
@@ -48,7 +48,7 @@ main {
                 margin-bottom: 30px;
                 width:300px;
                 height:40px;
-                background: var(--color-secondary);
+                background: rgb(var(--color-secondary));
                 display: flex;
                 font-size: 20px;
                 padding:10px;
@@ -63,13 +63,13 @@ main {
                     padding:0px;
                     font-size: 20px;
                     font-family: var(--font-main);
-                    color: var(--color-text);
-                    background: var(--color-secondary);
+                    color: rgb(var(--color-text));
+                    background: rgb(var(--color-secondary));
                     outline: none;
                 }
                 i{
                     font-size: 30px;
-                    color: var(--color-main);
+                    color: rgb(var(--color-main));
                 }
             }
             div.actions{
@@ -86,11 +86,11 @@ main {
                     border-radius: 50%;
                     padding:0px;
                     font-size: 20px;
-                    background: var(--color-secondary);
+                    background: rgb(var(--color-secondary));
                     outline: none;
                     cursor: pointer;
                     i{
-                        color: var(--color-text);
+                        color: rgb(var(--color-text));
                         margin: 0%;
                         padding: 0%;
                     }
@@ -99,17 +99,17 @@ main {
                     width:150px;
                     height:45px;
                     padding:10px 5px 10px 5px;
-                    background: var(--color-main);
+                    background: rgb(var(--color-main));
                     border: none;
                     outline: none;
-                    color:var(--color-text);
+                    color:rgb(var(--color-text));
                     border-radius: 7px;
                     font-family: var(--font-main);
                     font-size: 20px;
                     transition: all 0.5s ease;
                 }
                 button[type="submit"]:hover{
-                    // background: var(--color-main-light);
+                    // background: rgb(var(--color-main-main));
                     box-shadow: 10px 5px 20px rgba(0,0,0,0.4);
                 }
             }
@@ -117,14 +117,14 @@ main {
         a{
             display: block;
             font-size: 20px;
-            color: var(--color-text);
+            color: rgb(var(--color-text));
             font-family: var(--font-main);
             text-decoration: none;
             margin-left: 150px;
             margin-top: 20px;
             margin-top: 100px;
             strong{
-                color: var(--color-main);
+                color: rgb(var(--color-main));
             }
         }
     }
