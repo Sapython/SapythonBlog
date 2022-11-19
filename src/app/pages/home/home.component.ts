@@ -7,64 +7,62 @@ import {
   HostListener,
 } from '@angular/core';
 import { ScullyRoute, ScullyRoutesService } from '@scullyio/ng-lib';
-import { Subscription } from 'rxjs';
-import { SwiperOptions, Swiper, Autoplay, Virtual } from 'swiper';
-import { SwiperComponent } from 'swiper/angular';
-import SwiperCore from 'swiper';
-declare var TweenMax: any;
-declare var Linear: any;
-declare var Sine: any;
+import anime from 'animejs/lib/anime.es';
+import { AnimationItem } from 'lottie-web';
+import { AnimationOptions } from 'ngx-lottie';
+
+declare var VanillaTilt:any;
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
-  @ViewChild('swiper', { static: false }) swiper?: SwiperComponent;
   posts: ScullyRoute[] = [];
   projectGrid: { flex: number }[] = [];
   forwardVisible: boolean = false;
   resizeTimer: NodeJS.Timeout | undefined;
-  projectShowcase: 'website' | 'app' | 'server' | 'other' = 'website';
+  projectShowcase: 'website' | 'app' | 'server' | 'website2' | 'other' = 'website2';
   sizes:string[] = ['s', 'm', 'l'];
   container: any;
   icons:any;
   private routeSub: any;
   gridAnimationCounter: number = 0;
-  projectsConfig: SwiperOptions = {
-    slidesPerView: 1,
-    spaceBetween: 0,
-    navigation: true,
-    pagination: { clickable: true },
-    scrollbar: { draggable: true },
-    autoplay: {
-      delay: 3500,
-      disableOnInteraction: false,
-    },
+  pricingSelected:'mobile' | 'web' = 'web';
+  websiteOptions: AnimationOptions = {
+    path: '/assets/animations/website.json',
+    loop: false,
+    autoplay: false,
   };
-  projects: any[] = [
-    {
-      title: 'Project 1',
-      image: 'programming',
-      route: 'projects/project-1',
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nibh nisi, tincidunt vel facilisis pretium, varius dignissim magna. Praesent sodales lectus eget lobortis laoreet. Cras et sodales odio. Donec ex eros, viverra sit amet lectus eget, volutpat facilisis orci. Nunc dapibus tellus sit amet elit eleifend, id congue nisl finibus. In ullamcorper purus in tempor maximus. Aliquam lectus purus, lacinia nec hendrerit nec, ullamcorper ut lacus.',
-    },
-    {
-      title: 'Project 2',
-      image: 'programming',
-      route: 'projects/project-1',
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nibh nisi, tincidunt vel facilisis pretium, varius dignissim magna. Praesent sodales lectus eget lobortis laoreet. Cras et sodales odio. Donec ex eros, viverra sit amet lectus eget, volutpat facilisis orci. Nunc dapibus tellus sit amet elit eleifend, id congue nisl finibus. In ullamcorper purus in tempor maximus. Aliquam lectus purus, lacinia nec hendrerit nec, ullamcorper ut lacus.',
-    },
-    {
-      title: 'Project 3',
-      image: 'programming',
-      route: 'projects/project-1',
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nibh nisi, tincidunt vel facilisis pretium, varius dignissim magna. Praesent sodales lectus eget lobortis laoreet. Cras et sodales odio. Donec ex eros, viverra sit amet lectus eget, volutpat facilisis orci. Nunc dapibus tellus sit amet elit eleifend, id congue nisl finibus. In ullamcorper purus in tempor maximus. Aliquam lectus purus, lacinia nec hendrerit nec, ullamcorper ut lacus.',
-    },
-  ];
+  appOptions: AnimationOptions = {
+    path: '/assets/animations/app.json',
+    loop: false,
+    autoplay: false,
+  };
+  serverOptions: AnimationOptions = {
+    path: '/assets/animations/Server.json',
+    loop: false,
+    autoplay: false,
+  };
+  otherOptions: AnimationOptions = {
+    path: '/assets/animations/Other.json',
+    loop: false,
+    autoplay: false,
+  };
+  animations: any[] = [];
+  animationCreated(animationItem: AnimationItem,name:string): void {
+    console.log(animationItem);
+    this.animations[name] = animationItem;
+  }
+  playAnimation(animation:string){
+    // console.log(this.animations[animation].currentFrame,this.animations[animation].isPaused,animation);
+    if (this.animations[animation].isPaused || this.animations[animation].currentFrame > 200) {
+      this.animations[animation].goToAndPlay(0);
+    } else {
+      // console.log('pausing',animation);
+    }
+  }
   constructor(private scullyService: ScullyRoutesService) {}
   ngOnInit(): void {
     this.projectGrid = this.genArray(10);
@@ -76,19 +74,59 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
     this.sizes = ['s', 'm', 'l'];
     this.container = document.getElementById('integration-list') as HTMLElement;
     this.icons = document.querySelectorAll('#integration-list li');
-  this.startStackAnimation(this.icons,this.container,this.sizes);
+    // this.startStackAnimation(this.icons,this.container,this.sizes);
+    const w = this.container.offsetWidth;
+    const h = this.container.offsetHeight;
+    const margin = this.icons[0].offsetWidth+50;
+    const delayOffset = 5;
+    this.icons.forEach((element:Element,i:number) => {
+      anime.set(element,{
+        top:this.genRandom(50, h - 150),
+        left: this.genRandom(w+20, w + 70),
+      })
+      const animationX = anime({
+        targets: element,
+        translateX: [0+margin,-window.innerWidth-margin],
+        margin:anime.random(-70,70),
+        duration: 5000*this.icons.length,
+        delay: (i*delayOffset)*1000,
+        easing: 'linear',
+        loop:true,
+      })
+      animationX.seek(animationX.duration*0.99);
+      anime({
+        targets: element,
+        top:[this.genRandom(0,100),this.genRandom(200,h-150)
+          // {value:,duration:0},
+          // {value:this.genRandom(0+150,h-150),duration:5000},
+        ],
+        direction:'alternate',
+        easing:'easeInOutQuad',
+        delay: (i*delayOffset)*this.genRandom(500,1000),
+        loop:true,
+        duration:50000,
+      })
+    });
     // debounce the re-init so it doesn't totally freak out while draging
+    VanillaTilt.init(document.querySelectorAll('.tilt-container'),{
+      speed:100,
+      easing:'ease-in-out',
+      perspective:3000,
+    })
   }
   startStackAnimation(icons:any,container:HTMLElement,sizes:string[]) {
     const w = container.offsetWidth;
     const h = container.offsetHeight;
     icons.forEach((icon:any, i:number) => {
       var size = sizes[Math.ceil(Math.random() * 3) - 1];
-      TweenMax.set(icon, {
-        attr: { class: size },
-        y: this.genRandom(50, h - 150),
-        x: this.genRandom(w, w + 50),
-      });
+      const left = this.genRandom(w, w + 50).toString()
+      console.log(left);
+      anime({
+        targets: icon,
+        top:this.genRandom(50, h - 150).toString()+'px',
+        left: left+'px',
+        duration:0,
+      })
       this.animate(icon, i,icons);
     }); 
   }
@@ -98,19 +136,23 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
     this.resizeTimer = setTimeout(()=>{this.startStackAnimation(this.icons,this.container,this.sizes)}, 250);
   }
   animate(element: Element, i: any,icons:any) {
-    TweenMax.to(element, this.genRandom(110, 120), {
-      x: -1500,
-      ease: Linear.easeNone,
-      repeat: -1,
+    anime({
+      targets: element,
+      transformX: [0,-500],
+      duration: this.genRandom(110, 120),
       delay: (-115 / icons.length) * i,
-    });
-    TweenMax.to(element, this.genRandom(6, 16), {
-      y: '+=50',
-      repeat: -1,
-      yoyo: true,
-      ease: Sine.easeInOut,
-      delay: this.genRandom(-16, -6),
-    });
+      easing: 'linear',
+      loop:true,
+    })
+    anime({
+      targets: element,
+      transformY: '50%',
+      duration: this.genRandom(110, 120),
+      delay: (-115 / icons.length) * i,
+      easing: 'easeInOut',
+      loop:true,
+      alternate:true
+    })
   }
   genRandom(min: number, max: number) {
     return min + Math.random() * (max - min);

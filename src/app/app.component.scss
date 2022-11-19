@@ -1,4 +1,7 @@
 .router-wrapper {
+  width: 100vw;
+}
+.animatable{
   position: relative;
   width: 100vw;
   height: calc(100% - 47px);
@@ -38,4 +41,34 @@ button.skip-to-main:focus {
   align-items: center;
   z-index: 10000;
   transition: all 0.5s ease-in-out;
+}
+.fixedDebugBar{
+  z-index: 100000;
+  position: fixed;
+  bottom:0px;
+  left:0px;
+  width: fit-content;
+  padding:10px;
+  border-top-right-radius: 20px;
+  box-shadow: 10px -10px 20px 5px rgba(var(--color-main),0.2);
+  height:30px;
+  background: rgb(var(--color-tertiary));
+  color:rgb(var(--color-main))
+}
+#changer{
+  position: fixed;
+  z-index: 9999999;
+  top:0px;
+  overflow: hidden;
+  width: 100vw;
+  height:0vh;
+  background: linear-gradient(145deg, rgb(var(--color-tertiary-gr1)), rgb(var(--color-tertiary)));
+  font-size: 70px;
+  color:rgb(var(--color-text));
+  font-family: var(--font-main);
+  border-bottom-left-radius: 100px;
+  border-bottom-left-radius: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

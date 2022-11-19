@@ -1,0 +1,31 @@
+div{
+    height:200px;
+    overflow: hidden;
+    padding:20px;
+    picture > img{
+        width:17vw;
+        height:200px;
+        object-fit: cover;
+        pointer-events: none;
+        position: absolute;
+        filter:saturate(10%);
+    }
+    p,a,button{
+        z-index: 10;
+        position: relative;
+        font-size: 20px;
+        text-align: center;
+        color:rgb(var(--color-text));
+        mix-blend-mode: difference;
+    }
+    p.heading{
+        font-size: 30px;
+        font-weight: bold;
+        margin:20px;
+        color:rgb(var(--color-text));
+    }
+    p.content{
+        mix-blend-mode: difference;
+        color:rgb(var(--color-text));
+    }
+}

@@ -47,11 +47,12 @@ $SapythonBlog-theme: mat.define-light-theme((
     // url("./assets/fonts/cascadiacodepl-regular-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 @font-face {
   font-family: "Amsterdam";
   src: local("Amsterdam"),
-    url(./assets/fonts/AmsterdamOne.woff2) format("woff2");
+    url("./assets/fonts/AmsterdamOne.woff2") format("woff2");
   font-display: swap;
 }
 @keyframes bubble {
@@ -73,6 +74,8 @@ $SapythonBlog-theme: mat.define-light-theme((
   --color-tertiary: 28, 31, 41;
   --color-tertiary-gr1: 37, 39, 48;
   --color-tertiary-dark: 24, 25, 27;
+  --color-success: 131, 237, 102;
+  --color-danger:255, 74, 119;
   --color-dark-zero: 24, 25, 27;
   --color-dark-one: 16, 17, 20;
   --color-dark-two: 9, 10, 12;
@@ -80,10 +83,13 @@ $SapythonBlog-theme: mat.define-light-theme((
   --color-main-focus: 70, 88, 255;
   --color-main-light: 145, 156, 255;
   --color-main-dark: 74, 79, 123;
+  --color-second:#FF2B74;
+  --color-second-rgb:255, 43, 116;
   --color-text: 255, 255, 255;
   --color-text-light: 194, 194, 194;
   --font-main:"CascadiyaCode";
   --font-secondary:"Amsterdam";
+
   // New theme
   // --color-primary: #20232e;
   // --color-secondary: #2d2f38;
@@ -295,4 +301,11 @@ pre[class*="language-"] > code[class*="language-"] {
   color:rgb(255, 72, 130);
   font-size: 20px;
   font-weight: 600;
+}
+.tilt-container{
+  transform-style: preserve-3d;
+  transform: perspective(1000px);
+  *{
+    transform: translateZ(20px);
+  }
 }

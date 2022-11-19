@@ -1,5 +1,5 @@
 <header>
-    <nav>
+    <nav uk-scrollspy="target:a; cls: uk-animation-slide-top-medium;delay:200;">
         <a tabindex="2" routerLink="../home" [ngClass]="pageName ==='home' ? 'active' : ''">Home</a>
         <a tabindex="3" routerLink="../portfolio" [ngClass]="pageName ==='portfolio' ? 'active' : ''">Portfolio</a>
         <a tabindex="4" routerLink="../blog" [ngClass]="pageName ==='blog' ? 'active' : ''">Blog</a>

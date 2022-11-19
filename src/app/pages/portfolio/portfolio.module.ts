@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { PortfolioRoutingModule } from './portfolio-routing.module';
 import { PortfolioComponent } from './portfolio.component';
+import { WidgetsModule } from 'src/app/shared/widgets/widgets.module';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { PortfolioComponent } from './portfolio.component';
   ],
   imports: [
     CommonModule,
-    PortfolioRoutingModule
+    PortfolioRoutingModule,
+    WidgetsModule
   ]
 })
 export class PortfolioModule { }

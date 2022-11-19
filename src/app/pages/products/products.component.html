@@ -1,1 +1,81 @@
-<p>products works!</p>
+<section>
+    <div id="colliders">
+        <div id="projectsHeader">
+            <p>Projects Header</p>
+        </div>
+        <div id="shapes">
+            <div *ngFor="let item of list">
+                <svg *ngIf="item.shape=='circle'" xmlns="http://www.w3.org/2000/svg" [attr.width]="item.size" [attr.height]="item.size" viewBox="0 0 312 312">
+                    <circle id="Ellipse_487" data-name="Ellipse 487" cx="156" cy="156" r="156" [attr.fill]="item.color"  />
+                    <defs>
+                        <filter id="gooeyEffect">
+                            <feGaussianBlur 
+                                in="SourceGraphic"
+                                stdDeviation="10"
+                                result="blur"
+                            />
+                            <feColorMatrix
+                                in="blur"
+                                mode="matrix"
+                                values="1 0 0 0 0  0 1 0 0 0 0 0 1 0 0  0 0 0 20 -9"
+                                result="gooey-effect"
+                            />
+                            <feComposite 
+                                in="SourceGraphic"
+                                in2="gooey-effect"
+                                operator="atop"
+                            />
+                        </filter>
+                    </defs>
+                </svg>
+                <svg *ngIf="item.shape=='triangle'"  xmlns="http://www.w3.org/2000/svg" [attr.width]="item.size" [attr.height]="item.size" viewBox="0 0 361 312">
+                    <path id="Polygon_8" data-name="Polygon 8" d="M180.5,0,361,312H0Z"  [attr.fill]="item.color" />
+                    <!-- <defs>
+                        <filter id="gooeyEffect">
+                            <feGaussianBlur 
+                                in="SourceGraphic"
+                                stdDeviation="10"
+                                result="blur"
+                            />
+                            <feColorMatrix
+                                in="blur"
+                                mode="matrix"
+                                values="1 0 0 0 0  0 1 0 0 0 0 0 1 0 0  0 0 0 20 -9"
+                                result="gooey-effect"
+                            />
+                            <feComposite 
+                                in="SourceGraphic"
+                                in2="gooey-effect"
+                                operator="atop"
+                            />
+                        </filter>
+                    </defs> -->
+                </svg>
+                <svg *ngIf="item.shape=='square'"item.size="http://www.w3.org/2000/svg" [attr.width]="item.size" [attr.height]="item.size" viewBox="0 0 312 312">
+                    <rect id="Rectangle_93" data-name="Rectangle 93" [attr.width]="item.size"  [attr.height]="item.size" [attr.fill]="item.color"/>
+                    <!-- <defs>
+                        <filter id="gooeyEffect">
+                            <feGaussianBlur 
+                                in="SourceGraphic"
+                                stdDeviation="10"
+                                result="blur"
+                            />
+                            <feColorMatrix
+                                in="blur"
+                                mode="matrix"
+                                values="1 0 0 0 0  0 1 0 0 0 0 0 1 0 0  0 0 0 20 -9"
+                                result="gooey-effect"
+                            />
+                            <feComposite 
+                                in="SourceGraphic"
+                                in2="gooey-effect"
+                                operator="atop"
+                            />
+                        </filter>
+                    </defs> -->
+                </svg>
+            </div>
+        </div>
+    </div>
+</section>
+<app-footer></app-footer>

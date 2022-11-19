@@ -101,6 +101,7 @@ export class HeaderComponent implements OnInit, AfterViewInit {
     // }
   }
   toggleNotification() {
+    console.log('Toggle Notification');
     if (this.notificationEnabled) {
       this.messagingService.unsubscribeNotification();
       this.notificationEnabled = false;
@@ -117,7 +118,7 @@ export class HeaderComponent implements OnInit, AfterViewInit {
   } 
 
   async showCommandLine(){
-    const { CommandLineModule } = await import('../../../addons/command-line/command-line.module');
+    // const { CommandLineModule } = await import('../../../addons/command-line/command-line.module');
     const { CommandLineComponent } = await import('../../../addons/command-line/command-line.component');
     const componentFactory = this.cfr.resolveComponentFactory(CommandLineComponent);
     this.commandPallete = this.vcref.createComponent(componentFactory);

@@ -79,7 +79,7 @@ const compressPostImages = async () => {
     .pipe(dest("src/assets/images/postImages/compressed/"));
 };
 const compressPostHeaderImages = async () => {
-  await src("src/assets/images/postImages/*.{png,jpg}")
+  await src("src/assets/images/postHeaderImages/*.{png,jpg}")
     .pipe(
       sharpResponsive({
         formats: [
@@ -133,6 +133,44 @@ const compressUiImages = async () => {
     .pipe(imagemin())
     .pipe(dest("src/assets/images/ui/compressed/"));
 };
+const compressActionWidgetImages = async () => {
+  await src("src/assets/images/widgets/ActionButton/*.{png,jpg}")
+    .pipe(
+      sharpResponsive({
+        formats: [
+          // jpeg
+          { width: 500, format: "jpeg", rename: { suffix: "-300" } },
+          // webp
+          { width: 500, format: "webp", rename: { suffix: "-300" } },
+          // avif
+          { width: 500, format: "avif", rename: { suffix: "-300" } },
+        ],
+      })
+    ).pipe(dest("src/assets/images/widgets/ActionButton/compressed"));
+
+  await src("src/assets/images/widgets/ActionButton/compressed/*.{webp,avif,jpg}")
+    .pipe(imagemin())
+    .pipe(dest("src/assets/images/widgets/ActionButton/compressed/"));
+};
+const compressTestimonialsImages = async () => {
+  await src("src/assets/images/testimonials/*.{png,jpg}")
+    .pipe(
+      sharpResponsive({
+        formats: [
+          // jpeg
+          { width: 500, format: "jpeg", rename: { suffix: "-500" } },
+          // webp
+          { width: 500, format: "webp", rename: { suffix: "-500" } },
+          // avif
+          { width: 500, format: "avif", rename: { suffix: "-500" } },
+        ],
+      })
+    ).pipe(dest("src/assets/images/testimonials/compressed"));
+
+  await src("src/assets/images/testimonials/compressed/*.{webp,avif,jpg}")
+    .pipe(imagemin())
+    .pipe(dest("src/assets/images/testimonials/compressed/"));
+};
 // compressAllImages = () =>
 // src("src/assets/images/**.{png,jpg}")
 // .pipe(imagemin())
@@ -143,5 +181,7 @@ module.exports = {
   compressAuthorImages,
   compressPostImages,
   compressUiImages,
-  compressPostHeaderImages
+  compressPostHeaderImages,
+  compressActionWidgetImages,
+  compressTestimonialsImages
 };

@@ -1,21 +1,16 @@
-<header>
-    <nav>
-        <a routerLink="home">Home</a>
-        <a routerLink="blog">Blog</a>
-        <a routerLink="support">Support</a>
-    </nav>
-</header>
 <main>
     <app-img root="ui" src="auth" style="width:100%;height:100%;position:absolute;right:0px;z-index:1;"></app-img>
     <article>
         <h1>Login</h1>
         <form [formGroup]="loginForm" (ngSubmit)="login()">
             <div>
-                <input type="text" placeholder="Email" formControlName="email">
+                <input type="text" formControlName="email" #email>
+                <label [class]="(email.value ? 'filled' : '') +' '+ (loginForm.controls.email.touched ? (loginForm.controls.email.status==='INVALID' ? 'invalid' : 'valid' ) : '')">Email</label>
                 <i class="ri-mail-fill"></i>
             </div>
             <div>
-                <input [type]="passwordVisible ? 'text' : 'password'" placeholder="Password" formControlName="password">
+                <input [type]="passwordVisible ? 'text' : 'password'" formControlName="password" #password>
+                <label [class]="(password.value ? 'filled' : '') +' '+ (loginForm.controls.password.touched ? (loginForm.controls.password.status==='INVALID' ? 'invalid' : 'valid' ) : '')">Password</label>
                 <i [class]="passwordVisible ? 'ri-lock-password-line' : 'ri-lock-password-fill' " 
                 (click)="passwordVisible = !passwordVisible"></i>
             </div>
@@ -37,3 +32,4 @@
         <a routerLink="../signup">Don't have an account. <strong>Signup</strong></a>
     </article>
 </main>
+<app-footer></app-footer>

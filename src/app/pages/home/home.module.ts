@@ -4,8 +4,8 @@ import { CommonModule } from '@angular/common';
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
 import { WidgetsModule } from 'src/app/shared/widgets/widgets.module';
-import { SwiperModule } from 'swiper/angular';
 import { CdkModule } from 'src/app/shared/cdk/cdk.module';
+import { LottieServerModuleModule } from 'src/app/shared/modules/lottie-server-module/lottie-server-module.module';
 
 @NgModule({
   declarations: [
@@ -15,8 +15,8 @@ import { CdkModule } from 'src/app/shared/cdk/cdk.module';
     CommonModule,
     HomeRoutingModule,
     WidgetsModule,
-    SwiperModule,
-    CdkModule
+    CdkModule,
+    LottieServerModuleModule
   ]
 })
 export class HomeModule { }

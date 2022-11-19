@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { DisclaimerRoutingModule } from './disclaimer-routing.module';
 import { DisclaimerComponent } from './disclaimer.component';
+import { WidgetsModule } from 'src/app/shared/widgets/widgets.module';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { DisclaimerComponent } from './disclaimer.component';
   ],
   imports: [
     CommonModule,
-    DisclaimerRoutingModule
+    DisclaimerRoutingModule,
+    WidgetsModule
   ]
 })
 export class DisclaimerModule { }

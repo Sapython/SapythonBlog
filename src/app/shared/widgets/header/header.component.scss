@@ -31,13 +31,16 @@
   background-color: rgb(var(--color-main));
   transition: 0.5s all;
 }
-
+*{
+  z-index: 1;
+}
 header {
   display: flex;
   justify-content: right;
   width: 100vw;
   height: var(--header-height);
   background-color: transparent;
+  z-index: 1;
   nav {
     height: var(--header-height);
     display: flex;

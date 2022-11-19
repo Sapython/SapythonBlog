@@ -1,0 +1,118 @@
+section {
+  width: 100vw;
+  padding: 40px;
+  padding-top: 100px;
+  background-color: rgb(var(--color-tertiary));
+  div.content {
+    display: flex;
+    width: fit-content;
+    margin: 0 auto;
+    div.branding {
+      margin-right: 30px;
+      img {
+        width: 100px;
+        height: auto;
+      }
+      div.socials {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: fit-content;
+        a {
+          text-decoration: none;
+          i {
+            transition: color 0.3s ease-in-out;
+            font-size: 50px;
+            color: rgb(var(--color-text));
+            &:hover {
+              color: rgb(var(--color-main));
+              text-shadow: 2px 4px 20px rgba(0, 0, 0, 0.3);
+            }
+          }
+        }
+      }
+    }
+    .links {
+      display: flex;
+      .link {
+        margin-right: 50px;
+        display: flex;
+        flex-direction: column;
+        font-size: 18px;
+        p.title {
+          margin-top: 0px;
+          font-size: 17px;
+          font-weight: bolder;
+          text-transform: uppercase;
+        }
+        ul {
+          margin: 0;
+          padding: 0;
+          li {
+            a {
+              text-decoration: none;
+              color: rgb(var(--color-text-light));
+              transition: color 0.3s ease-in-out;
+              &:hover {
+                color: rgb(var(--color-main-light));
+              }
+            }
+            margin-bottom: 20px;
+            list-style: none;
+          }
+        }
+      }
+    }
+  }
+  div.newsletter {
+    margin: 0 auto;
+    width: fit-content;
+    form {
+      display: flex;
+      --inputShadow:0px 0px 0px rgba(0,0,0,0);
+      div.input {
+        height:40px;
+        width: fit-content;
+        display: flex;
+        // background: rgb(var(--color-primary));
+        border-radius: 8px;
+        background: rgb(var(--color-primary));
+        transition: all 0.5s ease-in-out;
+        &:hover{
+          box-shadow:10px 10px 20px rgba(0,0,0,0.3);
+          transform:scale(1.3)
+        }
+        input {
+          height: 20px;
+          border: none;
+          background: none;
+          font-size: 20px;
+          padding:10px;
+          color:rgb(var(--color-main-light));
+          &:active{
+            outline:none;
+          }
+          &:focus{
+            outline:none; 
+          }
+        }
+        i.ri-mail-fill {
+          position: relative;
+          top: 50%;
+          transform: translateY(-50%);
+          font-size: 20px;
+          height: min-content;
+          margin-left:10px;
+        }
+        button{
+          background: transparent;
+          border: none;
+          i{
+            font-size: 30px;
+            color: rgb(var(--color-main-light));
+          }
+        }
+      }
+    }
+  }
+}

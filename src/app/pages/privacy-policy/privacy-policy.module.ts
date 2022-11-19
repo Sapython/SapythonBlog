@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { PrivacyPolicyRoutingModule } from './privacy-policy-routing.module';
 import { PrivacyPolicyComponent } from './privacy-policy.component';
+import { WidgetsModule } from 'src/app/shared/widgets/widgets.module';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { PrivacyPolicyComponent } from './privacy-policy.component';
   ],
   imports: [
     CommonModule,
-    PrivacyPolicyRoutingModule
+    PrivacyPolicyRoutingModule,
+    WidgetsModule
   ]
 })
 export class PrivacyPolicyModule { }

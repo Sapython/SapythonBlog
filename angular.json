@@ -41,17 +41,21 @@
             "ngswConfigPath": "ngsw-config.json"
           },
           "configurations": {
-            "production": {
+            "production": { 
               "optimization": true,
               "sourceMap": true,
-              "extractCss": true,
+              "extractCss": false,
               "namedChunks": true,
               "aot": true,
               "extractLicenses": true,
-              "vendorChunk": true,
+              "vendorChunk": false,
               "buildOptimizer": true,
               "serviceWorker": true,
+              "commonChunk": true,
               "deleteOutputPath": true,
+              "progress": true,
+              "statsJson": true,
+              "verbose": true,
               "budgets": [
                 {
                   "type": "initial",
@@ -60,8 +64,8 @@
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "2kb",
-                  "maximumError": "10kb"
+                  "maximumWarning": "5kb",
+                  "maximumError": "20kb"
                 }
               ],
               "fileReplacements": [
@@ -70,7 +74,7 @@
                   "with": "src/environments/environment.prod.ts"
                 }
               ],
-              "outputHashing": "all"
+              "outputHashing": "bundles"
             },
             "development": {
               "buildOptimizer": false,
@@ -144,6 +148,6 @@
   },
   "defaultProject": "SapythonBlog",
   "cli": {
-    "defaultCollection": "@angular-eslint/schematics"
+    "defaultCollection": "@ngrx/schematics"
   }
 }

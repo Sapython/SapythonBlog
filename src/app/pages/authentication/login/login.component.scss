@@ -61,11 +61,35 @@ main {
                     border: none;
                     border-radius: 0px;
                     padding:0px;
+                    padding-right: 10px;
                     font-size: 20px;
                     font-family: var(--font-main);
                     color: rgb(var(--color-text));
                     background: rgb(var(--color-secondary));
                     outline: none;
+                }
+                label{
+                    position: absolute;
+                    font-size: 20px;
+                    font-family: var(--font-main);
+                    transition: all 0.2s ease-in-out;
+                    pointer-events: none;
+                }
+                input:focus ~ label{
+                    // color: rgb(var(--color-main));
+                    font-size: 13px;
+                    transform: translateY(-150%);
+                }
+                label.filled{
+                    // color: rgb(var(--color-main));
+                    font-size: 13px;
+                    transform: translateY(-150%);
+                }
+                label.valid{
+                    color:rgb(var(--color-success));
+                }
+                label.invalid{
+                    color:rgb(var(--color-danger));
                 }
                 i{
                     font-size: 30px;

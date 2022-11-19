@@ -3,6 +3,7 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
 import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';
+
 // import Scrollbar from 'smooth-scrollbar';
 if (environment.production) {
   enableProdMode();
@@ -33,7 +34,9 @@ function getRandomPosition(element:HTMLElement){
 }
 platformBrowserDynamic().bootstrapModule(AppModule)
   .catch(err => console.error(err));
-// Scrollbar.init(document.querySelector('#my-scrollbar') as HTMLElement);
+// window.onload = () =>{
+//   Scrollbar.init(document.querySelector('#my-scrollbar') as HTMLElement);
+// }
 let container = document.getElementById('bubbleContainer')
 if(container){
   for(let i=0;i < 3 ;i++){

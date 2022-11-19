@@ -1,0 +1,12 @@
+.animate{
+    overflow:hidden;
+    img{
+        object-fit: cover;
+        transition: transform 5s ease-in-out, filter 5s ease-in-out;
+    }
+    img:hover{
+        // height: max-content !important;
+        transform: scale(1.2);
+        filter: grayscale(30%);
+    }
+}

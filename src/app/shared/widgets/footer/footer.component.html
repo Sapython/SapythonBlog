@@ -1,1 +1,73 @@
-<p>footer works!</p>
+<section>
+    <div class="content">
+        <div class="branding">
+            <img src="assets/images/icons/Logo.svg" alt="Sapython">
+            <div class="socials">
+                <a href=""><i class="ri-twitter-fill"></i></a>
+                <a href=""><i class="ri-github-fill"></i></a>
+                <a href=""><i class="ri-linkedin-box-fill"></i></a>
+                <a href=""><i class="ri-youtube-fill"></i></a>
+            </div>
+        </div> 
+        <div class="links">
+            <div class="link">
+                <p class="title">Products</p>
+                <ul>
+                    <li><a href="">Website</a></li>
+                    <li><a href="">App</a></li>
+                    <li><a href="">HRMS Platform</a></li>
+                </ul>
+            </div>
+            <div class="link">
+                <p class="title">Resources</p>
+                <ul>
+                    <li><a href="">Website</a></li>
+                    <li><a href="">App</a></li>
+                    <li><a href="">HRMS Platform</a></li>
+                </ul>
+            </div>
+            <div class="link">
+                <p class="title">Blog Posts</p>
+                <ul>
+                    <li><a href="">Website</a></li>
+                    <li><a href="">App</a></li>
+                    <li><a href="">HRMS Platform</a></li>
+                </ul>
+            </div>
+            <div class="link">
+                <p class="title">Company</p>
+                <ul>
+                    <li><a href="">Website</a></li>
+                    <li><a href="">App</a></li>
+                    <li><a href="">HRMS Platform</a></li>
+                </ul>
+            </div>
+            <div class="link">
+                <p class="title">Contact</p>
+                <ul>
+                    <li><a href="">Website</a></li>
+                    <li><a href="">App</a></li>
+                    <li><a href="">HRMS Platform</a></li>
+                </ul>
+            </div>
+            <div class="link">
+                <p class="title">Myself</p>
+                <ul>
+                    <li><a href="">Website</a></li>
+                    <li><a href="">App</a></li>
+                    <li><a href="">HRMS Platform</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="newsletter">
+        <form [formGroup]="subscribeForm" (ngSubmit)="subscribe()">
+            <div class="input" *ngIf="!subscribing">
+                <i class="ri-mail-fill"></i>
+                <input type="email" placeholder="Hey Subscribe.." formControlName="email">
+                <button type="submit"><i class="ri-send-plane-2-fill"></i></button>
+            </div>
+            <app-spinner radius="20px" *ngIf="subscribing"></app-spinner>
+        </form>
+    </div>
+</section>

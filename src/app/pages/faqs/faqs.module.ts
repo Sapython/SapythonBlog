@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { FaqsRoutingModule } from './faqs-routing.module';
 import { FaqsComponent } from './faqs.component';
+import { WidgetsModule } from 'src/app/shared/widgets/widgets.module';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { FaqsComponent } from './faqs.component';
   ],
   imports: [
     CommonModule,
-    FaqsRoutingModule
+    FaqsRoutingModule,
+    WidgetsModule
   ]
 })
 export class FaqsModule { }

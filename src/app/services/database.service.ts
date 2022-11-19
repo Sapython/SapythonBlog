@@ -46,4 +46,8 @@ export class DatabaseService {
     updateDoc(doc(this.fs,'posts/'+postId),{dislikes:increment(-1)});
     return updateDoc(doc(this.fs,'users/'+this.dataProvider.userID),{dislikedPost:arrayRemove(postId)});
   }
+  subscribeEmail(email:string){
+    console.log(email);
+    return setDoc(doc(this.fs,'siteData/subscribers'),{emails:arrayUnion(email)},{merge:true});
+  }
 }

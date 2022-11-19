@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { collection, collectionSnapshots, Firestore } from '@angular/fire/firestore';
 import { PageSetting } from '../structures/method.structure';
 import { UserData } from '../structures/user.structure';
-
+import { Subject } from 'rxjs';
 @Injectable()
 export class DataProvider{
     public data:any;
@@ -26,7 +26,14 @@ export class DataProvider{
     public dataThree:any;
     public dataFour:any;
     public siteData:any = {};
+    public routeSubject = new Subject(); // a subject to notify
+    public currentRoute = this.routeSubject.asObservable();
+    public startRouteAnimation:boolean = false;
     constructor(private firestore: Firestore){
+        // setTimeout(()=>{
+        //     this.startRouteAnimation = true;
+        //     alert('Time ran out');
+        // },5000);
         collectionSnapshots(collection(this.firestore,'siteData')).subscribe((data)=>{
             data.forEach((doc)=>{
                 this.siteData[doc.id] = doc.data();

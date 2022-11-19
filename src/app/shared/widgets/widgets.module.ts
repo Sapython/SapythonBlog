@@ -9,6 +9,7 @@ import { PostCardWideComponent } from './post-card-wide/post-card-wide.component
 import { KeyboardShortcutsModule }     from 'ng-keyboard-shortcuts';  
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LikeDislikeComponent } from './like-dislike/like-dislike.component';
+import { CommandLineModule } from 'src/app/addons/command-line/command-line.module';
 
 const components = [
   HeaderComponent,
@@ -22,6 +23,7 @@ const components = [
   declarations: components,
   imports: [
     CommonModule,
+    CommandLineModule,
     RouterModule,
     CdkModule,
     ReactiveFormsModule,

@@ -34,9 +34,10 @@ export class PostComponent implements OnInit {
       widget: 'actionButton',
       data: {
         title: 'Subscribe',
-        subtitle: 'Subscribe to our newsletter',
+        message: 'Subscribe to our newsletter',
         buttonText: 'Subscribe',
         buttonLink: '#',
+        image:'post',
       },
     },
     {

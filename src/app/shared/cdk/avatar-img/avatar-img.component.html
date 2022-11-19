@@ -1,0 +1,12 @@
+<div [ngStyle]="{'height':height,'width':width,'border-radius':borderRadius}" [class]="animate ? 'animate' : ''">
+    <picture>
+        <!-- avif -->
+        <source srcset="./assets/images/{{root}}/compressed/{{src}}-500.avif"/>
+        <!-- webp -->
+        <source srcset="./assets/images/{{root}}/compressed/{{src}}-500.webp"/>
+        <!-- jpeg -->
+        <source srcset="./assets/images/{{root}}/compressed/{{src}}-500.jpg"/>
+        <!-- original -->
+        <img loading="lazy" [style]="style" [ngStyle]="{'object-fit':fit,'height':height,'width':width,'border-radius':borderRadius}" src="assets/images/{{root}}/compressed/{{ src }}-500.jpg" [alt]="alt" />
+    </picture>
+</div>

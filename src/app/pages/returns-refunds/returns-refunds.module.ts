@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { ReturnsRefundsRoutingModule } from './returns-refunds-routing.module';
 import { ReturnsRefundsComponent } from './returns-refunds.component';
+import { WidgetsModule } from 'src/app/shared/widgets/widgets.module';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { ReturnsRefundsComponent } from './returns-refunds.component';
   ],
   imports: [
     CommonModule,
-    ReturnsRefundsRoutingModule
+    ReturnsRefundsRoutingModule,
+    WidgetsModule
   ]
 })
 export class ReturnsRefundsModule { }

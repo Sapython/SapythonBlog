@@ -17,11 +17,12 @@ export class MessagingService {
     private updates: SwUpdate,
     private push: SwPush,
   ) {
-    updates.available.subscribe(_ => updates.activateUpdate().then(() => {
+    this.updates.available.subscribe(_ => updates.activateUpdate().then(() => {
       console.log('reload for update');
       document.location.reload();
     }));
-    push.messages.subscribe(msg => console.log('push message', msg));
+    this.push.messages.subscribe(msg => console.log('push message', msg));
+    
   }
   subscribeNotification(){
     this.enableNotification(this.dataProvider.userData!.userId).then(()=>{
@@ -34,6 +35,7 @@ export class MessagingService {
     });
   }
   startNotificationService(){
+    console.log('startNotificationService');
     this.subscribeNotification();
     navigator.serviceWorker.getRegistration().then(reg => {
       console.log('registration', reg);

@@ -192,20 +192,20 @@ export class AuthenticationService {
     return await signOut(this.auth);
   }
   // Sign out functions end
-  async openNameDialog(){
-    return await this.alertify.openEmailBasedDialog();
-  }
-  private async getMethod(credentials:UserCredential){
-    if (credentials.user.providerId == "firebase" && credentials.user.isAnonymous == false) {
-      // TODO: register user as an email based system
-      let name = await this.openNameDialog();
-      this.userData.setEmailUserData(credentials.user, {displayName:name,phoneNumber:'',photoURL:''});
-    } else if (credentials.user.providerId == "google.com"){
-      // TODO: register user as a google based system
-    } else if (credentials.user.providerId == "firebase" && credentials.user.isAnonymous == true) {
-      // TODO: register user as an anonymous based system 
-    }
-  }
+  // async openNameDialog(){
+  //   return await this.alertify.openEmailBasedDialog();
+  // }
+  // private async getMethod(credentials:UserCredential){
+  //   if (credentials.user.providerId == "firebase" && credentials.user.isAnonymous == false) {
+  //     // TODO: register user as an email based system
+  //     let name = await this.openNameDialog();
+  //     this.userData.setEmailUserData(credentials.user, {displayName:name,phoneNumber:'',photoURL:''});
+  //   } else if (credentials.user.providerId == "google.com"){
+  //     // TODO: register user as a google based system
+  //   } else if (credentials.user.providerId == "firebase" && credentials.user.isAnonymous == true) {
+  //     // TODO: register user as an anonymous based system 
+  //   }
+  // }
   private setDataObserver(user: Observable<User | null>) {
     // console.log('Starting data observer')
     if (user) {

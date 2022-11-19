@@ -1,6 +1,6 @@
-<main id="fullpage">
+<main>
     <section class="intro">
-        <div class="branding" uk-scrollspy="cls: uk-animation-slide-left;delay:500;">
+        <div class="branding" uk-scrollspy="cls: uk-animation-slide-left-medium;delay:500;">
             <span>Kumar Saptam</span>
             <hr class="divider">
             <span class="subtext">Solopreneur</span>
@@ -14,19 +14,19 @@
     </section>
     <section class="introServices">
         <div uk-scrollspy="cls: uk-animation-slide-bottom; target: section; delay: 500; repeat: false">
-            <section>
+            <section class="tilt-container">
                 <img height="auto" width="auto" loading="lazy" src="./assets/images/icons/website.svg" alt="Website">
                 <h2>Web Development</h2>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nibh nisi, tincidunt vel facilisis
                     pretium, varius dignissim magna. Praesent sodales lectus</p>
             </section>
-            <section>
+            <section class="tilt-container">
                 <img height="auto" width="auto" loading="lazy" src="./assets/images/icons/mobile.svg" alt="Mobile">
                 <h2>App Development</h2>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nibh nisi, tincidunt vel facilisis
                     pretium, varius dignissim magna. Praesent sodales lectus</p>
             </section>
-            <section>
+            <section class="tilt-container">
                 <img height="auto" width="auto" loading="lazy" src="./assets/images/icons/server.svg" alt="Sever">
                 <h2>Server Development</h2>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nibh nisi, tincidunt vel facilisis
@@ -35,11 +35,12 @@
         </div>
     </section>
     <section class="whatido">
-        <div class="text" uk-scrollspy="cls: uk-animation-slide-left;delay:500;">
+        <div class="text" uk-scrollspy="cls: uk-animation-slide-left-medium;delay:500;">
             <p>What</p>
             <p>I<strong>Do</strong></p>
         </div>
-        <ol class="responses" uk-sortable="handle: li" uk-scrollspy="cls: uk-animation-scale-up; target: li; delay: 500; repeat: false">
+        <ol class="responses" uk-sortable="handle: li"
+            uk-scrollspy="cls: uk-animation-scale-up; target: li; delay: 100; repeat: false">
             <li>
                 <p>I</p>
                 <p>Create</p>
@@ -72,75 +73,71 @@
             </li>
         </ol>
     </section>
-    <section class="blogPosts">
-        <h2 uk-scrollspy="cls: uk-animation-slide-left;delay:500;">
-            <strong>My</strong>
-            <br>
-            Blog Posts
-        </h2>
-        <div class="posts uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slider="autoplay: true">
-            <div class="uk-slider-container">
-                <ul class="uk-slider-items uk-child-width-1-2 uk-child-width-1-3@s uk-child-width-1-4@m" uk-scrollspy="cls: uk-animation-fade; target: li; delay: 200; repeat: false">
-                    <li *ngFor="let post of posts">
-                        <app-post-card [date]="post.date" [authorImage]="post.authorImage" [authorName]="post.authorName"
-                            [excerpt]="post.description" [title]="post.title || ''" [featuredImage]="post.featuredImage"
-                            [imageAlt]="post.title || ''" [url]="post.route"></app-post-card>
-                    </li>
-                </ul>
-            </div>
-            <a class="uk-position-center-left-out uk-position-small" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
-            <a class="uk-position-center-right-out uk-position-small" href="#" uk-slidenav-next uk-slider-item="next"></a>
-        </div>
-    </section>
     <section id="integrations" class="center">
+        <div class="heading" uk-scrollspy="cls: uk-animation-slide-left-medium;delay:500;">
+            <p>
+                <strong>My</strong><br>
+                Tech Stack
+            </p>
+        </div>
         <ul id="integration-list" class="integration-list">
-          <li><img src="assets/images/techStack/angular.svg" loading="lazy" alt="Paypal"></li>
-          <li><img src="assets/images/techStack/css3.svg" loading="lazy"></li>
-          <li><img src="assets/images/techStack/firebase.svg" loading="lazy"></li>
-          <li><img src="assets/images/techStack/flutter.svg" loading="lazy"></li>
-          <li><img src="assets/images/techStack/html5.svg" loading="lazy" ></li>
-          <li><img src="assets/images/techStack/ionic.svg" loading="lazy"></li>
-          <li><img src="assets/images/techStack/javascript.svg" loading="lazy"></li>
-          <li><img src="assets/images/techStack/node-js.svg" loading="lazy" ></li>
-          <li><img src="assets/images/techStack/python.svg" loading="lazy" ></li>
-          <li><img src="assets/images/techStack/typescript.svg" loading="lazy"></li>
+            <li><img alt="angular" src="assets/images/techStack/angular.svg" loading="lazy" alt="Paypal"></li>
+            <li><img alt="css3" src="assets/images/techStack/css3.svg" loading="lazy"></li>
+            <li><img alt="firebase" src="assets/images/techStack/firebase.svg" loading="lazy"></li>
+            <li><img alt="flutter" src="assets/images/techStack/flutter.svg" loading="lazy"></li>
+            <li><img alt="html5" src="assets/images/techStack/html5.svg" loading="lazy"></li>
+            <li><img alt="ionic" src="assets/images/techStack/ionic.svg" loading="lazy"></li>
+            <li><img alt="javascript" src="assets/images/techStack/javascript.svg" loading="lazy"></li>
+            <li><img alt="node" src="assets/images/techStack/node-js.svg" loading="lazy"></li>
+            <li><img alt="python" src="assets/images/techStack/python.svg" loading="lazy"></li>
+            <li><img alt="typescript" src="assets/images/techStack/typescript.svg" loading="lazy"></li>
         </ul>
     </section>
     <section class="projects">
-        <div class="heading" uk-scrollspy="cls: uk-animation-slide-left;delay:500;">
+        <div class="heading" uk-scrollspy="cls: uk-animation-slide-left-medium;delay:500;">
             <p>
                 <strong>My</strong><br>
                 Projects
             </p>
         </div>
-        <p uk-scrollspy="cls: uk-animation-slide-left;delay:500;">
-            These are some of the projects made by me throughout <br> my coding journey. From websites to apps and web-apps.
+        <p uk-scrollspy="cls: uk-animation-slide-left-medium;delay:500;">
+            These are some of the projects made by me throughout <br> my coding journey. From websites to apps and
+            web-apps.
         </p>
         <div class="optionMenu">
             <div>
-                <div (click)="projectShowcase='website'">
-                    <i [class]="projectShowcase==='website' ? 'ri-window-fill' : 'ri-window-line'"></i>
+                <div style="display:none" (click)="projectShowcase='website'" (mouseenter)="playAnimation('website')">
+                    <ng-lottie [options]="websiteOptions" (animationCreated)="animationCreated($event,'website')"></ng-lottie>
                     <span>
                         <h3>Website</h3>
                         <p>My website projects</p>
                     </span>
                 </div>
-                <div (click)="projectShowcase='app'">
-                    <i [class]="projectShowcase==='app' ? 'ri-smartphone-fill' : 'ri-smartphone-line'"></i>
+                <div (click)="projectShowcase='website2'" (mouseenter)="playAnimation('website2')">
+                    <ng-lottie [options]="websiteOptions" (animationCreated)="animationCreated($event,'website2')"></ng-lottie>
+                    <span>
+                        <h3>Website</h3>
+                        <p>My website projects</p>
+                    </span>
+                </div>
+                <div (click)="projectShowcase='app'" (mouseenter)="playAnimation('app')">
+                    <ng-lottie [options]="appOptions" (animationCreated)="animationCreated($event,'app')"></ng-lottie>
                     <span>
                         <h3>Apps</h3>
                         <p>My app projects</p>
                     </span>
                 </div>
-                <div (click)="projectShowcase='server'">
-                    <i [class]="projectShowcase==='server' ? 'ri-server-fill' : 'ri-server-line'"></i>
+                <div (click)="projectShowcase='server'" (mouseenter)="playAnimation('server')">
+                    <ng-lottie [options]="serverOptions" (animationCreated)="animationCreated($event,'server')">
+                    </ng-lottie>
                     <span>
                         <h3>Servers</h3>
                         <p>My server projects</p>
                     </span>
                 </div>
-                <div (click)="projectShowcase='other'">
-                    <i [class]="projectShowcase==='other' ? 'ri-stack-fill' : 'ri-stack-line'"></i>
+                <div (click)="projectShowcase='other'" (mouseenter)="playAnimation('other')">
+                    <ng-lottie [options]="otherOptions" (animationCreated)="animationCreated($event,'other')">
+                    </ng-lottie>
                     <span>
                         <h3>Other</h3>
                         <p>Some random projects</p>
@@ -149,165 +146,393 @@
             </div>
             <hr>
         </div>
-        <div class="gridContainer" *ngIf="projectShowcase==='website'">
-            <div class="projectContainer" uk-grid="masonry: false" uk-scrollspy="target: > div; cls: uk-animation-scale-up; delay: 100">
-                <div class="colored" >
+        <div class="gridContainer" *ngIf="projectShowcase==='website2'">
+            <div class="projectContainer" uk-grid="masonry: false"
+                uk-scrollspy="target: > div; cls: uk-animation-scale-up; delay: 100">
+                <div class="colored">
                     <h2>Hello Santa</h2>
-                    <p>E-Commerce gifting platform made for people who can buy customizable gifts like paintings, cups and lot of crafty stuff.</p>
+                    <p>E-Commerce gifting platform made for people who can buy customizable gifts like paintings, cups
+                        and lot of crafty stuff.</p>
                     <app-btn [inverse]="true" text="See Project"></app-btn>
                 </div>
                 <div>
                     <h2>Triveni Sangam</h2>
-                    <p>SNG sons is a stock package tracking application made for traders and whole-sellers. It has multiple user access and image recognition features which can recognize number plates. </p>
+                    <p>SNG sons is a stock package tracking application made for traders and whole-sellers. It has
+                        multiple user access and image recognition features which can recognize number plates. </p>
                     <app-btn text="See Project"></app-btn>
                 </div>
                 <div>
                     <h2>SSS Pay</h2>
-                    <p>SNG sons is a stock package tracking application made for traders and whole-sellers. It has multiple user access and image recognition features which can recognize number plates. </p>
+                    <p>SNG sons is a stock package tracking application made for traders and whole-sellers. It has
+                        multiple user access and image recognition features which can recognize number plates. </p>
                     <app-btn text="See Project"></app-btn>
                 </div>
                 <div>
                     <h2>Hello Santa</h2>
-                    <p>E-Commerce gifting platform made for people who can buy customizable gifts like paintings, cups and lot of crafty stuff.</p>
+                    <p>E-Commerce gifting platform made for people who can buy customizable gifts like paintings, cups
+                        and lot of crafty stuff.</p>
                     <app-btn text="See Project"></app-btn>
                 </div>
                 <div>
                     <!-- <app-img></app-img> -->
                     <h2>SNG Sons</h2>
-                    <p>SNG sons is a stock package tracking application made for traders and whole-sellers. It has multiple user access and image recognition features which can recognize number plates. </p>
+                    <p>SNG sons is a stock package tracking application made for traders and whole-sellers. It has
+                        multiple user access and image recognition features which can recognize number plates. </p>
                     <app-btn text="See Project"></app-btn>
                 </div>
                 <div class="colored">
                     <h2>SNG Sons</h2>
-                    <p>SNG sons is a stock package tracking application made for traders and whole-sellers. It has multiple user access and image recognition features which can recognize number plates. </p>
+                    <p>SNG sons is a stock package tracking application made for traders and whole-sellers. It has
+                        multiple user access and image recognition features which can recognize number plates. </p>
                     <app-btn [inverse]="true" text="See Project"></app-btn>
                 </div>
                 <div>
                     <h2>SNG Sons</h2>
-                    <p>SNG sons is a stock package tracking application made for traders and whole-sellers. It has multiple user access and image recognition features which can recognize number plates. </p>
+                    <p>SNG sons is a stock package tracking application made for traders and whole-sellers. It has
+                        multiple user access and image recognition features which can recognize number plates. </p>
                     <app-btn text="See Project"></app-btn>
                 </div>
             </div>
         </div>
         <div class="gridContainer" *ngIf="projectShowcase==='app'">
-            <div class="projectContainer" uk-grid="masonry: false" uk-scrollspy="target: > div; cls: uk-animation-scale-up; delay: 100">
-                <div class="colored" >
+            <div class="projectContainer" uk-grid="masonry: false"
+                uk-scrollspy="target: > div; cls: uk-animation-scale-up; delay: 100">
+                <div class="colored">
                     <h2>Hello Santa</h2>
-                    <p>E-Commerce gifting platform made for people who can buy customizable gifts like paintings, cups and lot of crafty stuff.</p>
+                    <p>E-Commerce gifting platform made for people who can buy customizable gifts like paintings, cups
+                        and lot of crafty stuff.</p>
                     <app-btn [inverse]="true" text="See Project"></app-btn>
                 </div>
                 <div>
                     <h2>Triveni Sangam</h2>
-                    <p>SNG sons is a stock package tracking application made for traders and whole-sellers. It has multiple user access and image recognition features which can recognize number plates. </p>
+                    <p>SNG sons is a stock package tracking application made for traders and whole-sellers. It has
+                        multiple user access and image recognition features which can recognize number plates. </p>
                     <app-btn text="See Project"></app-btn>
                 </div>
                 <div>
                     <h2>SSS Pay</h2>
-                    <p>SNG sons is a stock package tracking application made for traders and whole-sellers. It has multiple user access and image recognition features which can recognize number plates. </p>
+                    <p>SNG sons is a stock package tracking application made for traders and whole-sellers. It has
+                        multiple user access and image recognition features which can recognize number plates. </p>
                     <app-btn text="See Project"></app-btn>
                 </div>
                 <div>
                     <h2>Hello Santa</h2>
-                    <p>E-Commerce gifting platform made for people who can buy customizable gifts like paintings, cups and lot of crafty stuff.</p>
+                    <p>E-Commerce gifting platform made for people who can buy customizable gifts like paintings, cups
+                        and lot of crafty stuff.</p>
                     <app-btn text="See Project"></app-btn>
                 </div>
                 <div>
                     <!-- <app-img></app-img> -->
                     <h2>SNG Sons</h2>
-                    <p>SNG sons is a stock package tracking application made for traders and whole-sellers. It has multiple user access and image recognition features which can recognize number plates. </p>
+                    <p>SNG sons is a stock package tracking application made for traders and whole-sellers. It has
+                        multiple user access and image recognition features which can recognize number plates. </p>
                     <app-btn text="See Project"></app-btn>
                 </div>
                 <div class="colored">
                     <h2>SNG Sons</h2>
-                    <p>SNG sons is a stock package tracking application made for traders and whole-sellers. It has multiple user access and image recognition features which can recognize number plates. </p>
+                    <p>SNG sons is a stock package tracking application made for traders and whole-sellers. It has
+                        multiple user access and image recognition features which can recognize number plates. </p>
                     <app-btn [inverse]="true" text="See Project"></app-btn>
                 </div>
                 <div>
                     <h2>SNG Sons</h2>
-                    <p>SNG sons is a stock package tracking application made for traders and whole-sellers. It has multiple user access and image recognition features which can recognize number plates. </p>
+                    <p>SNG sons is a stock package tracking application made for traders and whole-sellers. It has
+                        multiple user access and image recognition features which can recognize number plates. </p>
                     <app-btn text="See Project"></app-btn>
                 </div>
             </div>
         </div>
         <div class="gridContainer" *ngIf="projectShowcase==='server'">
-            <div class="projectContainer" uk-grid="masonry: false" uk-scrollspy="target: > div; cls: uk-animation-scale-up; delay: 100">
-                <div class="colored" >
+            <div class="projectContainer" uk-grid="masonry: false"
+                uk-scrollspy="target: > div; cls: uk-animation-scale-up; delay: 100">
+                <div class="colored">
                     <h2>Hello Santa</h2>
-                    <p>E-Commerce gifting platform made for people who can buy customizable gifts like paintings, cups and lot of crafty stuff.</p>
+                    <p>E-Commerce gifting platform made for people who can buy customizable gifts like paintings, cups
+                        and lot of crafty stuff.</p>
                     <app-btn [inverse]="true" text="See Project"></app-btn>
                 </div>
                 <div>
                     <h2>Triveni Sangam</h2>
-                    <p>SNG sons is a stock package tracking application made for traders and whole-sellers. It has multiple user access and image recognition features which can recognize number plates. </p>
+                    <p>SNG sons is a stock package tracking application made for traders and whole-sellers. It has
+                        multiple user access and image recognition features which can recognize number plates. </p>
                     <app-btn text="See Project"></app-btn>
                 </div>
                 <div>
                     <h2>SSS Pay</h2>
-                    <p>SNG sons is a stock package tracking application made for traders and whole-sellers. It has multiple user access and image recognition features which can recognize number plates. </p>
+                    <p>SNG sons is a stock package tracking application made for traders and whole-sellers. It has
+                        multiple user access and image recognition features which can recognize number plates. </p>
                     <app-btn text="See Project"></app-btn>
                 </div>
                 <div>
                     <h2>Hello Santa</h2>
-                    <p>E-Commerce gifting platform made for people who can buy customizable gifts like paintings, cups and lot of crafty stuff.</p>
+                    <p>E-Commerce gifting platform made for people who can buy customizable gifts like paintings, cups
+                        and lot of crafty stuff.</p>
                     <app-btn text="See Project"></app-btn>
                 </div>
                 <div>
                     <!-- <app-img></app-img> -->
                     <h2>SNG Sons</h2>
-                    <p>SNG sons is a stock package tracking application made for traders and whole-sellers. It has multiple user access and image recognition features which can recognize number plates. </p>
+                    <p>SNG sons is a stock package tracking application made for traders and whole-sellers. It has
+                        multiple user access and image recognition features which can recognize number plates. </p>
                     <app-btn text="See Project"></app-btn>
                 </div>
                 <div class="colored">
                     <h2>SNG Sons</h2>
-                    <p>SNG sons is a stock package tracking application made for traders and whole-sellers. It has multiple user access and image recognition features which can recognize number plates. </p>
+                    <p>SNG sons is a stock package tracking application made for traders and whole-sellers. It has
+                        multiple user access and image recognition features which can recognize number plates. </p>
                     <app-btn [inverse]="true" text="See Project"></app-btn>
                 </div>
                 <div>
                     <h2>SNG Sons</h2>
-                    <p>SNG sons is a stock package tracking application made for traders and whole-sellers. It has multiple user access and image recognition features which can recognize number plates. </p>
+                    <p>SNG sons is a stock package tracking application made for traders and whole-sellers. It has
+                        multiple user access and image recognition features which can recognize number plates. </p>
                     <app-btn text="See Project"></app-btn>
                 </div>
             </div>
         </div>
         <div class="gridContainer" *ngIf="projectShowcase==='other'">
-            <div class="projectContainer" uk-grid="masonry: false" uk-scrollspy="target: > div; cls: uk-animation-scale-up; delay: 100">
-                <div class="colored" >
+            <div class="projectContainer" uk-grid="masonry: false"
+                uk-scrollspy="target: > div; cls: uk-animation-scale-up; delay: 100">
+                <div class="colored">
                     <h2>Hello Santa</h2>
-                    <p>E-Commerce gifting platform made for people who can buy customizable gifts like paintings, cups and lot of crafty stuff.</p>
+                    <p>E-Commerce gifting platform made for people who can buy customizable gifts like paintings, cups
+                        and lot of crafty stuff.</p>
                     <app-btn [inverse]="true" text="See Project"></app-btn>
                 </div>
                 <div>
                     <h2>Triveni Sangam</h2>
-                    <p>SNG sons is a stock package tracking application made for traders and whole-sellers. It has multiple user access and image recognition features which can recognize number plates. </p>
+                    <p>SNG sons is a stock package tracking application made for traders and whole-sellers. It has
+                        multiple user access and image recognition features which can recognize number plates. </p>
                     <app-btn text="See Project"></app-btn>
                 </div>
                 <div>
                     <h2>SSS Pay</h2>
-                    <p>SNG sons is a stock package tracking application made for traders and whole-sellers. It has multiple user access and image recognition features which can recognize number plates. </p>
+                    <p>SNG sons is a stock package tracking application made for traders and whole-sellers. It has
+                        multiple user access and image recognition features which can recognize number plates. </p>
                     <app-btn text="See Project"></app-btn>
                 </div>
                 <div>
                     <h2>Hello Santa</h2>
-                    <p>E-Commerce gifting platform made for people who can buy customizable gifts like paintings, cups and lot of crafty stuff.</p>
+                    <p>E-Commerce gifting platform made for people who can buy customizable gifts like paintings, cups
+                        and lot of crafty stuff.</p>
                     <app-btn text="See Project"></app-btn>
                 </div>
                 <div>
                     <!-- <app-img></app-img> -->
                     <h2>SNG Sons</h2>
-                    <p>SNG sons is a stock package tracking application made for traders and whole-sellers. It has multiple user access and image recognition features which can recognize number plates. </p>
+                    <p>SNG sons is a stock package tracking application made for traders and whole-sellers. It has
+                        multiple user access and image recognition features which can recognize number plates. </p>
                     <app-btn text="See Project"></app-btn>
                 </div>
                 <div class="colored">
                     <h2>SNG Sons</h2>
-                    <p>SNG sons is a stock package tracking application made for traders and whole-sellers. It has multiple user access and image recognition features which can recognize number plates. </p>
+                    <p>SNG sons is a stock package tracking application made for traders and whole-sellers. It has
+                        multiple user access and image recognition features which can recognize number plates. </p>
                     <app-btn [inverse]="true" text="See Project"></app-btn>
                 </div>
                 <div>
                     <h2>SNG Sons</h2>
-                    <p>SNG sons is a stock package tracking application made for traders and whole-sellers. It has multiple user access and image recognition features which can recognize number plates. </p>
+                    <p>SNG sons is a stock package tracking application made for traders and whole-sellers. It has
+                        multiple user access and image recognition features which can recognize number plates. </p>
                     <app-btn text="See Project"></app-btn>
                 </div>
             </div>
         </div>
     </section>
+    <section class="pricing">
+        <div class="heading">
+            <p>
+                <strong>My</strong><br>
+                Pricing
+            </p>
+            <button (click)="pricingSelected='web'">
+                <i [class]="pricingSelected==='web' ? 'ri-window-fill' : 'ri-window-line'"></i>
+                <ng-lottie [options]="websiteOptions" (animationCreated)="animationCreated($event,'website')"></ng-lottie>
+                <br> Website</button>
+            <button (click)="pricingSelected='mobile'">
+                <!-- <i [class]="pricingSelected==='mobile' ? 'ri-smartphone-fill' : 'ri-smartphone-line'"></i> -->
+                <ng-lottie [options]="websiteOptions" (animationCreated)="animationCreated($event,'website')"></ng-lottie>
+                <br> Mobile</button>
+            <hr>
+        </div>
+        <div class="prices" *ngIf="pricingSelected==='web'"
+            uk-scrollspy="target: > div; cls: uk-animation-slide-right; delay: 100">
+            <div class="priceCard tilt-container">
+                <p class="title">Economy Plan</p>
+                <p class="subtitle">Made for small scale business with low users.</p>
+                <p class="price">&#8377;12,000 or &#36;157</p>
+                <ul>
+                    <li class="check"><i class="ri-check-line"></i> A prebuilt themed website.</li>
+                    <li class="check"><i class="ri-check-line"></i> Contact Forms</li>
+                    <li class="check"><i class="ri-check-line"></i> Action Buttons</li>
+                    <li class="check"><i class="ri-check-line"></i> Comes with google authentication.</li>
+                    <li class="wrong"><i class="ri-close-fill"></i> Encrypted data with AES hash.</li>
+                    <li class="wrong"><i class="ri-close-fill"></i> Feature updates</li>
+                    <li class="wrong"><i class="ri-close-fill"></i> Weekly maintenance checks.</li>
+                </ul>
+                <button class="selectButton">Select</button>
+            </div>
+            <div class="priceCard tilt-container">
+                <p class="title">Premium Plan</p>
+                <p class="subtitle">Made for medium scale business.</p>
+                <p class="price">&#8377;25,000 or &#36;327</p>
+                <ul>
+                    <li class="check"><i class="ri-check-line"></i> A custom web app.</li>
+                    <li class="check"><i class="ri-check-line"></i> Implements upto 25 Features.</li>
+                    <li class="check"><i class="ri-check-line"></i> Live and synced database.</li>
+                    <li class="check"><i class="ri-check-line"></i> Comes with google authentication. </li>
+                    <li class="check"><i class="ri-check-line"></i> Encrypted data with AES hash.</li>
+                    <li class="check"><i class="ri-check-line"></i> Connects to google analytics.</li>
+                    <li class="wrong"><i class="ri-close-fill"></i> Future feature updates.</li>
+                    <li class="wrong"><i class="ri-close-fill"></i> Weekly maintenance checks.</li>
+                </ul>
+                <button class="selectButton">Select</button>
+            </div>
+            <div class="priceCard tilt-container">
+                <p class="title">Iconic Plan</p>
+                <p class="subtitle">Made for large scale business.</p>
+                <p class="price">&#8377;25,000 or &#36;327</p>
+                <ul>
+                    <li class="check"><i class="ri-check-line"></i> A custom web app.</li>
+                    <li class="check"><i class="ri-check-line"></i> Implements upto 50 Features.</li>
+                    <li class="check"><i class="ri-check-line"></i> Live and synced database.</li>
+                    <li class="check"><i class="ri-check-line"></i> Comes with google authentication. </li>
+                    <li class="check"><i class="ri-check-line"></i> Encrypted data with AES hash.</li>
+                    <li class="check"><i class="ri-check-line"></i> Connects to google analytics.</li>
+                    <li class="check"><i class="ri-check-line"></i> Future feature updates.</li>
+                    <li class="check"><i class="ri-check-line"></i> Weekly maintenance checks.</li>
+                </ul>
+                <button class="selectButton">Select</button>
+            </div>
+        </div>
+        <div class="prices" *ngIf="pricingSelected==='mobile'"
+            uk-scrollspy="target: > div; cls: uk-animation-slide-right; delay: 100">
+            <div class="priceCard tilt-container">
+                <p class="title">Economy Plan</p>
+                <p class="subtitle">Made for small scale business with low users.</p>
+                <p class="price">&#8377;12,000 or &#36;157</p>
+                <ul>
+                    <li class="check"><i class="ri-check-line"></i> A beautiful themed app.</li>
+                    <li class="check"><i class="ri-check-line"></i> Contact Forms</li>
+                    <li class="check"><i class="ri-check-line"></i> Action Buttons</li>
+                    <li class="check"><i class="ri-check-line"></i> Comes with google authentication.</li>
+                    <li class="check"><i class="ri-check-line"></i> User data is fully encrypted</li>
+                    <li class="wrong"><i class="ri-close-fill"></i> Encrypted data with AES hash.</li>
+                    <li class="wrong"><i class="ri-close-fill"></i> Feature updates</li>
+                </ul>
+                <button class="selectButton">Select</button>
+            </div>
+            <div class="priceCard tilt-container">
+                <p class="title">Premium Plan</p>
+                <p class="subtitle">Made for medium scale business.</p>
+                <p class="price">&#8377;25,000 or &#36;327</p>
+                <ul>
+                    <li class="check"><i class="ri-check-line"></i> A beautiful themed app. </li>
+                    <li class="check"><i class="ri-check-line"></i> Implements upto 25 Features.</li>
+                    <li class="check"><i class="ri-check-line"></i> Live and synced database.</li>
+                    <li class="check"><i class="ri-check-line"></i> Comes with google authentication. </li>
+                    <li class="check"><i class="ri-check-line"></i> Encrypted data with AES hash.</li>
+                    <li class="check"><i class="ri-check-line"></i> Connects to google analytics.</li>
+                    <li class="wrong"><i class="ri-close-fill"></i> Future feature updates.</li>
+                    <li class="wrong"><i class="ri-close-fill"></i> Weekly maintenance checks.</li>
+                </ul>
+                <button class="selectButton">Select</button>
+            </div>
+            <div class="priceCard tilt-container">
+                <p class="title">Iconic Plan</p>
+                <p class="subtitle">Made for large scale business.</p>
+                <p class="price">&#8377;25,000 or &#36;327</p>
+                <ul>
+                    <li class="check"><i class="ri-check-line"></i> A beautiful themed app. </li>
+                    <li class="check"><i class="ri-check-line"></i> Implements upto 50 Features.</li>
+                    <li class="check"><i class="ri-check-line"></i> Live and synced database.</li>
+                    <li class="check"><i class="ri-check-line"></i> Comes with google authentication. </li>
+                    <li class="check"><i class="ri-check-line"></i> Encrypted data with AES hash.</li>
+                    <li class="check"><i class="ri-check-line"></i> Connects to google analytics.</li>
+                    <li class="check"><i class="ri-check-line"></i> Future feature updates.</li>
+                    <li class="check"><i class="ri-check-line"></i> Weekly maintenance checks.</li>
+                </ul>
+                <button class="selectButton">Select</button>
+            </div>
+        </div>
+    </section>
+    <section class="testimonials">
+        <div class="heading" uk-scrollspy="cls: uk-animation-slide-left-medium;delay:500;">
+            <p>
+                <strong>The</strong><br>
+                Testimonials
+            </p>
+        </div>
+        <div class="testimonials" uk-scrollspy="target: > div; cls: uk-animation-slide-right; delay: 100">
+            <div class="testimonial">
+                <div class="user">
+                    <app-avatar-img alt="" root="testimonials" src="person1" class="avatar"></app-avatar-img>
+                    <div class="userInfo">
+                        <p class="name">Person 1</p>
+                        <p class="designation">Random Position</p>
+                    </div>
+                </div>
+                <p class="comment">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Earum voluptatibus, porro
+                    aliquam nostrum dolor quasi!</p>
+            </div>
+            <div class="testimonial">
+                <div class="user">
+                    <app-avatar-img alt="" root="testimonials" src="person2" class="avatar"></app-avatar-img>
+                    <div class="userInfo">
+                        <p class="name">Person 1</p>
+                        <p class="designation">Random Position</p>
+                    </div>
+                </div>
+                <p class="comment">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Earum voluptatibus, porro
+                    aliquam nostrum dolor quasi!</p>
+            </div>
+            <div class="testimonial">
+                <div class="user">
+                    <app-avatar-img alt="" root="testimonials" src="person3" class="avatar"></app-avatar-img>
+                    <div class="userInfo">
+                        <p class="name">Person 1</p>
+                        <p class="designation">Random Position</p>
+                    </div>
+                </div>
+                <p class="comment">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Earum voluptatibus, porro
+                    aliquam nostrum dolor quasi!</p>
+            </div>
+            <div class="testimonial">
+                <div class="user">
+                    <app-avatar-img alt="" root="testimonials" src="person4" class="avatar"></app-avatar-img>
+                    <div class="userInfo">
+                        <p class="name">Person 1</p>
+                        <p class="designation">Random Position</p>
+                    </div>
+                </div>
+                <p class="comment">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Earum voluptatibus, porro
+                    aliquam nostrum dolor quasi!</p>
+            </div>
+        </div>
+    </section>
+    <section class="divider"></section>
+    <section class="blogPosts">
+        <h2 uk-scrollspy="cls: uk-animation-slide-left-medium;delay:500;">
+            <strong>My</strong>
+            <br>
+            Blog Posts
+        </h2>
+        <div class="posts uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slider="autoplay: true">
+            <a class="uk-position-center-left-out uk-position-small" href="#" uk-slidenav-previous
+                uk-slider-item="previous"></a>
+            <div class="uk-slider-container">
+                <ul class="uk-slider-items uk-grid" uk-scrollspy="cls: uk-animation-fade; target: li; delay: 200; repeat: false">
+                    <li *ngFor="let post of posts">
+                        <app-post-card [date]="post.date" [authorImage]="post.authorImage"
+                            [authorName]="post.authorName" [excerpt]="post.description" [title]="post.title || ''"
+                            [featuredImage]="post.featuredImage" [imageAlt]="post.title || ''" [url]="post.route">
+                        </app-post-card>
+                    </li>
+                </ul>
+            </div>
+            <a class="uk-position-center-right-out uk-position-small" href="#" uk-slidenav-next
+                uk-slider-item="next"></a>
+        </div>
+    </section>
 </main>
+<app-footer></app-footer>

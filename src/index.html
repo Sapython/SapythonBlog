@@ -24,24 +24,25 @@
   <meta property="twitter:description" content="Portfolio and blog website of Kumar Saptam. ">
   <meta property="twitter:image" content="./assets/images/branding/CARD FRONT SIDE.png">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" defer async rel="stylesheet">
-  <!-- UIkit CSS -->
-  <link rel="stylesheet" defer href="./assets/css/uikit.min.css" async />
-  <script src="https://cdn.jsdelivr.net/npm/uikit@3.11.1/dist/js/uikit.min.js" defer async></script>
-  <script src="https://cdn.jsdelivr.net/npm/uikit@3.11.1/dist/js/uikit-icons.min.js" defer async></script>
+  <link rel="icon" type="image/x-icon" media="print" loading="lazy" href="favicon.ico">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">  <!-- UIkit CSS -->
+  <link rel="preload" onload="this.onload=null;this.rel='stylesheet'" as="style" href="./assets/css/uikit.min.css" />
+  <!-- <link rel="stylesheet" defer href="./assets/css/locomotive-scroll.css" async /> -->
+  <script src="./assets/javascripts/uikit.min.js" media="print" defer async></script>
+  <script src="./assets/javascripts/uikit-icons.min.js" media="print" defer async></script>
   <!-- UIkit JS -->
   <link rel="apple-touch-icon" href="./assets/icons/icon-152x152.png">
   <link rel="manifest" href="manifest.webmanifest">
   <meta name="theme-color" content="#1976d2">
   <!-- <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript> -->
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+  <link rel="preconnect" href="https://sapython-f016a.web.app/">
+  <!-- <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet"> -->
+  <!-- <script src="./assets/javascripts/TweenMax.min.js" async defer></script> -->
+  <script src="./assets/javascripts/tilt.min.js" defer></script>
 </head>
 
-<body>
-  <app-root></app-root>
+<body id="my-scrollbar">
+  <app-root ></app-root>
 </body>
 
 </html>

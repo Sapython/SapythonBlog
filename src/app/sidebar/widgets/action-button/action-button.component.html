@@ -1,1 +1,17 @@
-<p>action-button works!</p>
+<div>
+    <picture>
+        <!-- avif -->
+        <source srcset="./assets/images/widgets/ActionButton/compressed/{{data?.image}}-300.avif"/>
+        <!-- webp -->
+        <source srcset="./assets/images/widgets/ActionButton/compressed/{{data?.image}}-300.webp"/>
+        <!-- jpeg -->
+        <source srcset="./assets/images/widgets/ActionButton/compressed/{{data?.image}}-300.jpg"/>
+        <!-- original -->
+        <img loading="lazy"src="./assets/images/widgets/ActionButton/compressed/{{ data?.image }}-300.jpg"/>
+    </picture>
+    <!-- <img src="assets/widgets/ActionButton/compressed/{{data?.image}}"> -->
+    <p class="heading">{{data?.title}}</p>
+    <!-- <p class="content">{{data?.message}}</p> -->
+    <a [href]="data?.buttonLink" [target]="data?.buttonLinkTarget" *ngIf="data?.buttonLink !== undefined"><button >{{data?.buttonText}}</button></a>
+    <button (click)="data?.function()" *ngIf="data?.buttonLink === undefined">{{data?.buttonText}}</button>
+</div>

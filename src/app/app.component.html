@@ -1,12 +1,21 @@
 <button (click)="scroll(mainContent)" class="skip-to-main" tabindex="1">Skip To Main</button>
-<app-header *ngIf="enableHeader"></app-header>
-<div [@slide]="prepareRoute(outlet)" class="router-wrapper">
-    <router-outlet #outlet="outlet" #mainContent></router-outlet>
+<app-header ></app-header>
+<div class="router-wrapper" [@routeAnimations]="getRouteAnimationData()">
+    <router-outlet #outlet="outlet" (activate)="routeAnimation()" #mainContent></router-outlet>
 </div>
-<div id="chatPopup" *ngIf="!dataProvider.gettingUserData" (mouseleave)="chatPopupVisible=true" (mouseenter)="chatPopupVisible=false" [style]="chatOpen ? 'width:auto;height:auto;' : 'width:50px;height:50px;'">
+<div id="chatPopup" *ngIf="!dataProvider.gettingUserData" (mouseleave)="chatPopupVisible=true"
+    (mouseenter)="chatPopupVisible=false" [style]="chatOpen ? 'width:auto;height:auto;' : 'width:50px;height:50px;'">
     <i *ngIf="chatPopupVisible && !chatOpen" class="ri-chat-3-fill"></i>
     <i *ngIf="!chatPopupVisible && !chatOpen" class="ri-arrow-up-s-line" (click)="chatOpen=!chatOpen"></i>
     <div *ngIf="chatOpen">
         <app-chat (visible)="chatOpen = $event"></app-chat>
     </div>
+</div>
+<div class="fixedDebugBar" *ngIf="!environment.production">
+    <!-- <p>Debug bar (Not for production): </p> -->
+    <i class="ri-bug-fill"></i>
+    {{getWindow.innerWidth}} {{getWindow.scrollY}}
+</div>
+<div id="changer">
+    <div id="routeName">{{routePath}}</div>
 </div>

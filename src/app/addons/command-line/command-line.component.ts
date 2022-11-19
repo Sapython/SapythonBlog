@@ -1,5 +1,6 @@
 import { Component, ElementRef, HostListener, OnDestroy, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -18,97 +19,97 @@ export class CommandLineComponent implements OnInit,OnDestroy {
   resultsVisible: boolean = false;
   currentSelection:number = -1;
   resultElements:any[]=[]
-  constructor() { }
+  constructor(private router:Router) { }
   commands: any[] = [
     {
       'title':'Refresh page',
       'description':'Refresh the page',
       'function':function () {
-        alert('refresh page');
+        window.location.reload();
       },
     },
     {
       'title':'Portfolio',
       'description':'Go to a Portfolio',
       'function':function () {
-        console.log('going to page');
+        this.router.navigate(['/portfolio']);
       },
     },
     {
       'title':'Home',
       'description':'Go to a Home',
       'function':function () {
-        console.log('going to page');
+        this.router.navigate(['/']);
       },
     },
     {
       'title':'Blog',
       'description':'Go to a Blog',
       'function':function () {
-        console.log('going to page');
+        this.router.navigate(['/blog']);
       },
     },
     {
       'title':'Products',
       'description':'Go to a Products',
       'function':function () {
-        console.log('going to page');
+        this.router.navigate(['/products']);
       },
     },
     {
       'title':'Contact',
       'description':'Go to a Contact',
       'function':function () {
-        console.log('going to page');
+        this.router.navigate(['/contact']);
       },
     },
     {
       'title':'Privacy Policy',
       'description':'Go to a Privacy Policy',
       'function':function () {
-        console.log('going to page');
+        this.router.navigate(['/privacy-policy']);
       },
     },
     {
       'title':'Disclaimer',
       'description':'Go to a Disclaimer',
       'function':function () {
-        console.log('going to page');
+        this.router.navigate(['/disclaimer']);
       },
     },
     {
       'title':'Returns And Refunds',
       'description':'Go to a Returns And Refunds',
       'function':function () {
-        console.log('going to page');
+        this.router.navigate(['/returns-and-refunds']);
       },
     },
     {
       'title':'About',
       'description':'Go to a About',
       'function':function () {
-        console.log('going to page');
+        this.router.navigate(['/about']);
       },
     },
     {
       'title':'FAQs',
       'description':'Go to a FAQs',
       'function':function () {
-        console.log('going to page');
+        this.router.navigate(['/faqs']);
       },
     },
     {
       'title':'Reviews',
       'description':'Go to a Reviews',
       'function':function () {
-        console.log('going to page');
+        this.router.navigate(['/reviews']);
       },
     },
     {
       'title':'Logout',
       'description':'Logout',
       'function':function () {
-        console.log('going to page');
+        alert('This feature not implemented yet.');
       },
     },
   ]

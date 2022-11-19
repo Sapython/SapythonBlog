@@ -5,8 +5,9 @@ import { BtnComponent } from './btn/btn.component';
 import { RouterModule } from '@angular/router';
 import { SpinnerComponent } from './spinner/spinner.component';
 import { ImgheaderComponent } from './imgheader/imgheader.component';
+import { AvatarImgComponent } from './avatar-img/avatar-img.component';
 
-const components = [ImgComponent,BtnComponent,SpinnerComponent,ImgheaderComponent]
+const components = [ImgComponent,BtnComponent,SpinnerComponent,ImgheaderComponent, AvatarImgComponent]
 
 @NgModule({
   declarations: [components],
